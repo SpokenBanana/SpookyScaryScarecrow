@@ -1,0 +1,23 @@
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Windows thumbnail db
+Thumbs.db
+
+.gradle
+build/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+bin/
+gen/
+
+.idea
