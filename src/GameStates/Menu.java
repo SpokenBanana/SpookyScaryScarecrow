@@ -7,6 +7,9 @@ import Handlers.MouseInput;
 
 import java.awt.*;
 
+/**
+ * The menu of the game. It just makes the game look a little more fancier.
+ */
 public class Menu extends GameState {
 
     Handlers.Button start;

@@ -68,6 +68,10 @@ public class Slider extends Enemy{
     @Override
     protected void attack(Player player) {
     }
+
+    /**
+     * This places the enemy in a new position to surprise the player
+     */
     protected void reSpawn() {
         // 19 is the amount of tiles in the word, MOVE_DISTANCE is multiplied to make sure it is moving tile-to-tile
         startingLocation = new Point(random.nextInt(19) * MOVE_DISTANCE, random.nextInt(19) * MOVE_DISTANCE);

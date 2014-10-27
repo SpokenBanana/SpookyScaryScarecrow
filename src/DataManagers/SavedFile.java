@@ -4,7 +4,7 @@ import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
 
-/*
+/**
     Takes care of saved files, retrieving them and saving them.
 */
 public class SavedFile {

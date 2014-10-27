@@ -10,7 +10,7 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-/*
+/**
     This state will be used whenever we want someone to talk to the player
  */
 public class Talking extends GameState{

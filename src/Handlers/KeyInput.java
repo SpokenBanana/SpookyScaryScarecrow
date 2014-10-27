@@ -28,7 +28,7 @@ public class KeyInput implements KeyListener {
     {
         return keys[key];
     }
-    /*
+    /**
         This will tell use if a button was just pressed. Since oldKeys represents the old state of the keys,
         we know that in order for a key to have been just pressed, it's previous state had to be unpressed and
         the current has to be pressed. In the next iteration, both of the keys will be pressed and this method will
@@ -43,16 +43,16 @@ public class KeyInput implements KeyListener {
         // this copies the data from keys to oldKeys, saving the previous key state.
         System.arraycopy(keys, 0, oldKeys, 0, keys.length);
     }
-    /*
-    A key is pressed when its corresponding index is false
+    /**
+    *   A key is pressed when its corresponding index is false
     */
     @Override
     public void keyPressed(KeyEvent e) {
         keys[e.getKeyCode()] = true;
     }
 
-    /*
-        A key is not pressed when its corresponding index is false
+    /**
+     *  A key is not pressed when its corresponding index is false
      */
     @Override
     public void keyReleased(KeyEvent e) {

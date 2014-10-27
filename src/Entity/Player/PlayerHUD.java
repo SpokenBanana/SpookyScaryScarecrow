@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-/*
+/**
     This will display the player's information on the side of the screen. It will show things like his status,
     items in current hand, etc.
  */

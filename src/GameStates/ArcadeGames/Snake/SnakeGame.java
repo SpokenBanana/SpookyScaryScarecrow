@@ -65,7 +65,6 @@ public class SnakeGame extends ArcadeGame {
         snake = new Node(new Point(60, 60), Color.white);
         snake.next = new Node(new Point(snake.data.x - CELL_SIZE, snake.data.y), Color.green);
         snakeDirection = Entity.Direction.Right;
-        int x = snake.data.x, y = snake.data.y;
         for (int i = 0; i < 3; i++) {
             addNodeToSnake(colors[random.nextInt(colors.length)]);
         }

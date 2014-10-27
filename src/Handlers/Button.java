@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-/*
+/**
     This class is used to represent a button in the game. Yeah, I could have just used Java's JButton
     but that would require each game state class to be a JPanel and I don't think that would be ideal since we are
     probably going to switch from state to state a lot, constructing a new JPanel each time would really be hard

@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-/*
+/**
     This class make it easier to implement animations. When given an image file with frames,
     the amount of frame, and the desired speed of the animation, it will display the animation for you.
  */
@@ -25,7 +25,7 @@ public class Animation {
         // our game runs in 60 frames per second, so this converts the speedInMilliseconds into a time the game can read
         speed = speedInMilliseconds / (1000/60);
     }
-    /*
+    /**
         moves the rectangle to the next frame we want to draw
      */
     private void moveFrame() {

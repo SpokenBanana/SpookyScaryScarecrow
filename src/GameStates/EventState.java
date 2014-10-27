@@ -4,7 +4,7 @@ import Entity.Player.Player;
 
 import java.awt.*;
 
-/*
+/**
     An event State is used to sort be a trigger to an event. Once triggered, they may do many things such as
     switch to another screen or change something about the player. An event is triggered once the activate()
     method is called, which the user can call at any time he feels the event should be triggered.

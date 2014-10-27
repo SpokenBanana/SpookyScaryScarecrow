@@ -8,6 +8,9 @@ import GameStates.MapLevel;
 
 import java.awt.*;
 
+/**
+ * Warp is king of like a portal that transitions the player to another screen or map.
+ */
 public class Warp extends EventState{
 
     protected String levelToGo;
@@ -36,6 +39,11 @@ public class Warp extends EventState{
         }
     }
 
+    /**
+     * This moves the player to the position that makes sense when transitioning to a new screen
+     * @param playerObject
+     * @param gameState
+     */
     public void movePlayer(Player playerObject, GameState gameState) {
         Rectangle player = playerObject.getPosition();
         if (player.x < 0)

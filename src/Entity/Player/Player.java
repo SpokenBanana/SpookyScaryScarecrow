@@ -9,6 +9,9 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.Random;
 
+/**
+ * The player is the main character the player will play as. He is the spooky scarecrow!
+ */
 public class Player extends Entity {
     protected KeyInput keyInput;
     protected SoundManager soundManager;
@@ -80,6 +83,11 @@ public class Player extends Entity {
         }
         super.update();
     }
+
+    /**
+     * This plays the sound as the player moves, it makes the sound we play random to create more of a
+     * realistic movement sound
+     */
     protected void playFootStepSound(){
         // sound delay is necessary because otherwise the sounds will just over lap
         if (soundDelay <= 0){

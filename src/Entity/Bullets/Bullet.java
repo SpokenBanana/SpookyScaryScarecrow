@@ -2,7 +2,10 @@ package Entity.Bullets;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-
+/**
+ * Bullets usually act the same way, so all those things that all bullets do are already written
+ * here, so we can focus on what makes other bullets that inherits from this class special.
+ */
 public abstract class Bullet {
     protected double angle;
     protected Rectangle position;

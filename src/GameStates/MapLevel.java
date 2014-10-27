@@ -18,6 +18,9 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
+/**
+ * MapLevel is the level that uses a map. The main core of this game really.
+ */
 public class MapLevel extends GameState {
 
     protected Map map;

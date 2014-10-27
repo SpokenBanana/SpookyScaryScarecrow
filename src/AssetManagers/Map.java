@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 
-/*
+/**
     This will take the data from the various JSON files that represent a tiled map and be able
     to turn into a map object. This will allows us to get the objects specified in the JSON files as well
     as be able to render the map it describes.
@@ -43,7 +43,7 @@ public class Map {
         }
         extractLayers();
     }
-    /*
+    /**
         This will draw a layer of the map which the user will specify. The layers start at 0
      */
     public void draw(Graphics2D g, int layer) {
@@ -74,7 +74,7 @@ public class Map {
             }
         }
     }
-    /*
+    /**
         retrieves an object from the JSON file. Objects in the JSON are meant to represent many things and
         helps make levels easier to lay out.
      */
@@ -87,7 +87,7 @@ public class Map {
         }
         return null;
     }
-    /*
+    /**
         This will read the Map object and take all the data from each tile layer and
         parse it so that we get the information we need (the tile id's) in the format we want (ArrayList<int[][]>).
      */

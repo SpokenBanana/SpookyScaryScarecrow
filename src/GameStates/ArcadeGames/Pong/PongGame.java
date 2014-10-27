@@ -9,6 +9,9 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.Random;
 
+/**
+ * This is a clone of the classic Pong game that the player can play in the arcade
+ */
 public class PongGame extends ArcadeGame {
     private Rectangle playerPaddle, computerPaddle, ball;
     private int playerScore, computerScore, ballxVel, ballyVel, computerAIDelay;
@@ -110,7 +113,7 @@ public class PongGame extends ArcadeGame {
     }
 
 
-    /*
+    /**
         pretty much just moves the ball
      */
     protected void updateBall() {
@@ -118,7 +121,7 @@ public class PongGame extends ArcadeGame {
         ball.y += ballyVel;
     }
 
-    /*
+    /**
         Checks if the ball has collided with anything in the game
      */
     protected void checkBallCollision() {
@@ -129,7 +132,7 @@ public class PongGame extends ArcadeGame {
         checkIfBallHit(playerPaddle);
         checkIfBallHit(computerPaddle);
     }
-    /*
+    /**
         Check if the ball collided with the rectangle area provided. If it has, it moves the ball in
          the other direction, and the AI will have to react to that, giving a delay in it's AI.
      */
@@ -155,7 +158,7 @@ public class PongGame extends ArcadeGame {
             updateBall();
         }
     }
-   /*
+   /**
         checks if the ball reached outside the screen in the x-position. If so that means someone scored and we
         have to move the ball to the center
     */
@@ -169,7 +172,7 @@ public class PongGame extends ArcadeGame {
             resetGame();
         }
     }
-    /*
+    /**
         The computer's logic will handled her. Basically, if the ball is higher than the middle of the paddle,
         it moves up, if it is lower, then it moves down.
      */
@@ -186,7 +189,7 @@ public class PongGame extends ArcadeGame {
         else
             computerAIDelay--;
     }
-    /*
+    /**
         We don't want the player to be able to predict which way the ball will move at the beginning of the
         round, so we use this to sort of randomize where it will go
      */
@@ -196,7 +199,7 @@ public class PongGame extends ArcadeGame {
         if (random.nextInt(100) % 2 == 0)
             ballyVel *= -1;
     }
-    /*
+    /**
         sets up the game for a fair start. Paddles are centered vertically and the ball is completely
         centered.
      */

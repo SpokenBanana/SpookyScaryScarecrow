@@ -6,6 +6,9 @@ import Handlers.MouseInput;
 
 import java.awt.*;
 
+/**
+ * You can think of GameStates as the "screens" of the game such as menu, pause screens, or actual game play.
+ */
 public abstract class GameState {
     // we hold a reference to the game state manager so we can switch states inside the game
     public GameState(GameStateManager manager, KeyInput keys, MouseInput mouse) {

@@ -5,7 +5,7 @@ import Entity.Player.Player;
 import java.awt.*;
 import java.util.Random;
 
-/*
+/**
     The is an enemy in the game. He only attacks when the player reaches a certain distance to him.
  */
 public class Skeleton extends Enemy {

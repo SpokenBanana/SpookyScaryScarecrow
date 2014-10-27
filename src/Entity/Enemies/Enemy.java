@@ -7,7 +7,7 @@ import Entity.Player.Player;
 import java.awt.*;
 import java.util.ArrayList;
 
-/*
+/**
     This class will be the base class for all enemies. They all share characteristics that is defined here.
  */
 public abstract class Enemy extends Entity {
@@ -22,11 +22,11 @@ public abstract class Enemy extends Entity {
     }
     public abstract void update(Player player);
 
-    /*
+    /**
         Every enemy will also have some way of attacking the player so we want to enforce that.
      */
     protected abstract void attack(Player player);
-    /*
+    /**
         Most of the enemies will need an AI that require the next step that will lead
         them to their target (most cases will be towards the player). This will help decide where the enemy
         should move if he wants to get closer to the target. This is a very simple algorithm and there are much
@@ -74,7 +74,7 @@ public abstract class Enemy extends Entity {
                 currentDirection = Direction.Standing;
         }
     }
-    /*
+    /**
         Sometimes we want the AI to move away from something, this does exactly that. It finds the next step that
         will bring it furthest way from player.
      */

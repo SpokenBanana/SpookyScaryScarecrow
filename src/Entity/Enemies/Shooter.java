@@ -8,7 +8,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
-/*
+/**
     This guy sits in one area and shoots if the player is a certain distance away. If the player gets a certain
     distance close to the enemy, he hides and the player is unable to do any harm.
  */
@@ -62,6 +62,12 @@ public class Shooter extends Enemy {
     protected void attack(Player player) {
         bullets.add(new Pellet(new Rectangle(position.x, position.y, 16,16), player.getPosition().getLocation()));
     }
+
+    /**
+     * Goes and deletes all bullets that we longer need to keep track of such as ones that went off the screen
+     * and ones that hit the player
+     * @param player
+     */
     protected void filterFinishedBullets(Player player) {
         Rectangle playerPosition = player.getPosition();
         // stores bullets we want to get rid of

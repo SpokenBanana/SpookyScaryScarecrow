@@ -5,7 +5,7 @@ import Handlers.KeyInput;
 
 import java.awt.*;
 
-/*
+/**
     Once this event is triggered, it will change the screen to the "Talking" game state.
  */
 public class ConversationEvent extends EventState{

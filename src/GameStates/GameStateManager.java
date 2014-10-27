@@ -20,14 +20,14 @@ public class GameStateManager {
     public void draw(Graphics2D g) {
         gameStates.peek().draw(g);
     }
-    /*
+    /**
         This will push the game to the stack, making it the current screen. The previous screen will be
         in sort of a "pause" while this screen will be displayed. This will be useful for "pause" screens.
      */
     public void addGame(GameState game) {
         gameStates.push(game);
     }
-    /*
+    /**
         In contrast to the addGame(), this will completely throw away the previous screen and set the
         passed in game as the current screen.
      */
@@ -35,7 +35,7 @@ public class GameStateManager {
         if (!gameStates.empty()) gameStates.pop();
         gameStates.push(game);
     }
-    /*
+    /**
         This will remove the current game from the stack, meaning that the screen will no longer
         be displayed and will fall back to the next game in the stack. This would be useful for when
         the player resumes the game from the pause menu.

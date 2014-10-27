@@ -7,7 +7,7 @@ import Entity.Player.Player;
 import java.awt.*;
 import java.util.ArrayList;
 
-/*
+/**
     This enemy is a ghost, he will try to keep a certain distance away from the enemy and will
     sometimes fade away, leaving the player confused on where he is.
  */
@@ -27,7 +27,7 @@ public class Ghost extends Enemy {
         bullets.add(new FireBall(new Rectangle(position.x, position.y, 16,16), player));
     }
 
-    /*
+    /**
         We'll go through the list finding bullets that have been maybe out of bounds of hit the target and remove
         them.
      */

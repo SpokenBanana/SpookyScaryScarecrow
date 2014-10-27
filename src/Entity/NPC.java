@@ -12,7 +12,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-/*
+/**
     NPC (Non-Playable Character) is a class that will represent people the player can talk to and interact with.
     Since this is a small game, interactions will probably be limited to talking. Because of this, it makes sense
     to be a subclass of EventState, since once the player approaches the NPC, they will talk, much like a

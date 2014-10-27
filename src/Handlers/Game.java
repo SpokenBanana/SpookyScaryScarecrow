@@ -6,6 +6,10 @@ import GameStates.Menu;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * The main handler of the game, it controls all the game states and make sure everything gets drawn
+ * and updated.
+ */
 public class Game extends JPanel{
 
     GameStateManager gameStateManager;

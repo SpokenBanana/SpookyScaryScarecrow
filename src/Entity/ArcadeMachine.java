@@ -13,7 +13,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-/*
+/**
     This class is used to make that transition to the game the arcade game. Id represents the ID of the game
     the arcade machine will play.
  */

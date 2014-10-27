@@ -5,6 +5,9 @@ import AssetManagers.SpriteManager;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * Entity represents any sort of component in the game that you would think would "live" and move in the world
+ */
 public abstract class Entity {
     public enum Direction {
         Left, Right, Down, Up, Standing
@@ -100,7 +103,7 @@ public abstract class Entity {
     public Rectangle getPosition() {
         return position;
     }
-    /*
+    /**
         Returns the opposite direction of a given direction. Can be useful for when we want something facing someone
      */
     public Direction getOppositeDirectionOf(Direction direction) {
@@ -116,7 +119,7 @@ public abstract class Entity {
         }
         return null;
     }
-    /*
+    /**
         gets the area in front of the player. This can be useful to know if the player is in front of door. You would
         take the Rectangle given from this method and check if it intersects with the bounds of the door, if so,
         you know he is facing a door.
@@ -134,7 +137,7 @@ public abstract class Entity {
         }
         return null;
     }
-    /*
+    /**
         This will set the next target position depending on what currentDirection the entity is facing.
      */
     protected void getNextPosition() {
@@ -161,7 +164,7 @@ public abstract class Entity {
             targetPosition = new Point(newPosition.x, newPosition.y);
         }
     }
-    /*
+    /**
         Sometimes a bug comes a long where the player isn't in a coordinate where x and y is
         a multiple of 32, which can be trouble some in the movement and collision detection. This
         method is called to make sure that there is no doubt the player fully made it to the target
@@ -172,7 +175,7 @@ public abstract class Entity {
         oldPosition.x = position.x = targetPosition.x;
         oldPosition.y = position.y = targetPosition.y;
     }
-    /*
+    /**
          Sometimes it makes more sense to go back than go forwards, for example, if the player presses the forward
          button but then decides not to (in case of a cliff or something) we want him to be able to pull away from the
          button fast enough so he basically "undo" the walk. I also found a bug where the skeleton will jump forward to
@@ -184,7 +187,7 @@ public abstract class Entity {
         targetPosition.x = position.x = oldPosition.x;
         targetPosition.y = position.y = oldPosition.y;
     }
-    /*
+    /**
         This is a formula to smoothly move from one coordinate to the other. It works by
         taking the difference between the two position (b - a) and then given how far they are in the
         movement, we add that to the old position.
@@ -194,7 +197,7 @@ public abstract class Entity {
             return old;
         return old + soFarCompleted * (target - old);
     }
-    /*
+    /**
         This uses lerp() to smoothly move the player. The velocity gives us the amount of time it will
          take to move fully, to the next coordinate. Lerp takes how far we are in the movement (completed) and
          gives us back to coordinates to smoothly move the player.

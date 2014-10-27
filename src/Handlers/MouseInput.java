@@ -5,7 +5,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-/*
+/**
     This class will help out any game state that needs to use the mouse, this may not be the most
     efficient way of doing this, but I think this works for this purpose.
  */

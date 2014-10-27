@@ -2,153 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="faf5a917-223b-46fa-9655-af7a7f59fab0" name="Default" comment="adding in game created so far!">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/.netbeans_automatic_build" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/.netbeans_update_resources" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/AssetManagers/Animation.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/Entity/Block.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/Entity/Bullets/Bullet.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/Handlers/Button.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/GameStates/ConversationEvent.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/Entity/Enemies/Enemy.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/Entity/Entity$1.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/Entity/Entity$Direction.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/Entity/Entity.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/GameStates/EventState.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/GameStates/Example.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/Entity/Bullets/FireBall.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/Handlers/Game.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/GameStates/GameState.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/GameStates/GameStateManager.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/Entity/Enemies/Ghost.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/Entity/Items/Item.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/Handlers/KeyInput.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/Launcher.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/AssetManagers/Map.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/GameStates/MapLevel.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/GameStates/Menu.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/Handlers/MouseInput.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/Entity/NPC.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/Entity/Bullets/Pellet.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/Entity/Player/Player.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/Entity/Player/PlayerHUD.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/DataManagers/SavedFile.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/Entity/Enemies/Shooter.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/Entity/Enemies/Skeleton.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/AssetManagers/SpriteManager.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/GameStates/Talking.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/David.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/json_simple_1_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AssetManagers/Animation.java" afterPath="$PROJECT_DIR$/src/AssetManagers/Animation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/ArcadeMachine.java" afterPath="$PROJECT_DIR$/src/Entity/ArcadeMachine.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Block.java" afterPath="$PROJECT_DIR$/src/Entity/Block.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Bullets/Bullet.java" afterPath="$PROJECT_DIR$/src/Entity/Bullets/Bullet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Handlers/Button.java" afterPath="$PROJECT_DIR$/src/Handlers/Button.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameStates/ConversationEvent.java" afterPath="$PROJECT_DIR$/src/GameStates/ConversationEvent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Enemies/Enemy.java" afterPath="$PROJECT_DIR$/src/Entity/Enemies/Enemy.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Entity.java" afterPath="$PROJECT_DIR$/src/Entity/Entity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameStates/EventState.java" afterPath="$PROJECT_DIR$/src/GameStates/EventState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Bullets/FireBall.java" afterPath="$PROJECT_DIR$/src/Entity/Bullets/FireBall.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Handlers/Game.java" afterPath="$PROJECT_DIR$/src/Handlers/Game.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameStates/GameState.java" afterPath="$PROJECT_DIR$/src/GameStates/GameState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameStates/GameStateManager.java" afterPath="$PROJECT_DIR$/src/GameStates/GameStateManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Enemies/Ghost.java" afterPath="$PROJECT_DIR$/src/Entity/Enemies/Ghost.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Handlers/KeyInput.java" afterPath="$PROJECT_DIR$/src/Handlers/KeyInput.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Launcher.java" afterPath="$PROJECT_DIR$/src/Launcher.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AssetManagers/Map.java" afterPath="$PROJECT_DIR$/src/AssetManagers/Map.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameStates/MapLevel.java" afterPath="$PROJECT_DIR$/src/GameStates/MapLevel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameStates/Menu.java" afterPath="$PROJECT_DIR$/src/GameStates/Menu.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Handlers/MouseInput.java" afterPath="$PROJECT_DIR$/src/Handlers/MouseInput.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/NPC.java" afterPath="$PROJECT_DIR$/src/Entity/NPC.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Player/Player.java" afterPath="$PROJECT_DIR$/src/Entity/Player/Player.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Player/PlayerHUD.java" afterPath="$PROJECT_DIR$/src/Entity/Player/PlayerHUD.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameStates/ArcadeGames/Pong/PongGame.java" afterPath="$PROJECT_DIR$/src/GameStates/ArcadeGames/Pong/PongGame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DataManagers/SavedFile.java" afterPath="$PROJECT_DIR$/src/DataManagers/SavedFile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Enemies/Shooter.java" afterPath="$PROJECT_DIR$/src/Entity/Enemies/Shooter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Enemies/Skeleton.java" afterPath="$PROJECT_DIR$/src/Entity/Enemies/Skeleton.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Enemies/Slider.java" afterPath="$PROJECT_DIR$/src/Entity/Enemies/Slider.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameStates/ArcadeGames/Snake/SnakeGame.java" afterPath="$PROJECT_DIR$/src/GameStates/ArcadeGames/Snake/SnakeGame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AssetManagers/SoundManager.java" afterPath="$PROJECT_DIR$/src/AssetManagers/SoundManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AssetManagers/SpriteManager.java" afterPath="$PROJECT_DIR$/src/AssetManagers/SpriteManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameStates/Talking.java" afterPath="$PROJECT_DIR$/src/GameStates/Talking.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Warp.java" afterPath="$PROJECT_DIR$/src/Entity/Warp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
-    <list id="9dfa36a2-f707-4266-aa47-91a220be5e9d" name="Rejected commit: Default" comment="adding in game created so far!">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Thumbs.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/Enemies/Ghost/Thumbs.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/Enemies/Shooter/Thumbs.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/Enemies/Slider/Thumbs.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/Player/Thumbs.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/misc/Thumbs.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/npcs/Thumbs.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/UI/Thumbs.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/Player/Untitled.pdn" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/Player/Untitled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/misc/arcadeDown.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/misc/arcadeRight.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/misc/arcadeUp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/UI/button.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/npcs/citizen.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/npcs/citizenUp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sounds/confirm.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/Player/downstanding.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/Player/downwalking.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/Enemies/Ghost/fireball.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sounds/footStep1.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sounds/footStep2.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sounds/footStep3.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/Enemies/Ghost/ghost.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/Player/healthbar.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/Enemies/Shooter/hidingShooter.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sounds/hover.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/Player/leftWalking.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/Player/leftstanding.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/Enemies/Shooter/pellet.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/Player/rightWalking.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/Player/rightstanding.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/Enemies/Shooter/shooter.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/Enemies/Skeleton/skeleton.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/Enemies/Slider/sliderCharge.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/Enemies/Slider/sliderWait.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/terrain.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/UI/textbox.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/universal.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/Player/upstanding.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/Player/upwalking.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AdventureMan.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AssetManagers/Animation.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GameStates/ArcadeGames/ArcadeGame.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Entity/ArcadeMachine.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Attribution.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Entity/Block.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GameStates/ArcadeGames/Breakout/BreakoutGame.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Entity/Bullets/Bullet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Handlers/Button.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GameStates/ConversationEvent.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Entity/Enemies/Enemy.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Entity/Entity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GameStates/EventState.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GameStates/Example.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Entity/Bullets/FireBall.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Handlers/Game.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GameStates/GameState.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GameStates/GameStateManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Entity/Enemies/Ghost.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Entity/Items/Item.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Handlers/KeyInput.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Launcher.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AssetManagers/Map.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GameStates/MapLevel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GameStates/Menu.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Handlers/MouseInput.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Entity/NPC.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Entity/Bullets/Pellet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Entity/Player/Player.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Entity/Player/PlayerHUD.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GameStates/ArcadeGames/Pong/PongGame.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/DataManagers/SavedFile.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Entity/Enemies/Shooter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Entity/Enemies/Skeleton.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Entity/Enemies/Slider.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GameStates/ArcadeGames/Snake/SnakeGame.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AssetManagers/SoundManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AssetManagers/SpriteManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GameStates/Talking.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Entity/Warp.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Levels/arcade.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nbproject/build-impl.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nbproject/genfiles.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Levels/level1.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Levels/level2.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Levels/level3.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/manifest.mf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Levels/practice.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nbproject/private/private.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nbproject/private/private.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nbproject/project.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nbproject/project.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Levels/route2.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Levels/start.json" />
-    </list>
+    <list id="9dfa36a2-f707-4266-aa47-91a220be5e9d" name="Rejected commit: Default" comment="adding in game created so far!" />
     <ignored path="AdventureMan.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="$PROJECT_DIR$/src/GameStates/ArcadeGames/Snake/SnakeGame.java" ignored="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,18 +62,8 @@
       <file leaf-file-name="Player.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Entity/Player/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="1782">
-              <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PongGame.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GameStates/ArcadeGames/Pong/PongGame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="3798">
-              <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="972" max-vertical-offset="1800">
+              <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -191,50 +72,8 @@
       <file leaf-file-name="MapLevel.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameStates/MapLevel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3186">
-              <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SnakeGame.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/GameStates/ArcadeGames/Snake/SnakeGame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30139104" vertical-offset="1497" max-vertical-offset="4734">
-              <caret line="105" column="5" selection-start-line="105" selection-start-column="5" selection-end-line="105" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Slider.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/Enemies/Slider.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="685" max-vertical-offset="1494">
-              <caret line="54" column="45" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Warp.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/Warp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="379" max-vertical-offset="900">
-              <caret line="42" column="65" selection-start-line="42" selection-start-column="65" selection-end-line="42" selection-end-column="65" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Skeleton.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/Enemies/Skeleton.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="271" max-vertical-offset="1314">
-              <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="3528">
+              <caret line="21" column="76" selection-start-line="21" selection-start-column="76" selection-end-line="21" selection-end-column="76" />
               <folding />
             </state>
           </provider>
@@ -243,8 +82,30 @@
       <file leaf-file-name="Map.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AssetManagers/Map.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="216" max-vertical-offset="2106">
-              <caret line="29" column="89" selection-start-line="29" selection-start-column="89" selection-end-line="29" selection-end-column="89" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="756" max-vertical-offset="2106">
+              <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Launcher.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Launcher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7511592" vertical-offset="0" max-vertical-offset="647">
+              <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameStateManager.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GameStates/GameStateManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="828">
+              <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -253,8 +114,8 @@
       <file leaf-file-name="Entity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Entity/Entity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3510">
-              <caret line="88" column="5" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="3942">
+              <caret line="8" column="110" selection-start-line="8" selection-start-column="110" selection-end-line="8" selection-end-column="110" />
               <folding />
             </state>
           </provider>
@@ -280,11 +141,8 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/GameStates/GameStateManager.java" />
-        <option value="$PROJECT_DIR$/src/Handlers/KeyInput.java" />
         <option value="$PROJECT_DIR$/src/Entity/Blocks.java" />
         <option value="$PROJECT_DIR$/src/GameStates/EventStates/EventState.java" />
-        <option value="$PROJECT_DIR$/src/Entity/Block.java" />
         <option value="$PROJECT_DIR$/src/Entity/Player.java" />
         <option value="$PROJECT_DIR$/src/LevelEditor/ObjectPane.java" />
         <option value="$PROJECT_DIR$/src/LevelEditor/ToolsPane.java" />
@@ -293,43 +151,47 @@
         <option value="$PROJECT_DIR$/src/LevelEditor/TileSetPane.java" />
         <option value="$PROJECT_DIR$/src/LevelEditor/LevelEditor.java" />
         <option value="$PROJECT_DIR$/src/Entity/Items/Item.java" />
-        <option value="$PROJECT_DIR$/src/DataManagers/SavedFile.java" />
         <option value="$PROJECT_DIR$/src/Handlers/Buton.java" />
-        <option value="$PROJECT_DIR$/src/Launcher.java" />
-        <option value="$PROJECT_DIR$/src/Handlers/Game.java" />
-        <option value="$PROJECT_DIR$/src/Handlers/Button.java" />
-        <option value="$PROJECT_DIR$/src/Entity/Entity.java" />
-        <option value="$PROJECT_DIR$/src/Entity/Player/PlayerHUD.java" />
         <option value="$PROJECT_DIR$/src/Entity/FireBall.java" />
         <option value="$PROJECT_DIR$/src/Entity/Bullet.java" />
-        <option value="$PROJECT_DIR$/src/Entity/Bullets/Bullet.java" />
-        <option value="$PROJECT_DIR$/src/Entity/Enemies/Enemy.java" />
         <option value="$PROJECT_DIR$/src/Entity/Bullets/Pellet.java" />
-        <option value="$PROJECT_DIR$/src/Entity/Enemies/Ghost.java" />
-        <option value="$PROJECT_DIR$/src/GameStates/EventState.java" />
         <option value="$PROJECT_DIR$/Assets/Levels/level1.json" />
-        <option value="$PROJECT_DIR$/src/AssetManagers/SoundManager.java" />
-        <option value="$PROJECT_DIR$/src/AssetManagers/SpriteManager.java" />
-        <option value="$PROJECT_DIR$/src/AssetManagers/Animation.java" />
-        <option value="$PROJECT_DIR$/src/Entity/Player/Player.java" />
-        <option value="$PROJECT_DIR$/src/Entity/Enemies/Skeleton.java" />
-        <option value="$PROJECT_DIR$/src/GameStates/GameState.java" />
         <option value="$PROJECT_DIR$/src/GameStates/ArcadeGames/ArcadeGame.java" />
         <option value="$PROJECT_DIR$/src/GameStates/Example.java" />
-        <option value="$PROJECT_DIR$/src/Handlers/MouseInput.java" />
+        <option value="$PROJECT_DIR$/src/GameStates/ArcadeGames/Breakout/BreakoutGame.java" />
+        <option value="$PROJECT_DIR$/src/GameStates/ArcadeGames/Snake/SnakeGame.java" />
+        <option value="$PROJECT_DIR$/src/Entity/Enemies/Skeleton.java" />
+        <option value="$PROJECT_DIR$/src/Entity/Warp.java" />
+        <option value="$PROJECT_DIR$/src/GameStates/ArcadeGames/Pong/PongGame.java" />
+        <option value="$PROJECT_DIR$/src/AssetManagers/Animation.java" />
+        <option value="$PROJECT_DIR$/src/Entity/Enemies/Slider.java" />
+        <option value="$PROJECT_DIR$/src/AssetManagers/Map.java" />
+        <option value="$PROJECT_DIR$/src/Entity/Entity.java" />
+        <option value="$PROJECT_DIR$/src/Entity/Player/Player.java" />
+        <option value="$PROJECT_DIR$/src/GameStates/MapLevel.java" />
+        <option value="$PROJECT_DIR$/src/AssetManagers/SoundManager.java" />
+        <option value="$PROJECT_DIR$/src/AssetManagers/SpriteManager.java" />
+        <option value="$PROJECT_DIR$/src/Entity/Block.java" />
+        <option value="$PROJECT_DIR$/src/Entity/NPC.java" />
+        <option value="$PROJECT_DIR$/src/Entity/Player/PlayerHUD.java" />
         <option value="$PROJECT_DIR$/src/Entity/ArcadeMachine.java" />
+        <option value="$PROJECT_DIR$/src/GameStates/ConversationEvent.java" />
+        <option value="$PROJECT_DIR$/src/GameStates/EventState.java" />
+        <option value="$PROJECT_DIR$/src/GameStates/GameState.java" />
         <option value="$PROJECT_DIR$/src/GameStates/Menu.java" />
         <option value="$PROJECT_DIR$/src/GameStates/Talking.java" />
-        <option value="$PROJECT_DIR$/src/GameStates/ConversationEvent.java" />
-        <option value="$PROJECT_DIR$/src/Entity/NPC.java" />
-        <option value="$PROJECT_DIR$/src/GameStates/ArcadeGames/Breakout/BreakoutGame.java" />
-        <option value="$PROJECT_DIR$/src/GameStates/ArcadeGames/Pong/PongGame.java" />
+        <option value="$PROJECT_DIR$/src/Handlers/Button.java" />
+        <option value="$PROJECT_DIR$/src/Handlers/Game.java" />
+        <option value="$PROJECT_DIR$/src/Handlers/KeyInput.java" />
+        <option value="$PROJECT_DIR$/src/Handlers/MouseInput.java" />
+        <option value="$PROJECT_DIR$/src/Entity/Enemies/Ghost.java" />
         <option value="$PROJECT_DIR$/src/Entity/Enemies/Shooter.java" />
-        <option value="$PROJECT_DIR$/src/AssetManagers/Map.java" />
-        <option value="$PROJECT_DIR$/src/Entity/Enemies/Slider.java" />
-        <option value="$PROJECT_DIR$/src/Entity/Warp.java" />
-        <option value="$PROJECT_DIR$/src/GameStates/MapLevel.java" />
-        <option value="$PROJECT_DIR$/src/GameStates/ArcadeGames/Snake/SnakeGame.java" />
+        <option value="$PROJECT_DIR$/src/Entity/Enemies/Enemy.java" />
+        <option value="$PROJECT_DIR$/src/Entity/Bullets/Bullet.java" />
+        <option value="$PROJECT_DIR$/src/Entity/Bullets/FireBall.java" />
+        <option value="$PROJECT_DIR$/src/GameStates/GameStateManager.java" />
+        <option value="$PROJECT_DIR$/src/DataManagers/SavedFile.java" />
+        <option value="$PROJECT_DIR$/src/Launcher.java" />
       </list>
     </option>
   </component>
@@ -413,6 +275,154 @@
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdventureMan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdventureMan" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdventureMan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdventureMan" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Handlers" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdventureMan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdventureMan" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GameStates" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdventureMan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdventureMan" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Entity" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdventureMan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdventureMan" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Entity" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Enemies" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdventureMan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdventureMan" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Entity" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Bullets" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdventureMan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdventureMan" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataManagers" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdventureMan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdventureMan" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AssetManagers" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -438,6 +448,22 @@
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
     <property name="FullScreen" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="143" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="172" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="173" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="848" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="166" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="164" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="166" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="840" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -757,12 +783,13 @@
       <workItem from="1414294311182" duration="2637000" />
       <workItem from="1414342191452" duration="1760000" />
       <workItem from="1414351366495" duration="9053000" />
-      <workItem from="1414427950753" duration="10016000" />
+      <workItem from="1414427950753" duration="13720000" />
+      <workItem from="1414449357038" duration="1040000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137750000" />
+    <option name="totallyTimeSpent" value="142494000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -780,14 +807,14 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17569546" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17569546" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18666667" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -798,17 +825,17 @@
     <layout-to-restore>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17569546" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18666667" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18666667" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -819,8 +846,8 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -856,13 +883,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="11.074074" vertical-offset="353" max-vertical-offset="1188">
           <caret line="3" column="463" selection-start-line="3" selection-start-column="463" selection-end-line="3" selection-end-column="463" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Handlers/KeyInput.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="1224">
-          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -903,13 +923,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Block.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
-          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/terrain.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -936,34 +949,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameStates/GameStateManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="369" max-vertical-offset="828">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Handlers/Button.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1008">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataManagers/SavedFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="40" max-vertical-offset="612">
-          <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Launcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="261" max-vertical-offset="810">
-          <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Bullets/Pellet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="414">
@@ -971,66 +956,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Bullets/Bullet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="774">
-          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Enemies/Ghost.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="873" max-vertical-offset="1566">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Bullets/FireBall.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="396">
-          <caret line="10" column="59" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Enemies/Enemy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2232">
-          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Handlers/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.112033196" vertical-offset="198" max-vertical-offset="900">
-          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameStates/EventState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="396">
-          <caret line="14" column="45" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Levels/level1.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.47058824" vertical-offset="2762" max-vertical-offset="4824">
           <caret line="165" column="24" selection-start-line="165" selection-start-column="24" selection-end-line="165" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Player/PlayerHUD.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="199" max-vertical-offset="810">
-          <caret line="36" column="42" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AssetManagers/SoundManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="367" max-vertical-offset="1224">
-          <caret line="44" column="38" selection-start-line="44" selection-start-column="38" selection-end-line="44" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -1042,51 +971,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AssetManagers/Animation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33267716" vertical-offset="119" max-vertical-offset="846">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AssetManagers/SpriteManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="199" max-vertical-offset="1476">
-          <caret line="30" column="60" selection-start-line="30" selection-start-column="60" selection-end-line="30" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameStates/GameState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2503864" vertical-offset="0" max-vertical-offset="647">
-          <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GameStates/Example.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13910356" vertical-offset="252" max-vertical-offset="1818">
           <caret line="34" column="47" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Player/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="414" max-vertical-offset="1656">
-          <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Handlers/MouseInput.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5285935" vertical-offset="0" max-vertical-offset="1224">
-          <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
-          <folding>
-            <element signature="e#821#822#0" expanded="true" />
-            <element signature="e#857#858#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1097,51 +985,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/ArcadeMachine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="469" max-vertical-offset="1170">
-          <caret line="66" column="22" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameStates/Talking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3317647" vertical-offset="201" max-vertical-offset="1332">
-          <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameStates/ConversationEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6188235" vertical-offset="313" max-vertical-offset="738">
-          <caret line="35" column="96" selection-start-line="35" selection-start-column="96" selection-end-line="35" selection-end-column="96" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameStates/Menu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="307" max-vertical-offset="954">
-          <caret line="31" column="27" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/NPC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="145" max-vertical-offset="828">
-          <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GameStates/ArcadeGames/Breakout/BreakoutGame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3475" max-vertical-offset="3996">
           <caret line="100" column="62" selection-start-line="100" selection-start-column="62" selection-end-line="100" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1149,47 +996,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.39759037" vertical-offset="0" max-vertical-offset="498">
           <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Entity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3510">
-          <caret line="88" column="5" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AssetManagers/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="216" max-vertical-offset="2106">
-          <caret line="29" column="89" selection-start-line="29" selection-start-column="89" selection-end-line="29" selection-end-column="89" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Enemies/Shooter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.3147793" vertical-offset="0" max-vertical-offset="1566">
-          <caret line="73" column="13" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameStates/ArcadeGames/Pong/PongGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3798">
-          <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Enemies/Skeleton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="271" max-vertical-offset="1314">
-          <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1201,37 +1007,246 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Enemies/Slider.java">
+    <entry file="file://$PROJECT_DIR$/src/GameStates/ArcadeGames/Snake/SnakeGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="685" max-vertical-offset="1494">
-          <caret line="54" column="45" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.4714065" vertical-offset="73" max-vertical-offset="4716">
+          <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Enemies/Skeleton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="667" max-vertical-offset="1314">
+          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Warp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="379" max-vertical-offset="900">
-          <caret line="42" column="65" selection-start-line="42" selection-start-column="65" selection-end-line="42" selection-end-column="65" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="1044">
+          <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameStates/ArcadeGames/Pong/PongGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3852">
+          <caret line="15" column="57" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AssetManagers/Animation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="846">
+          <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Enemies/Slider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="19" max-vertical-offset="1566">
+          <caret line="68" column="42" selection-start-line="68" selection-start-column="42" selection-end-line="68" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Entity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3564">
+          <caret line="8" column="110" selection-start-line="8" selection-start-column="110" selection-end-line="8" selection-end-column="110" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AssetManagers/SoundManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.6414219" vertical-offset="0" max-vertical-offset="1332">
+          <caret line="66" column="7" selection-start-line="66" selection-start-column="7" selection-end-line="66" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AssetManagers/SpriteManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.7527047" vertical-offset="0" max-vertical-offset="1440">
+          <caret line="69" column="7" selection-start-line="69" selection-start-column="7" selection-end-line="69" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Block.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19474497" vertical-offset="0" max-vertical-offset="647">
+          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/NPC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.16846986" vertical-offset="181" max-vertical-offset="828">
+          <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Player/PlayerHUD.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.16403785" vertical-offset="176" max-vertical-offset="810">
+          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/ArcadeMachine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6970634" vertical-offset="523" max-vertical-offset="1170">
+          <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameStates/ConversationEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="738">
+          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameStates/EventState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11128284" vertical-offset="0" max-vertical-offset="647">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameStates/GameState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13910356" vertical-offset="0" max-vertical-offset="647">
+          <caret line="9" column="104" selection-start-line="9" selection-start-column="104" selection-end-line="9" selection-end-column="104" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GameStates/MapLevel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3186">
-          <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3240">
+          <caret line="21" column="76" selection-start-line="21" selection-start-column="76" selection-end-line="21" selection-end-column="76" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameStates/ArcadeGames/Snake/SnakeGame.java">
+    <entry file="file://$PROJECT_DIR$/src/GameStates/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30139104" vertical-offset="1497" max-vertical-offset="4734">
-          <caret line="105" column="5" selection-start-line="105" selection-start-column="5" selection-end-line="105" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.13910356" vertical-offset="0" max-vertical-offset="1008">
+          <caret line="10" column="75" selection-start-line="10" selection-start-column="75" selection-end-line="10" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameStates/Talking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.94744974" vertical-offset="685" max-vertical-offset="1332">
+          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Handlers/Button.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10973725" vertical-offset="1" max-vertical-offset="918">
+          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Handlers/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16692427" vertical-offset="0" max-vertical-offset="972">
+          <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Handlers/KeyInput.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.3632149" vertical-offset="0" max-vertical-offset="1170">
+          <caret line="54" column="6" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Handlers/MouseInput.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16692427" vertical-offset="0" max-vertical-offset="1188">
+          <caret line="9" column="73" selection-start-line="9" selection-start-column="73" selection-end-line="9" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Enemies/Ghost.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.61205566" vertical-offset="0" max-vertical-offset="1566">
+          <caret line="29" column="7" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Enemies/Shooter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.86089647" vertical-offset="541" max-vertical-offset="1674">
+          <caret line="67" column="35" selection-start-line="67" selection-start-column="35" selection-end-line="67" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Enemies/Enemy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.3338485" vertical-offset="181" max-vertical-offset="2232">
+          <caret line="63" column="32" selection-start-line="63" selection-start-column="32" selection-end-line="63" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Bullets/Bullet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13910356" vertical-offset="0" max-vertical-offset="774">
+          <caret line="6" column="91" selection-start-line="6" selection-start-column="91" selection-end-line="6" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Bullets/FireBall.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13910356" vertical-offset="0" max-vertical-offset="647">
+          <caret line="7" column="86" selection-start-line="7" selection-start-column="86" selection-end-line="7" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AssetManagers/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="756" max-vertical-offset="2106">
+          <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataManagers/SavedFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13819578" vertical-offset="0" max-vertical-offset="612">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameStates/GameStateManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="307" max-vertical-offset="828">
+          <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Player/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="972" max-vertical-offset="1800">
+          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Launcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7511592" vertical-offset="0" max-vertical-offset="647">
+          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

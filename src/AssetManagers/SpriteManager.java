@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.HashMap;
 
-/*
+/**
     This class will handle all the sprites a character will use. Some characters require many sprites
     for each time he faces a direction and such. This will make it easier to change the sprites as we need to
  */
@@ -22,7 +22,7 @@ public class SpriteManager {
         sprites = new HashMap<String, BufferedImage>();
         animations= new HashMap<String, Animation>();
     }
-    /*
+    /**
         This draws the current sprite that the user sets and at the location they specify. Bounds
         will most likely by the position field of the entity.
      */
@@ -32,7 +32,7 @@ public class SpriteManager {
         else if (animations.containsKey(current))
             animations.get(current).draw(g, bounds);
     }
-    /*
+    /**
         sometimes we may want to display the image in a certain tint for some events
      */
     public void draw(Graphics2D g, Rectangle bounds, Color color) {
@@ -44,7 +44,7 @@ public class SpriteManager {
     public void setCurrent(String key) {
         current = key;
     }
-    /*
+    /**
         Adds the sprite to the HashMap where it can later be accessed as long as the
         player knows the key to the sprite
      */
@@ -59,7 +59,7 @@ public class SpriteManager {
             sprites.put(key, sprite);
         }
     }
-    /*
+    /**
         adds an animation to the animations list.
      */
     public void addAnimation(String key, Animation animation) {
@@ -67,7 +67,7 @@ public class SpriteManager {
             animations.put(key, animation);
         }
     }
-    /*
+    /**
         I like the option to not always send a false to addSprite() when I know I don't want to make
         the sprite I'm adding the current sprite to draw, so I did this to replicate an optional
         parameter
