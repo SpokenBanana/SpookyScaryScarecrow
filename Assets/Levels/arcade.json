@@ -238,6 +238,19 @@
                  "width":32,
                  "x":288,
                  "y":544
+                }, 
+                {
+                 "height":32,
+                 "name":"3",
+                 "properties":
+                    {
+
+                    },
+                 "type":"down",
+                 "visible":true,
+                 "width":32,
+                 "x":416,
+                 "y":32
                 }],
          "opacity":1,
          "type":"objectgroup",

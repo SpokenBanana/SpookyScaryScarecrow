@@ -2,6 +2,7 @@ package Entity;
 
 import Entity.Player.Player;
 import GameStates.ArcadeGames.Breakout.BreakoutGame;
+import GameStates.ArcadeGames.MouseFritz.MouseFritzGame;
 import GameStates.ArcadeGames.Pong.PongGame;
 import GameStates.ArcadeGames.Snake.SnakeGame;
 import GameStates.EventState;
@@ -64,6 +65,9 @@ public class ArcadeMachine extends EventState {
                 break;
             case 2:
                 manager.addGame(new BreakoutGame(manager, gameState.keyInput, gameState.mouseInput));
+                break;
+            case 3:
+                manager.addGame(new MouseFritzGame(manager, gameState.keyInput, gameState.mouseInput));
                 break;
         }
     }

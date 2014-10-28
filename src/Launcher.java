@@ -24,7 +24,6 @@ public class Launcher extends JFrame {
         setLocationRelativeTo(null); // center it
         setResizable(false);
         setVisible(true);
-
         // START THE GAME!
         game.gameLoop();
     }

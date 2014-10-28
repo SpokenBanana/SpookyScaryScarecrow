@@ -1,40 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="faf5a917-223b-46fa-9655-af7a7f59fab0" name="Default" comment="adding in game created so far!">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AssetManagers/Animation.java" afterPath="$PROJECT_DIR$/src/AssetManagers/Animation.java" />
+    <list default="true" id="faf5a917-223b-46fa-9655-af7a7f59fab0" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GameStates/ArcadeGames/MouseFritz/Ball.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GameStates/ArcadeGames/MouseFritz/Cursor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GameStates/ArcadeGames/MouseFritz/MouseFritzGame.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/ArcadeMachine.java" afterPath="$PROJECT_DIR$/src/Entity/ArcadeMachine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Block.java" afterPath="$PROJECT_DIR$/src/Entity/Block.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Bullets/Bullet.java" afterPath="$PROJECT_DIR$/src/Entity/Bullets/Bullet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Handlers/Button.java" afterPath="$PROJECT_DIR$/src/Handlers/Button.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameStates/ConversationEvent.java" afterPath="$PROJECT_DIR$/src/GameStates/ConversationEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Enemies/Enemy.java" afterPath="$PROJECT_DIR$/src/Entity/Enemies/Enemy.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Entity.java" afterPath="$PROJECT_DIR$/src/Entity/Entity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameStates/EventState.java" afterPath="$PROJECT_DIR$/src/GameStates/EventState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Bullets/FireBall.java" afterPath="$PROJECT_DIR$/src/Entity/Bullets/FireBall.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Handlers/Game.java" afterPath="$PROJECT_DIR$/src/Handlers/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameStates/GameState.java" afterPath="$PROJECT_DIR$/src/GameStates/GameState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameStates/GameStateManager.java" afterPath="$PROJECT_DIR$/src/GameStates/GameStateManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Enemies/Ghost.java" afterPath="$PROJECT_DIR$/src/Entity/Enemies/Ghost.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Handlers/KeyInput.java" afterPath="$PROJECT_DIR$/src/Handlers/KeyInput.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Launcher.java" afterPath="$PROJECT_DIR$/src/Launcher.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AssetManagers/Map.java" afterPath="$PROJECT_DIR$/src/AssetManagers/Map.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameStates/MapLevel.java" afterPath="$PROJECT_DIR$/src/GameStates/MapLevel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameStates/Menu.java" afterPath="$PROJECT_DIR$/src/GameStates/Menu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Handlers/MouseInput.java" afterPath="$PROJECT_DIR$/src/Handlers/MouseInput.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/NPC.java" afterPath="$PROJECT_DIR$/src/Entity/NPC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Player/Player.java" afterPath="$PROJECT_DIR$/src/Entity/Player/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Player/PlayerHUD.java" afterPath="$PROJECT_DIR$/src/Entity/Player/PlayerHUD.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameStates/ArcadeGames/Pong/PongGame.java" afterPath="$PROJECT_DIR$/src/GameStates/ArcadeGames/Pong/PongGame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DataManagers/SavedFile.java" afterPath="$PROJECT_DIR$/src/DataManagers/SavedFile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Enemies/Shooter.java" afterPath="$PROJECT_DIR$/src/Entity/Enemies/Shooter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Enemies/Skeleton.java" afterPath="$PROJECT_DIR$/src/Entity/Enemies/Skeleton.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Enemies/Slider.java" afterPath="$PROJECT_DIR$/src/Entity/Enemies/Slider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameStates/ArcadeGames/Snake/SnakeGame.java" afterPath="$PROJECT_DIR$/src/GameStates/ArcadeGames/Snake/SnakeGame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AssetManagers/SoundManager.java" afterPath="$PROJECT_DIR$/src/AssetManagers/SoundManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AssetManagers/SpriteManager.java" afterPath="$PROJECT_DIR$/src/AssetManagers/SpriteManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameStates/Talking.java" afterPath="$PROJECT_DIR$/src/GameStates/Talking.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Warp.java" afterPath="$PROJECT_DIR$/src/Entity/Warp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Levels/arcade.json" afterPath="$PROJECT_DIR$/Assets/Levels/arcade.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="9dfa36a2-f707-4266-aa47-91a220be5e9d" name="Rejected commit: Default" comment="adding in game created so far!" />
@@ -62,7 +35,7 @@
       <file leaf-file-name="Player.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Entity/Player/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="972" max-vertical-offset="1800">
+            <state vertical-scroll-proportion="0.0" vertical-offset="324" max-vertical-offset="1926">
               <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
               <folding />
             </state>
@@ -72,8 +45,8 @@
       <file leaf-file-name="MapLevel.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameStates/MapLevel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="3528">
-              <caret line="21" column="76" selection-start-line="21" selection-start-column="76" selection-end-line="21" selection-end-column="76" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2593" max-vertical-offset="3240">
+              <caret line="186" column="26" selection-start-line="186" selection-start-column="26" selection-end-line="186" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -82,18 +55,18 @@
       <file leaf-file-name="Map.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AssetManagers/Map.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="756" max-vertical-offset="2106">
-              <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2106">
+              <caret line="29" column="88" selection-start-line="29" selection-start-column="88" selection-end-line="29" selection-end-column="88" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Launcher.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Launcher.java">
+      <file leaf-file-name="MouseFritzGame.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GameStates/ArcadeGames/MouseFritz/MouseFritzGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7511592" vertical-offset="0" max-vertical-offset="647">
-              <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2160" max-vertical-offset="3672">
+              <caret line="130" column="58" selection-start-line="130" selection-start-column="58" selection-end-line="130" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -101,11 +74,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameStateManager.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GameStates/GameStateManager.java">
+      <file leaf-file-name="Ball.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/GameStates/ArcadeGames/MouseFritz/Ball.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="828">
-              <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.4491363" vertical-offset="324" max-vertical-offset="1170">
+              <caret line="31" column="55" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Cursor.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GameStates/ArcadeGames/MouseFritz/Cursor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
+              <caret line="17" column="63" selection-start-line="17" selection-start-column="63" selection-end-line="17" selection-end-column="63" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#741#742#0" expanded="true" />
+                <element signature="e#777#778#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Animation.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AssetManagers/Animation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="846">
+              <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -141,9 +140,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/Entity/Blocks.java" />
-        <option value="$PROJECT_DIR$/src/GameStates/EventStates/EventState.java" />
-        <option value="$PROJECT_DIR$/src/Entity/Player.java" />
         <option value="$PROJECT_DIR$/src/LevelEditor/ObjectPane.java" />
         <option value="$PROJECT_DIR$/src/LevelEditor/ToolsPane.java" />
         <option value="$PROJECT_DIR$/src/LevelEditor/HelperPane.java" />
@@ -165,7 +161,6 @@
         <option value="$PROJECT_DIR$/src/GameStates/ArcadeGames/Pong/PongGame.java" />
         <option value="$PROJECT_DIR$/src/AssetManagers/Animation.java" />
         <option value="$PROJECT_DIR$/src/Entity/Enemies/Slider.java" />
-        <option value="$PROJECT_DIR$/src/AssetManagers/Map.java" />
         <option value="$PROJECT_DIR$/src/Entity/Entity.java" />
         <option value="$PROJECT_DIR$/src/Entity/Player/Player.java" />
         <option value="$PROJECT_DIR$/src/GameStates/MapLevel.java" />
@@ -174,7 +169,6 @@
         <option value="$PROJECT_DIR$/src/Entity/Block.java" />
         <option value="$PROJECT_DIR$/src/Entity/NPC.java" />
         <option value="$PROJECT_DIR$/src/Entity/Player/PlayerHUD.java" />
-        <option value="$PROJECT_DIR$/src/Entity/ArcadeMachine.java" />
         <option value="$PROJECT_DIR$/src/GameStates/ConversationEvent.java" />
         <option value="$PROJECT_DIR$/src/GameStates/EventState.java" />
         <option value="$PROJECT_DIR$/src/GameStates/GameState.java" />
@@ -192,6 +186,11 @@
         <option value="$PROJECT_DIR$/src/GameStates/GameStateManager.java" />
         <option value="$PROJECT_DIR$/src/DataManagers/SavedFile.java" />
         <option value="$PROJECT_DIR$/src/Launcher.java" />
+        <option value="$PROJECT_DIR$/src/AssetManagers/Map.java" />
+        <option value="$PROJECT_DIR$/src/Entity/ArcadeMachine.java" />
+        <option value="$PROJECT_DIR$/src/GameStates/ArcadeGames/MouseFritz/Cursor.java" />
+        <option value="$PROJECT_DIR$/src/GameStates/ArcadeGames/MouseFritz/MouseFritzGame.java" />
+        <option value="$PROJECT_DIR$/src/GameStates/ArcadeGames/MouseFritz/Ball.java" />
       </list>
     </option>
   </component>
@@ -251,8 +250,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -303,7 +302,7 @@
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Handlers" />
+              <option name="myItemId" value="GameStates" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -324,6 +323,36 @@
               <option name="myItemId" value="GameStates" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ArcadeGames" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdventureMan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdventureMan" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GameStates" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ArcadeGames" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MouseFritz" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -353,15 +382,7 @@
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Entity" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Enemies" />
+              <option name="myItemId" value="Assets" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -375,15 +396,11 @@
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="Assets" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Entity" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bullets" />
+              <option name="myItemId" value="Sprites" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -397,11 +414,15 @@
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="Assets" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="DataManagers" />
+              <option name="myItemId" value="Sprites" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ArcadeGames" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -415,11 +436,19 @@
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="Assets" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="AssetManagers" />
+              <option name="myItemId" value="Sprites" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ArcadeGames" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MouseFritz" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -784,12 +813,18 @@
       <workItem from="1414342191452" duration="1760000" />
       <workItem from="1414351366495" duration="9053000" />
       <workItem from="1414427950753" duration="13720000" />
-      <workItem from="1414449357038" duration="1040000" />
+      <workItem from="1414449357038" duration="2441000" />
+      <workItem from="1414460279309" duration="7831000" />
     </task>
+    <task id="LOCAL-00001" summary="Added Java documentation to the code">
+      <created>1414450453811</created>
+      <updated>1414450453811</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="142494000" />
+    <option name="totallyTimeSpent" value="151726000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -814,8 +849,8 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17569546" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18666667" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17569546" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18666667" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -825,10 +860,10 @@
     <layout-to-restore>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
@@ -846,8 +881,8 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -867,7 +902,8 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="adding in game created so far!" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding in game created so far!" />
+    <MESSAGE value="Added Java documentation to the code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Java documentation to the code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -879,31 +915,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Assets/Levels/practice.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="11.074074" vertical-offset="353" max-vertical-offset="1188">
-          <caret line="3" column="463" selection-start-line="3" selection-start-column="463" selection-end-line="3" selection-end-column="463" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0/src.zip!/java/awt/Rectangle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33230293" vertical-offset="12097" max-vertical-offset="20700">
-          <caret line="752" column="19" selection-start-line="752" selection-start-column="19" selection-end-line="752" selection-end-column="19" />
-          <folding>
-            <element signature="e#23886#23887#0" expanded="false" />
-            <element signature="e#23921#23922#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="10509" max-vertical-offset="54918">
-          <caret line="645" column="0" selection-start-line="645" selection-start-column="0" selection-end-line="645" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Levels/start.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.290909" vertical-offset="1548" max-vertical-offset="2520">
@@ -996,6 +1007,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.39759037" vertical-offset="0" max-vertical-offset="498">
           <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1003,7 +1015,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.18711019" vertical-offset="774" max-vertical-offset="2718">
           <caret line="48" column="28" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1033,13 +1044,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3852">
           <caret line="15" column="57" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AssetManagers/Animation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="846">
-          <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1062,6 +1067,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.6414219" vertical-offset="0" max-vertical-offset="1332">
           <caret line="66" column="7" selection-start-line="66" selection-start-column="7" selection-end-line="66" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1084,7 +1090,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.16846986" vertical-offset="181" max-vertical-offset="828">
           <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1092,13 +1097,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.16403785" vertical-offset="176" max-vertical-offset="810">
           <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/ArcadeMachine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6970634" vertical-offset="523" max-vertical-offset="1170">
-          <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -1120,13 +1118,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13910356" vertical-offset="0" max-vertical-offset="647">
           <caret line="9" column="104" selection-start-line="9" selection-start-column="104" selection-end-line="9" selection-end-column="104" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameStates/MapLevel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3240">
-          <caret line="21" column="76" selection-start-line="21" selection-start-column="76" selection-end-line="21" selection-end-column="76" />
           <folding />
         </state>
       </provider>
@@ -1135,6 +1126,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13910356" vertical-offset="0" max-vertical-offset="1008">
           <caret line="10" column="75" selection-start-line="10" selection-start-column="75" selection-end-line="10" selection-end-column="75" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1170,6 +1162,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16692427" vertical-offset="0" max-vertical-offset="1188">
           <caret line="9" column="73" selection-start-line="9" selection-start-column="73" selection-end-line="9" selection-end-column="73" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1177,6 +1170,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.61205566" vertical-offset="0" max-vertical-offset="1566">
           <caret line="29" column="7" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1191,6 +1185,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.3338485" vertical-offset="181" max-vertical-offset="2232">
           <caret line="63" column="32" selection-start-line="63" selection-start-column="32" selection-end-line="63" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1208,19 +1203,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AssetManagers/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="756" max-vertical-offset="2106">
-          <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DataManagers/SavedFile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13819578" vertical-offset="0" max-vertical-offset="612">
           <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1240,10 +1226,72 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/ArcadeMachine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8349359" vertical-offset="523" max-vertical-offset="1224">
+          <caret line="70" column="22" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AssetManagers/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2106">
+          <caret line="29" column="88" selection-start-line="29" selection-start-column="88" selection-end-line="29" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameStates/MapLevel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2593" max-vertical-offset="3240">
+          <caret line="186" column="26" selection-start-line="186" selection-start-column="26" selection-end-line="186" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Launcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7511592" vertical-offset="0" max-vertical-offset="647">
-          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
+          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AssetManagers/Animation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="846">
+          <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameStates/ArcadeGames/MouseFritz/Cursor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
+          <caret line="17" column="63" selection-start-line="17" selection-start-column="63" selection-end-line="17" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#741#742#0" expanded="true" />
+            <element signature="e#777#778#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameStates/ArcadeGames/MouseFritz/MouseFritzGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2160" max-vertical-offset="3672">
+          <caret line="130" column="58" selection-start-line="130" selection-start-column="58" selection-end-line="130" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameStates/ArcadeGames/MouseFritz/Ball.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4491363" vertical-offset="324" max-vertical-offset="1170">
+          <caret line="31" column="55" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
