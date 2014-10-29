@@ -34,6 +34,7 @@ public class Game extends JPanel{
             gameStateManager.update();
             repaint();
             keys.update();
+            mouseInput.update();
             try {
                 // This acts like a mini "pause" so we can some of the action.
                 Thread.sleep(1000/60);

@@ -11,17 +11,20 @@ import java.awt.event.MouseMotionListener;
  */
 public class MouseInput implements MouseMotionListener, MouseListener{
     private Point mouseLocation;
-    boolean clicked;
+    boolean clicked, oldClicked;
 
     public MouseInput() {
         mouseLocation = new Point(0,0);
         clicked = false;
     }
+    public void update() {
+        oldClicked = clicked;
+    }
     public boolean isMouseOver(Rectangle position) {
         return position.contains(mouseLocation);
     }
     public boolean didMouseClickOn(Rectangle position) {
-        return clicked && position.contains(mouseLocation);
+        return !oldClicked && clicked && position.contains(mouseLocation);
     }
     public Point getMouseLocation(){
         return mouseLocation;
