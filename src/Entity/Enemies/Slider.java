@@ -1,5 +1,6 @@
 package Entity.Enemies;
 
+import AssetManagers.Animation;
 import Entity.Player.Player;
 
 import java.awt.*;
@@ -22,7 +23,10 @@ public class Slider extends Enemy{
         time = 60;
         random = new Random();
         timeUntilRespawn = random.nextInt(50) + 60;
-        sprites.addSprite("charging" , "Enemies/Slider/sliderCharge.png");
+        sprites.addAnimation("chargingLeft", new Animation("Enemies/Slider/sliderChargeLeft.png", 2, 150));
+        sprites.addAnimation("chargingRight", new Animation("Enemies/Slider/sliderChargeRight.png", 2, 150));
+        sprites.addAnimation("chargingDown", new Animation("Enemies/Slider/sliderChargeDown.png", 2, 150));
+        sprites.addAnimation("chargingUp", new Animation("Enemies/Slider/sliderChargeUp.png", 2, 150));
         sprites.addSprite("waiting", "Enemies/Slider/sliderWait.png", true);
         respawned = false;
         position = new Rectangle(spawn.x, spawn.y, 32,32);
@@ -37,7 +41,7 @@ public class Slider extends Enemy{
             // time is used to wait, give the player a chance to see the enemy before it attacks
             if (time <= 0){
                 decideNextNearestStep(player.getPosition().getLocation());
-                sprites.setCurrent("charging");
+                syncSprite();
                 if (position.intersects(player.getPosition())) {
                     // it stops because he kind of bumped, into the player, so there's a little pause for that
                     time = 30;
@@ -69,6 +73,29 @@ public class Slider extends Enemy{
     protected void attack(Player player) {
     }
 
+    /**
+     * When the enemy switches directions, we want to make sure that the enemy sprite matches the direction he is facing
+     */
+    protected void syncSprite() {
+        if (currentDirection == Direction.Standing)
+            sprites.setCurrent("waiting");
+        else {
+            switch (facingDirection) {
+                case Down:
+                    sprites.setCurrent("chargingDown");
+                    break;
+                case Up:
+                    sprites.setCurrent("chargingUp");
+                    break;
+                case Left:
+                    sprites.setCurrent("chargingLeft");
+                    break;
+                case Right:
+                    sprites.setCurrent("chargingRight");
+                    break;
+            }
+        }
+    }
     /**
      * This places the enemy in a new position to surprise the player
      */

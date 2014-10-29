@@ -41,8 +41,9 @@ public class MouseFritzGame extends ArcadeGame{
         switch (state) {
             case GameOver:
             case Menu:
-                if (keyInput.isPressed(KeyEvent.VK_ENTER)){
+                if (mouseInput.didMouseClickOn(new Rectangle(0,0, GAME_WIDTH, GAME_HEIGHT))){
                     score = 0;
+                    rounds = 10;
                     state = State.Playing;
                 }
                 if (keyInput.isPressed(KeyEvent.VK_Q))
@@ -55,8 +56,9 @@ public class MouseFritzGame extends ArcadeGame{
 
                 player.move(mouseInput.getMouseLocation());
                 if (player.x > GAME_WIDTH || player.y > GAME_HEIGHT) {
+                    // there's a delay so the score doesn't go down insanely fast
                     if (scorePenaltyDelay <= 0) {
-                        scorePenaltyDelay = 100;
+                        scorePenaltyDelay = 40;
                         score--;
                     }
                     else
@@ -64,13 +66,15 @@ public class MouseFritzGame extends ArcadeGame{
                 }
                 balls.forEach(ball -> ball.update(GAME_WIDTH, GAME_HEIGHT));
 
-
                 if (--timeUntilFritz <= 0) {
                     if (timeUntilFritz == 0)
                         balls.forEach(ball -> ball.onTheFritz = true);
                     // after a certain amount of time in this state, we move to the other
                     if (timeUntilFritz <= -400){
                         balls.forEach(ball -> ball.onTheFritz = false);
+                        rounds--;
+                        if (rounds == 0)
+                            state = State.GameOver;
                         timeUntilFritz = 400;
                     }
 
@@ -110,14 +114,12 @@ public class MouseFritzGame extends ArcadeGame{
         g.drawString("Press [ENTER] to pause/resume", 50, 630);
         switch (state) {
             case Menu:
-                g.drawString("Press [ENTER] to play!", 200,30);
+                g.drawString("Click to play!", 200,30);
                 g.drawString("Press [Q] to quit", 250,60);
 
-                g.drawString("With your mouse, try to match any two balls of the same color!", 5, 100);
+                g.drawString("With your mouse, try to match any two balls of the same color", 5, 100);
                 g.drawString("Do so by touching one ball, then another of the same color!", 10, 130);
                 g.drawString("Careful! Do not touch any balls when they all go red!", 10, 160);
-
-
                 break;
             case Playing:
                 if (timeUntilFritz <= 0)
@@ -129,6 +131,7 @@ public class MouseFritzGame extends ArcadeGame{
                     g.drawString("GET IN THAT GAME OR I WILL KILL YOUR SCORE!", 10, 690);
                 }
                 g.drawString("Score: " + score, 400, 630);
+                g.drawString("Rounds: " + rounds, 400, 660);
                 balls.forEach(ball -> ball.draw(g));
 
                 player.draw(g);
@@ -138,8 +141,10 @@ public class MouseFritzGame extends ArcadeGame{
                 g.drawString("Press [Q] to quit", 200,300);
                 break;
             case GameOver:
-                g.drawString("Press [ENTER] to play again!", 200,300);
+                g.drawString("GAME OVER", 200, 100);
+                g.drawString("Click to play again!", 200,300);
                 g.drawString("Press [Q] to quit", 250,250);
+                g.drawString("Score was " + score, 200, 350);
                 break;
         }
     }
