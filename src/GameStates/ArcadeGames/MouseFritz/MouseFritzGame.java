@@ -156,10 +156,10 @@ public class MouseFritzGame extends ArcadeGame{
         Color[] colors = {Color.red, Color.blue, Color.yellow, Color.green, Color.orange, Color.MAGENTA, Color.pink};
         Random random = new Random();
         balls = new ArrayList<>();
-        for (int i = 0; i < colors.length; i++) {
+        for (Color color : colors) {
             // two of each color just to make sure there is always a pair
-            balls.add(new Ball(new Rectangle(random.nextInt(GAME_WIDTH - 50), random.nextInt(GAME_HEIGHT - 50), 40,40), colors[i]));
-            balls.add(new Ball(new Rectangle(random.nextInt(GAME_WIDTH - 50), random.nextInt(GAME_HEIGHT - 50), 40,40), colors[i]));
+            balls.add(new Ball(new Rectangle(random.nextInt(GAME_WIDTH - 50), random.nextInt(GAME_HEIGHT - 50), 40, 40), color));
+            balls.add(new Ball(new Rectangle(random.nextInt(GAME_WIDTH - 50), random.nextInt(GAME_HEIGHT - 50), 40, 40), color));
         }
     }
 

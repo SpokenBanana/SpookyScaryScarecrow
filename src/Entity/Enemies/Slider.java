@@ -46,9 +46,10 @@ public class Slider extends Enemy{
                     // it stops because he kind of bumped, into the player, so there's a little pause for that
                     time = 30;
                     player.hit(5);
+                    currentDirection = Direction.Standing;
                     sprites.setCurrent("waiting");
                 }
-                super.update();
+
             }
             else
                 time--;
@@ -57,13 +58,20 @@ public class Slider extends Enemy{
             if (startingLocation.distance(position.getLocation()) >= 10 * MOVE_DISTANCE){
                 sprites.setCurrent("waiting");
                 timeUntilRespawn = random.nextInt(50) + 60;
+                currentDirection = Direction.Standing;
                 respawned = false;
             }
         }
         else
             timeUntilRespawn--;
+        super.update();
     }
 
+    @Override
+    public void hit(int damage) {
+        super.hit(damage);
+        time += 10;
+    }
     @Override
     public void draw(Graphics2D g) {
         if (timeUntilRespawn <= 0 && respawned)

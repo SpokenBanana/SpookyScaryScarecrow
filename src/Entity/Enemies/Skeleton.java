@@ -62,6 +62,32 @@ public class Skeleton extends Enemy {
     }
 
     @Override
+    public void hit(int damage) {
+        super.hit(damage);
+        // the enemy gets a little stunned after being hit
+        attackDelayTimer += 10;
+
+        // take a step back
+        undoWalking();
+
+        // they get knocked back 2 step
+        switch (facingDirection) {
+            case Down:
+                targetPosition.y -= MOVE_DISTANCE * 2;
+                break;
+            case Left:
+                targetPosition.x += MOVE_DISTANCE * 2;
+                break;
+            case Up:
+                targetPosition.y += MOVE_DISTANCE * 2;
+                break;
+            case Right:
+                targetPosition.x -= MOVE_DISTANCE * 2;
+                break;
+        }
+    }
+
+    @Override
     protected void attack(Player player) {
         // set sprite to attacking
         player.hit(8);

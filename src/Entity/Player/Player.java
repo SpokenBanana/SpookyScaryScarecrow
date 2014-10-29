@@ -2,6 +2,7 @@ package Entity.Player;
 
 import AssetManagers.Animation;
 import AssetManagers.SoundManager;
+import Entity.Enemies.Enemy;
 import Entity.Entity;
 import Handlers.KeyInput;
 
@@ -33,11 +34,19 @@ public class Player extends Entity {
         oldPosition = new Point(position.x, position.y);
         targetPosition = new Point(position.x, position.y);
         velocity = 10;
+        // adding standing sprites
         sprites.addSprite("rightStanding", "Player/rightstanding.png", true);
         sprites.addSprite("leftStanding", "Player/leftstanding.png");
         sprites.addSprite("upStanding", "Player/upstanding.png");
         sprites.addSprite("downStanding", "Player/downstanding.png");
 
+        // adding punching sprites
+        sprites.addSprite("downPunching", "Player/downPunching.png");
+        sprites.addSprite("upPunching", "Player/upPunching.png");
+        sprites.addSprite("leftPunching", "Player/leftPunching.png");
+        sprites.addSprite("rightPunching", "Player/rightPunching.png");
+
+        // adding walking animations
         sprites.addAnimation("leftWalking", new Animation("Player/leftWalking.png", 3, 200));
         sprites.addAnimation("rightWalking", new Animation("Player/rightWalking.png", 3, 200));
         sprites.addAnimation("upWalking", new Animation("Player/upWalking.png", 3, 200));
@@ -64,6 +73,10 @@ public class Player extends Entity {
             facingDirection = currentDirection = Direction.Up;
             sprites.setCurrent("upWalking");
         }
+        else if (keyInput.isHeld(KeyEvent.VK_SPACE))
+        {
+            setPunchingSprites();
+        }
         else {
             currentDirection = Direction.Standing;
             switch (facingDirection) {
@@ -82,6 +95,34 @@ public class Player extends Entity {
             }
         }
         super.update();
+    }
+
+    /**
+     * This will do all the logic that goes with punching such as changing the sprite and dealing damage to the
+     * enemy
+     */
+    public void punch(Enemy enemy) {
+        enemy.hit(10);
+    }
+
+    /**
+     * Sets the punching sprites for the player
+     */
+    protected void setPunchingSprites() {
+        switch (facingDirection) {
+            case Left:
+                sprites.setCurrent("leftPunching");
+                break;
+            case Right:
+                sprites.setCurrent("rightPunching");
+                break;
+            case Up:
+                sprites.setCurrent("upPunching");
+                break;
+            case Down:
+                sprites.setCurrent("downPunching");
+                break;
+        }
     }
 
     /**

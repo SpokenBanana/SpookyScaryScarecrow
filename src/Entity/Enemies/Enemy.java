@@ -17,11 +17,20 @@ public abstract class Enemy extends Entity {
     // spawn an enemy without any default location
     public Enemy(Point spawn) {
         super();
+        health = 40;
         oldPosition = new Point(spawn.x, spawn.y);
         targetPosition = new Point(oldPosition.x, oldPosition.y);
     }
     public abstract void update(Player player);
 
+    @Override
+    public void hit(int damage) {
+        if (!hurt)
+            health -= damage;
+        hurt = true;
+        // reduce the time to recover for enemies to make the game a little easier
+        hurtTime = 20;
+    }
     /**
         Every enemy will also have some way of attacking the player so we want to enforce that.
      */

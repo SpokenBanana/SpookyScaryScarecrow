@@ -44,6 +44,11 @@ public class MapLevel extends GameState {
 
     @Override
     public void update() {
+        if (keyInput.isPressed(KeyEvent.VK_SPACE)) {
+            for (Enemy enemy : enemies)
+                if (enemy.getPosition().intersects(player.getFacingBlock()))
+                    player.punch(enemy);
+        }
         for (EventState eventState : eventStates) {
             if (keyInput.isPressed(KeyEvent.VK_F) && player.getFacingBlock().intersects(eventState.eventArea)) {
                 eventState.activate(parentManager, this, player);
@@ -54,6 +59,8 @@ public class MapLevel extends GameState {
         player.update();
 
         enemies.forEach(enemy -> enemy.update(player));
+        // remove any any which is dead
+        enemies.removeIf(enemy -> enemy.getHealth() <= 0);
     }
 
     @Override

@@ -16,6 +16,7 @@ public abstract class Entity {
     protected Point oldPosition, targetPosition;
     protected int velocity, health;
     protected final int MOVE_DISTANCE = 16;
+    protected int hurtTime = 0;
 
     // every entity needs to know where he can and cannot move across, blocks represents places they collide with.
     protected ArrayList<Block> blocks;
@@ -45,13 +46,21 @@ public abstract class Entity {
         position = new Rectangle();
         oldPosition = new Point();
         velocity = 5;
+        health = 100;
         targetPosition = new Point();
     }
     public void update() {
+        if (hurtTime <= 0)
+            hurt = false;
+        else if (hurt)
+            hurtTime--;
         updateMovement();
     }
     public void draw(Graphics2D g) {
-        sprites.draw(g, position);
+        if (hurt && hurtTime % 5 == 0)
+            sprites.draw(g, position, Color.red);
+        else
+            sprites.draw(g, position);
     }
     public void updateMovement() {
         // in lerp() we use 1 / (MOVE_DISTANCE - velocity) making 1 the number that we reach when we want to stop
@@ -73,7 +82,11 @@ public abstract class Entity {
         Invoke a "hit" on the player and lowers his health
      */
     public void hit(int damage) {
-        health -= damage;
+        // this allows the entity time to recover or run away without being barraged by attacks
+        if (!hurt)
+            health -= damage;
+        hurt = true;
+        hurtTime = 150;
     }
     /*
         heals the player by the amount given

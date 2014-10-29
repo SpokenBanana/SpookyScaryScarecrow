@@ -39,7 +39,7 @@ public class SpriteManager {
         if (sprites.containsKey(current))
             g.drawImage(sprites.get(current), bounds.x, bounds.y, bounds.width, bounds.height, color, null);
         else if (animations.containsKey(current))
-            animations.get(current).draw(g, bounds);
+            animations.get(current).draw(g, bounds, color);
     }
     public void setCurrent(String key) {
         current = key;

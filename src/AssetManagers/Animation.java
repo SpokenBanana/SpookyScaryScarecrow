@@ -41,4 +41,16 @@ public class Animation {
         g.drawImage(animationImage, bounds.x, bounds.y, bounds.x + bounds.width, bounds.y + bounds.height,
                 sourceRectangle.x, sourceRectangle.y, sourceRectangle.x + sourceRectangle.width, sourceRectangle.y + sourceRectangle.height, null);
     }
+
+    /**
+     * This draws the animation with some color in the background
+     * @param g
+     * @param bounds
+     * @param color
+     */
+    public void draw(Graphics2D g, Rectangle bounds, Color color) {
+        moveFrame();
+        g.drawImage(animationImage, bounds.x, bounds.y, bounds.x + bounds.width, bounds.y + bounds.height,
+                sourceRectangle.x, sourceRectangle.y, sourceRectangle.x + sourceRectangle.width, sourceRectangle.y + sourceRectangle.height,color, null);
+    }
 }
