@@ -57,6 +57,7 @@ public class ArcadeMachine extends EventState {
 
     @Override
     public void activate(GameStateManager manager, GameState gameState, Player player) {
+        gameState.soundManager.pauseCurrentSound();
         switch (id) {
             case 0:
                 manager.addGame(new SnakeGame(manager, gameState.keyInput, gameState.mouseInput));

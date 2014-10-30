@@ -1,5 +1,6 @@
 package GameStates.ArcadeGames;
 
+import AssetManagers.SoundManager;
 import GameStates.GameState;
 import GameStates.GameStateManager;
 import Handlers.KeyInput;
@@ -14,6 +15,11 @@ public abstract class ArcadeGame extends GameState {
     public ArcadeGame(GameStateManager manager, KeyInput keys, MouseInput mouse) {
         super(manager, keys, mouse);
         state = State.Menu;
+        soundManager = new SoundManager();
+    }
+    @Override
+    public void leave() {
+        soundManager.stopCurrentSound();
     }
 
 }

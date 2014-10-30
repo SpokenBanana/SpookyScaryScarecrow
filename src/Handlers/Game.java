@@ -1,6 +1,6 @@
 package Handlers;
 
-import GameStates.*;
+import GameStates.GameStateManager;
 import GameStates.Menu;
 
 import javax.swing.*;
@@ -15,6 +15,9 @@ public class Game extends JPanel{
     GameStateManager gameStateManager;
     KeyInput keys;
     MouseInput mouseInput;
+
+    // some soundManager are universal, like background music, and so big that it would take too long to
+    // keep loading over and over again, those are stored here for anyone to play.
 
     public Game(KeyInput keyInput) {
         keys = keyInput;
@@ -49,5 +52,12 @@ public class Game extends JPanel{
         g2.setColor(Color.black);
         g2.fillRect(0,0, getWidth(), getHeight());
         gameStateManager.draw(g2);
+    }
+
+    /**
+     * Most game music files are really big, so loading them each time we want to use them is not ideal, we keep
+     * a static collection of those soundManager here, ready for any game state to access and play them
+     */
+    private void loadGameMusic() {
     }
 }

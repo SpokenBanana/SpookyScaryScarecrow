@@ -43,6 +43,9 @@ public class BreakoutGame extends ArcadeGame {
         ballxVel = ballyVel = 4;
         player = new Rectangle(300,550,100,20);
         resetGame();
+        soundManager.addSound("menu_music", "Music/arcade_menu.wav");
+        soundManager.addSound("music", "Music/breakout_theme.wav");
+        soundManager.playSound("menu_music", true);
     }
 
     @Override
@@ -52,6 +55,8 @@ public class BreakoutGame extends ArcadeGame {
             case Menu:
                 if (keyInput.isPressed(KeyEvent.VK_ENTER)){
                     state = State.Playing;
+                    soundManager.stopCurrentSound();
+                    soundManager.playSound("music");
                     resetGame();
                 }
                 else if (keyInput.isPressed(KeyEvent.VK_Q))
@@ -72,8 +77,11 @@ public class BreakoutGame extends ArcadeGame {
                 checkBallAndBrickCollision();
                 if (ball.y > GAME_HEIGHT)
                     repositionGame();
-                if (lives == 0 || bricks.size() == 0)
+                if (lives == 0 || bricks.size() == 0) {
+                    soundManager.stopCurrentSound();
+                    soundManager.playSound("menu_music", true);
                     state = State.GameOver;
+                }
                 break;
             case Pause:
                 if (keyInput.isPressed(KeyEvent.VK_ENTER))
@@ -128,9 +136,9 @@ public class BreakoutGame extends ArcadeGame {
         // the amount of colors we have will be amount of rows we have
         bricks = new ArrayList<Brick>();
         int x = BRICK_SPACING, y = BRICK_SPACING;
-        for (int i = 0; i < rowColors.length; i++) {
+        for (Color rowColor : rowColors) {
             for (int j = 0; j < 10; j++) {
-                bricks.add(new Brick(new Rectangle(x, y, BRICK_WIDTH, BRICK_HEIGHT), rowColors[i]));
+                bricks.add(new Brick(new Rectangle(x, y, BRICK_WIDTH, BRICK_HEIGHT), rowColor));
                 x += BRICK_SPACING + BRICK_WIDTH;
             }
             x = BRICK_SPACING;

@@ -30,6 +30,11 @@ public class MouseFritzGame extends ArcadeGame{
         // there will be 10 rounds and then the game ends
         rounds = 10;
         player = new Cursor(new Rectangle(300,300,20,20));
+
+        soundManager.addSound("menu_music", "Music/arcade_menu.wav");
+        soundManager.addSound("music", "Music/mouseFritz_theme.wav");
+        soundManager.playSound("menu_music", true);
+
         initializeBalls();
         timeUntilFritz = 200;
         scorePenaltyDelay = 100;
@@ -45,6 +50,8 @@ public class MouseFritzGame extends ArcadeGame{
                     score = 0;
                     rounds = 10;
                     state = State.Playing;
+                    soundManager.stopCurrentSound();
+                    soundManager.playSound("music", true);
                 }
                 if (keyInput.isPressed(KeyEvent.VK_Q))
                     parentManager.deleteCurrentGame();
@@ -73,8 +80,11 @@ public class MouseFritzGame extends ArcadeGame{
                     if (timeUntilFritz <= -400){
                         balls.forEach(ball -> ball.onTheFritz = false);
                         rounds--;
-                        if (rounds == 0)
+                        if (rounds == 0){
                             state = State.GameOver;
+                            soundManager.stopCurrentSound();
+                            soundManager.playSound("menu_music", true);
+                        }
                         timeUntilFritz = 400;
                     }
 

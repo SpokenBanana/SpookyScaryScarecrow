@@ -87,6 +87,15 @@ public class Map {
         }
         return null;
     }
+
+    /**
+     * returns the object at the defined key
+     * @param key they key to the object
+     * @return the object that corresponds to key
+     */
+    public Object get(String key) {
+        return mapData.get(key);
+    }
     /**
         This will read the Map object and take all the data from each tile layer and
         parse it so that we get the information we need (the tile id's) in the format we want (ArrayList<int[][]>).

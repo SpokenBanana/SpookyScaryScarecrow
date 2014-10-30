@@ -53,6 +53,9 @@ public class SnakeGame extends ArcadeGame {
         super(manager, keys, mouse);
         keyInput = keys;
         parentManager = manager;
+        soundManager.addSound("menu_music", "Music/arcade_menu.wav");
+        soundManager.addSound("snake_music", "Music/snake_theme.wav");
+        soundManager.playSound("menu_music", true);
         food = new Point(random.nextInt(WIDTH - CELL_SIZE),random.nextInt(HEIGHT - CELL_SIZE));
         setUpSnake();
         try {
@@ -178,8 +181,11 @@ public class SnakeGame extends ArcadeGame {
         // since it's a small game, we don't need to make a class for each state, just run different logic
         switch (state) {
             case Menu:
-                if (keyInput.isPressed(KeyEvent.VK_SPACE))
+                if (keyInput.isPressed(KeyEvent.VK_SPACE)){
+                    soundManager.stopCurrentSound();
+                    soundManager.playSound("snake_music");
                     state = State.Playing;
+                }
                 else if (keyInput.isPressed(KeyEvent.VK_Q))
                     parentManager.deleteCurrentGame();
                 break;
@@ -212,13 +218,18 @@ public class SnakeGame extends ArcadeGame {
                 }
                 else
                     delay--;
-                if (checkIfSnakeDied())
+                if (checkIfSnakeDied()){
+                    soundManager.stopCurrentSound();
+                    soundManager.playSound("menu_music");
                     state = State.GameOver;
+                }
                 checkIfSnakeAteFood();
                 break;
             case GameOver:
                 if (keyInput.isPressed(KeyEvent.VK_SPACE)){
                     setUpSnake();
+                    soundManager.stopCurrentSound();
+                    soundManager.playSound("snake_music");
                     score = 0;
                     state = State.Playing;
                 }

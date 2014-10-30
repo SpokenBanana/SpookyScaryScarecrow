@@ -24,6 +24,10 @@ public class PongGame extends ArcadeGame {
         super(manager, keys, mouse);
         playerPaddle = new Rectangle(50, 250, 10,100);
         computerPaddle = new Rectangle(508, 250, 10,100);
+        soundManager.addSound("pong_music", "Music/pong_theme.wav");
+        soundManager.addSound("menu_music", "Music/arcade_menu.wav");
+        soundManager.playSound("menu_music", true);
+
         ballyVel = 4;
         ballxVel = 4;
         random = new Random();
@@ -49,6 +53,8 @@ public class PongGame extends ArcadeGame {
                 if (keyInput.isPressed(KeyEvent.VK_SPACE) || keyInput.isPressed(KeyEvent.VK_ENTER)){
                     state = State.Playing;
                     computerScore = playerScore = 0;
+                    soundManager.stopCurrentSound();
+                    soundManager.playSound("pong_music", true);
                 }
                 if (keyInput.isPressed(KeyEvent.VK_Q))
                     parentManager.deleteCurrentGame();
@@ -74,8 +80,11 @@ public class PongGame extends ArcadeGame {
                 checkIfBallOutOfBounds();
                 updateComputerAI();
 
-                if (playerScore == 5 || computerScore == 5)
+                if (playerScore == 5 || computerScore == 5){
+                    soundManager.stopCurrentSound();
+                    soundManager.playSound("menu_music", true);
                     state = State.GameOver;
+                }
 
                 break;
         }

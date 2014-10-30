@@ -40,7 +40,7 @@ public abstract class Entity {
     // the class will just initialize values to prevent null pointer exceptions
     public Entity() {
         sprites = new SpriteManager();
-        blocks = new ArrayList<Block>();
+        blocks = new ArrayList<>();
         currentDirection = Direction.Standing;
         facingDirection = Direction.Down;
         position = new Rectangle();
@@ -50,13 +50,16 @@ public abstract class Entity {
         targetPosition = new Point();
     }
     public void update() {
+        // after a while the entity stops getting invincibility and becomes vulnerable again
         if (hurtTime <= 0)
             hurt = false;
         else if (hurt)
             hurtTime--;
+
         updateMovement();
     }
     public void draw(Graphics2D g) {
+        // this is so the entity blinks red when it is hurt
         if (hurt && hurtTime % 5 == 0)
             sprites.draw(g, position, Color.red);
         else
@@ -78,7 +81,7 @@ public abstract class Entity {
     public int getHealth(){
         return health;
     }
-    /*
+    /**
         Invoke a "hit" on the player and lowers his health
      */
     public void hit(int damage) {
@@ -88,14 +91,14 @@ public abstract class Entity {
         hurt = true;
         hurtTime = 150;
     }
-    /*
+    /**
         heals the player by the amount given
      */
     public void recover(int amount) {
         health += amount;
     }
 
-    /*
+    /**
         This teleports the player to a point. This method helps to make sure there is
         consistency with oldposition and target position
      */

@@ -25,6 +25,9 @@ public class GameStateManager {
         in sort of a "pause" while this screen will be displayed. This will be useful for "pause" screens.
      */
     public void addGame(GameState game) {
+        if (!gameStates.empty())
+            gameStates.peek().leave();
+        game.enter();
         gameStates.push(game);
     }
     /**
@@ -32,7 +35,8 @@ public class GameStateManager {
         passed in game as the current screen.
      */
     public void setGame(GameState game) {
-        if (!gameStates.empty()) gameStates.pop();
+        if (!gameStates.empty()) gameStates.pop().leave();
+        game.enter();
         gameStates.push(game);
     }
     /**
@@ -42,6 +46,9 @@ public class GameStateManager {
      */
     public void deleteCurrentGame() {
         if (!gameStates.empty())
-            gameStates.pop();
+            gameStates.pop().leave();
+
+        if (!gameStates.empty())
+            gameStates.peek().enter();
     }
 }

@@ -23,6 +23,8 @@ public class Menu extends GameState {
         soundManager = new SoundManager();
         soundManager.addSound("confirm", "confirm.wav");
         soundManager.addSound("hover", "hover.wav");
+        soundManager.addSound("music", "Music/menu.wav");
+        soundManager.playSound("music", true);
         start = new Button(new Rectangle(250,200,200,40), "Start Game!");
     }
 
@@ -40,6 +42,7 @@ public class Menu extends GameState {
 
         if (mouseInput.didMouseClickOn(start)){
             soundManager.playSound("confirm");
+            soundManager.stopSound("music");
             parentManager.setGame(new MapLevel(parentManager, keyInput, mouseInput));
         }
     }

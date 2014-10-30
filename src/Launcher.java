@@ -9,7 +9,7 @@ import javax.swing.*;
  */
 public class Launcher extends JFrame {
     public static void main(String[] args) {
-        new Launcher();
+        Launcher launcher = new Launcher();
     }
     public Launcher() {
         // mostly boiler plate code to get a JFrame up and running

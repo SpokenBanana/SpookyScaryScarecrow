@@ -225,7 +225,7 @@
  "orientation":"orthogonal",
  "properties":
     {
-
+     "music":"town_music"
     },
  "tileheight":32,
  "tilesets":[

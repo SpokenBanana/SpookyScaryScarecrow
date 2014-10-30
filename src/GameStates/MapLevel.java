@@ -29,15 +29,16 @@ public class MapLevel extends GameState {
     protected ArrayList<Enemy> enemies;
     protected ArrayList<Block> blocks;
     protected ArrayList<EventState> eventStates;
-    protected SoundManager sounds;
+    private String currentMusic;
 
     public MapLevel(GameStateManager manager, KeyInput keys, MouseInput mouse) {
         super(manager, keys, mouse);
-        sounds = new SoundManager();
+        soundManager = new SoundManager();
         blocks = new ArrayList<>();
-        sounds.addSound("confirm", "confirm.wav");
+        soundManager.addSound("confirm", "confirm.wav");
+        soundManager.addSound("town_music", "Music/town_theme.wav");
+        soundManager.addSound("arcade_music", "Music/arcade.wav");
         player = new Player(keys);
-
         setLevel("arcade.json");
         playerHUD = new PlayerHUD(player);
     }
@@ -78,10 +79,25 @@ public class MapLevel extends GameState {
         playerHUD.draw(g, player);
     }
 
+    @Override
+    public void enter() {
+        if (currentMusic != null)
+            soundManager.resumeSound(currentMusic, true);
+    }
+    @Override
+    public void leave() {
+    }
+
     public void setLevel(String level) {
         map = new Map(level);
-        eventStates = new ArrayList<EventState>();
+        eventStates = new ArrayList<>();
         blocks.clear();
+        String music = getMusic();
+        if (music != null && !music.equals(currentMusic)) {
+            soundManager.stopCurrentSound();
+            currentMusic = music;
+            soundManager.playSound(music, true);
+        }
         extractBlocks();
         extractEnemies();
         extractNPC();
@@ -92,6 +108,16 @@ public class MapLevel extends GameState {
 
         player.setBlocks(blocks);
     }
+    protected String getMusic() {
+        String file = null;
+        try {
+            JSONObject properties = (JSONObject) map.get("properties");
+            file = properties.get("music").toString();
+        } catch (Exception e) {
+        }
+        return file;
+    }
+
     protected void extractWarps() {
         JSONObject warpObject = map.getObject("warps");
         if (warpObject == null)
@@ -107,7 +133,7 @@ public class MapLevel extends GameState {
         JSONObject wallObjects = map.getObject("walls");
         if (wallObjects == null)
             return;
-        blocks = new ArrayList<Block>();
+        blocks = new ArrayList<>();
 
         // objects contain an array of objects defined under the "objects" property.
         JSONArray wallArray = (JSONArray) wallObjects.get("objects");
@@ -146,7 +172,7 @@ public class MapLevel extends GameState {
         return new Rectangle(x, y, width, height);
     }
     protected void extractSpeech(){
-        JSONObject speechObject = (JSONObject) map.getObject("speech");
+        JSONObject speechObject = map.getObject("speech");
         if (speechObject == null)
             return;
 
@@ -158,7 +184,7 @@ public class MapLevel extends GameState {
         }
     }
     protected void extractNPC() {
-        JSONObject npcObject = (JSONObject) map.getObject("npc");
+        JSONObject npcObject = map.getObject("npc");
         if (npcObject == null) return;
         JSONArray npcArray = (JSONArray) npcObject.get("objects");
         for (Object npc : npcArray) {

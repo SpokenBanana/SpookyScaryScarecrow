@@ -130,7 +130,7 @@ public class Player extends Entity {
      * realistic movement sound
      */
     protected void playFootStepSound(){
-        // sound delay is necessary because otherwise the sounds will just over lap
+        // sound delay is necessary because otherwise the soundManager will just over lap
         if (soundDelay <= 0){
             // we want to play a random one because then it will make a realistic sounding movement.
             soundManager.playSound("footStep" + (new Random().nextInt(3) + 1));

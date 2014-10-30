@@ -275,7 +275,7 @@
  "orientation":"orthogonal",
  "properties":
     {
-
+     "music":"arcade_music"
     },
  "tileheight":32,
  "tilesets":[

@@ -47,7 +47,6 @@ public class Card extends Rectangle {
         g.setColor(Color.black);
         g.setFont(new Font("Droid Sans", Font.BOLD, 15));
         String value = representation.substring(0, representation.length()-1);
-        String suit = representation.substring(representation.length()-1);
         if (value.equals("11"))
             g.drawString("A", x + 20, y + 20);
         else

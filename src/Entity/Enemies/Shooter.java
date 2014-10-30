@@ -14,16 +14,16 @@ import java.util.Random;
  */
 
 public class Shooter extends Enemy {
-    int shootingTimeDelay;
-
+    private int shootingTimeDelay;
+    private boolean hiding;
     public Shooter(Point spawn) {
         super(spawn);
         bullets = new ArrayList<Bullet>();
         sprites.addSprite("shooting", "Enemies/Shooter/shooter.png", true);
         sprites.addSprite("hiding", "Enemies/Shooter/hidingShooter.png");
         position = new Rectangle(spawn.x, spawn.y, 32,32);
-        shootingTimeDelay = 0;
         shootingTimeDelay = new Random().nextInt(100);
+        hiding = false;
     }
 
     @Override
@@ -31,6 +31,7 @@ public class Shooter extends Enemy {
         Rectangle playerLocation = player.getPosition();
         if (position.getLocation().distance(playerLocation.getLocation()) < 10 * MOVE_DISTANCE) {
             // hide
+            hiding = true;
             sprites.setCurrent("hiding");
         }
         else {
@@ -57,6 +58,12 @@ public class Shooter extends Enemy {
     public void draw(Graphics2D g) {
         bullets.forEach(bullet -> bullet.draw(g));
         super.draw(g);
+    }
+    @Override
+    public void hit(int damage) {
+        // the player cannot hit this enemy when it is hiding
+        if (!hiding)
+            super.hit(damage);
     }
     @Override
     protected void attack(Player player) {

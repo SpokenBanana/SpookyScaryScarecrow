@@ -8,15 +8,12 @@ import java.io.File;
 import java.util.HashMap;
 
 /**
-    This will control the sounds played in the game. We can store sounds we want and play them using the
+    This will control the soundManager played in the game. We can store soundManager we want and play them using the
     methods defined here.
  */
 public class SoundManager {
 
-    // I don't want to keep writing it so we have set up here
-    private String path = "Assets/Sounds/";
-
-    // we store each sound with a key, so we can do things like sounds.get("steps").start(); Very simple and easy to manage
+    // we store each sound with a key, so we can do things like soundManager.get("steps").start(); Very simple and easy to manage
     private HashMap<String, Clip> sounds;
 
     public SoundManager() {
@@ -28,6 +25,7 @@ public class SoundManager {
      */
     public void addSound(String key, String fileName) {
         try {
+            String path = "Assets/Sounds/";
             AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File(path + fileName));
             Clip clip = AudioSystem.getClip();
             clip.open(inputStream);
@@ -35,6 +33,26 @@ public class SoundManager {
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println(fileName + " failed to load.");
+        }
+    }
+
+    /**
+     * Will go through our collection of soundManager and stop all soundManager that are playing
+     */
+    public void stopCurrentSound() {
+        for (String key : sounds.keySet()) {
+            if (sounds.get(key).isRunning())
+                stopSound(key);
+        }
+    }
+
+    /**
+     * Will go through the collection and pause all currently playing sounds
+     */
+    public void pauseCurrentSound() {
+        for (String key : sounds.keySet()) {
+            if (sounds.get(key).isRunning())
+                pauseSound(key);
         }
     }
     /**
@@ -51,9 +69,19 @@ public class SoundManager {
         stopSound(key);
         sounds.get(key).start();
     }
+    /**
+        This method will play the desired sound and loop it.
+     */
+    public void playSound(String key, boolean loop) {
+        stopSound(key);
+        if (loop)
+            sounds.get(key).loop(Clip.LOOP_CONTINUOUSLY);
+        else
+            sounds.get(key).start();
+    }
 
     /**
-     * Will change the volume of the sounds specified
+     * Will change the volume of the soundManager specified
      * @param key
      * @param amount
      */
@@ -65,11 +93,43 @@ public class SoundManager {
         This stops the playing audio.
         If we accidentally order a clip to play when it is already playing, we simply just stop the clip.
      */
-    private void stopSound(String key) {
-        if (sounds.get(key).isRunning())
+    public void stopSound(String key) {
+        if (sounds.get(key).isRunning()){
             sounds.get(key).stop();
-
+        }
         // like when reading a file, the cursor is left at the end, we have to move it to the front again
         sounds.get(key).setFramePosition(0);
+
+    }
+
+    /**
+     * This resumes a paused sound
+     */
+    public void resumeSound(String key) {
+        sounds.get(key).start();
+    }
+
+    /**
+     * This will resume a sound and loop it
+     * @param key
+     * @param loop
+     */
+    public void resumeSound(String key, boolean loop) {
+        // already playing, no need to resume
+        if (sounds.get(key).isRunning())
+            return;
+        if (loop)
+            sounds.get(key).loop(Clip.LOOP_CONTINUOUSLY);
+        else
+            resumeSound(key);
+    }
+
+    /**
+     * This will stop the sound right where it is at, once play() is called again, it will resume from when you stopped
+     * it
+     */
+    public void pauseSound(String key) {
+        if (sounds.get(key).isRunning())
+            sounds.get(key).stop();
     }
 }
