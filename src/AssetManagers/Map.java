@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class Map {
     private ArrayList<int[][]> layers;
     private JSONObject mapData;
-    private final int TILE_SIZE = 32, SOURCE_TILE_SIZE = 32, TILE_ROWS = 23, TILE_COLUMNS = 21;
+    private final int TILE_SIZE = 32, SOURCE_TILE_SIZE = 32, TILE_COLUMNS = 21;
 
 
     // to simply things, we will use only one tilesheet (21x23)
@@ -27,7 +27,7 @@ public class Map {
 
     // the maps have an object group names "enemies" that are named by a number, the number represents an enemy and each
     // number tells the map which monster to spawn there.
-    public static final int SHOOTER_ID = 0, GHOST_ID = 1, SKELETON_ID = 2, SLIDER_ID = 3;
+    public static final short SHOOTER_ID = 0, GHOST_ID = 1, SKELETON_ID = 2, SLIDER_ID = 3, MINION_ID = 4;
 
     public Map(String filename) {
         layers = new ArrayList<int[][]>();

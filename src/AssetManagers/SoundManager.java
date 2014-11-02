@@ -25,8 +25,7 @@ public class SoundManager {
      */
     public void addSound(String key, String fileName) {
         try {
-            String path = "Assets/Sounds/";
-            AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File(path + fileName));
+            AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File("Assets/Sounds/" + fileName));
             Clip clip = AudioSystem.getClip();
             clip.open(inputStream);
             sounds.put(key, clip);
@@ -131,5 +130,14 @@ public class SoundManager {
     public void pauseSound(String key) {
         if (sounds.get(key).isRunning())
             sounds.get(key).stop();
+    }
+
+    /**
+     * Deletes the sound associated with sound
+     * @param key the key to sound to delete
+     */
+    public void deleteSound(String key) {
+        stopSound(key);
+        sounds.remove(key);
     }
 }

@@ -30,7 +30,7 @@ public class BreakoutGame extends ArcadeGame {
     // a color for each row!
     private Color[] rowColors = {Color.red, Color.white, Color.orange, Color.cyan, Color.green, Color.pink,
                                  Color.yellow};
-    private final int BRICK_WIDTH = 55, BRICK_HEIGHT = 25, BRICK_SPACING = 5;
+    private final short BRICK_WIDTH = 55, BRICK_HEIGHT = 25, BRICK_SPACING = 5;
     private boolean gameRestart;
     private Rectangle player, ball;
     private int ballxVel, ballyVel, score, lives;

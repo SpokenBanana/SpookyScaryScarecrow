@@ -90,10 +90,9 @@ public class SnakeGame extends ArcadeGame {
         // the difference in the positions can tell us where to place the next node!
         int diffx = copy.data.x - oldx;
         int diffy = copy.data.y - oldy;
-        Node toAdd = new Node(new Point(copy.data.x + diffx, copy.data.y + diffy), color);
 
         // now append the node to add at the end of the snake!
-        copy.next = toAdd;
+        copy.next = new Node(new Point(copy.data.x + diffx, copy.data.y + diffy), color);
     }
         // we are using the head to check for collision, so when traveling through it, we skip it
     private boolean checkIfSnakeDied() {

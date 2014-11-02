@@ -42,7 +42,8 @@ public class Menu extends GameState {
 
         if (mouseInput.didMouseClickOn(start)){
             soundManager.playSound("confirm");
-            soundManager.stopSound("music");
+            soundManager.deleteSound("music");
+            soundManager.deleteSound("hover");
             parentManager.setGame(new MapLevel(parentManager, keyInput, mouseInput));
         }
     }

@@ -203,6 +203,19 @@
                  "width":544,
                  "x":32,
                  "y":608
+                }, 
+                {
+                 "height":32,
+                 "name":"cave_intro.json",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "visible":true,
+                 "width":96,
+                 "x":288,
+                 "y":-32
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -225,7 +238,7 @@
  "orientation":"orthogonal",
  "properties":
     {
-     "music":"town_music"
+     "music":"Music\/town_theme.wav"
     },
  "tileheight":32,
  "tilesets":[

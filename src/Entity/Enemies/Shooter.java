@@ -73,7 +73,7 @@ public class Shooter extends Enemy {
     /**
      * Goes and deletes all bullets that we longer need to keep track of such as ones that went off the screen
      * and ones that hit the player
-     * @param player
+     * @param player the player in the game
      */
     protected void filterFinishedBullets(Player player) {
         Rectangle playerPosition = player.getPosition();

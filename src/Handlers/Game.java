@@ -54,10 +54,4 @@ public class Game extends JPanel{
         gameStateManager.draw(g2);
     }
 
-    /**
-     * Most game music files are really big, so loading them each time we want to use them is not ideal, we keep
-     * a static collection of those soundManager here, ready for any game state to access and play them
-     */
-    private void loadGameMusic() {
-    }
 }
