@@ -1,5 +1,8 @@
 package Entity.Player;
 
+import Entity.Items.Item;
+import Handlers.MouseInput;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -28,7 +31,21 @@ public class PlayerHUD {
         }
     }
 
+    public void update(Player player, MouseInput mouseInput) {
+        for (Item item : player.getItems()) {
+            if (item == null)
+                continue;
+            if (mouseInput.didMouseClickOn(item.bounds))
+                // if the player clicked on an item that is already equipped, then we assume he is un-equipping it
+                if (player.getCurrentItem() == item.id)
+                    player.setCurrentItem((short)-1);
+                else
+                    player.setCurrentItem((short) item.id);
+        }
+    }
+
     public void draw(Graphics2D g, Player player) {
+        g.setFont(new Font("Droid Sans", Font.PLAIN, 15));
         float healthPercentageLeft = player.getHealth() / (float) startingHealth;
         Color healthBarColor = Color.green;
         if (healthPercentageLeft < 0.3)
@@ -38,5 +55,26 @@ public class PlayerHUD {
 
         g.drawImage(bar, 608, 50, (int) (healthBar.getWidth() * healthPercentageLeft), healthBar.getHeight(), healthBarColor, null);
         g.drawImage(healthBar, 608, 50, null);
+
+        g.setColor(Color.white);
+        g.drawString("Inventory", 620,100);
+        int x = 620, y = 120;
+        for (Item item : player.getItems()) {
+            if (item == null){
+                g.setColor(new Color(30,30,30));
+                g.fillRect(x, y, 32, 32);
+                g.setColor(Color.black);
+                g.drawRect(x, y, 32, 32);
+                y += 32;
+            }
+            else{
+                g.setColor(player.getCurrentItem() == item.id ? Color.green : Color.gray);
+                g.fill(item.bounds);
+                item.draw(g, x, y);
+                g.setColor(Color.white);
+                g.drawString(Integer.toString(item.amount), x + 20, y + 27);
+                y += item.bounds.height;
+            }
+        }
     }
 }

@@ -4,6 +4,8 @@ import AssetManagers.Animation;
 import AssetManagers.SoundManager;
 import Entity.Enemies.Enemy;
 import Entity.Entity;
+import Entity.Items.Item;
+import Entity.Items.Sword;
 import Handlers.KeyInput;
 
 import java.awt.*;
@@ -17,13 +19,22 @@ public class Player extends Entity {
     protected KeyInput keyInput;
     protected SoundManager soundManager;
 
+    private Item[] items;
+    private short currentItem;
+
     // we want to wait before we play another sound
     protected int soundDelay;
 
     public Player(KeyInput keys) {
+        items = new Item[Item.ITEM_AMOUNT];
+
+        // -1 means no item currently equipped
+        currentItem = -1;
+
         // we want the player to have his own input handler,
         // to not use too much memory, we will reference the one the game has created
         keyInput = keys;
+
         soundManager = new SoundManager();
         soundManager.addSound("footStep1", "footStep1.wav", -20f);
         soundManager.addSound("footStep2", "footStep2.wav", -20f);
@@ -97,6 +108,25 @@ public class Player extends Entity {
         super.update();
     }
 
+    public void setCurrentItem(short id) {
+        // make sure we are setting a valid id
+        if (id < Item.ITEM_AMOUNT)
+            currentItem = id;
+    }
+    public short getCurrentItem() {
+        return currentItem;
+    }
+
+    /**
+     * adds the item to the player's inventory
+     * @param id id of the item
+     */
+    public void addItem(int id) {
+        if (items[id] == null)
+            items[id] = createItem(id);
+        items[id].add(1);
+    }
+
     /**
      * This will do all the logic that goes with punching such as changing the sprite and dealing damage to the
      * enemy
@@ -139,4 +169,22 @@ public class Player extends Entity {
         else
             soundDelay--;
     }
+
+    /**
+     * Created the item associated with the id and returns it
+     * @param id id of the item
+     * @return the item associated with the id
+     */
+    protected Item createItem(int id) {
+        switch (id) {
+            case 0:
+                return new Sword();
+            default:
+                return null;
+        }
+    }
+    protected Item[] getItems() {
+        return items;
+    }
+
 }

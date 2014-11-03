@@ -39,7 +39,7 @@ public class Game extends JPanel{
             keys.update();
             mouseInput.update();
             try {
-                // This acts like a mini "pause" so we can some of the action.
+                // This acts like a mini "pause" so we can see some of the action.
                 Thread.sleep(1000/60);
             } catch (Exception e) {
                 e.printStackTrace(); //print the error that occurred

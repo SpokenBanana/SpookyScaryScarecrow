@@ -156,6 +156,30 @@
          "width":19,
          "x":0,
          "y":0
+        }, 
+        {
+         "height":19,
+         "name":"items",
+         "objects":[
+                {
+                 "height":32,
+                 "name":"0",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":320,
+                 "y":224
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "width":19,
+         "x":0,
+         "y":0
         }],
  "orientation":"orthogonal",
  "properties":

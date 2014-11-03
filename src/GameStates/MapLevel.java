@@ -5,6 +5,7 @@ import AssetManagers.SoundManager;
 import Entity.ArcadeMachine;
 import Entity.Block;
 import Entity.Enemies.*;
+import Entity.Items.ItemSpawner;
 import Entity.NPC;
 import Entity.Player.Player;
 import Entity.Player.PlayerHUD;
@@ -28,6 +29,7 @@ public class MapLevel extends GameState {
     private PlayerHUD playerHUD;
     private ArrayList<Enemy> enemies;
     private ArrayList<Block> blocks;
+    private ArrayList<ItemSpawner> itemSpawners;
     private ArrayList<EventState> eventStates;
     private String currentMusic;
 
@@ -40,7 +42,7 @@ public class MapLevel extends GameState {
         soundManager.addSound("confirm", "confirm.wav");
 
         player = new Player(keys);
-        setLevel("route2.json");
+        setLevel("level3.json");
         playerHUD = new PlayerHUD(player);
     }
 
@@ -51,6 +53,9 @@ public class MapLevel extends GameState {
             for (Enemy enemy : enemies)
                 if (enemy.getPosition().intersects(player.getFacingBlock()))
                     player.punch(enemy);
+        }
+        else if (keyInput.isPressed(KeyEvent.VK_ENTER)) {
+            parentManager.addGame(new PauseState(parentManager, keyInput, mouseInput));
         }
 
         // event states are triggered by facing the area and pressing the action button [F]
@@ -63,7 +68,19 @@ public class MapLevel extends GameState {
             else if (player.getPosition().intersects(eventState.eventArea))
                 eventState.activate(parentManager, this, player);
         }
+
+        // goes through and checks if the player has hit an item, if so, add it to the players inventory and delete it
+        // from the map
+        itemSpawners.removeIf(item -> {
+            if (item.intersects(player.getPosition())) {
+                player.addItem(item.getId());
+                return true;
+            }
+            return false;
+        });
+
         player.update();
+        playerHUD.update(player, mouseInput);
 
         // update all enemies
         enemies.forEach(enemy -> enemy.update(player));
@@ -82,7 +99,7 @@ public class MapLevel extends GameState {
         eventStates.forEach(event -> event.draw(g));
 
         player.draw(g);
-
+        itemSpawners.forEach(item -> item.draw(g));
         // draw last layer
         map.draw(g, 2);
 
@@ -102,6 +119,7 @@ public class MapLevel extends GameState {
 
         eventStates = new ArrayList<>();
         blocks.clear();
+        itemSpawners = new ArrayList<>();
 
         // some maps specify a song they want to play in the background, we load that song here
         String music = getMusic();
@@ -118,6 +136,7 @@ public class MapLevel extends GameState {
         // get properties we want into the game
         extractBlocks();
         extractEnemies();
+        extractItems();
 
         // we finished getting all enemies, so let the minions know that we are done giving them paths.
         enemies.stream().filter(enemy -> enemy instanceof Minion).forEach(enemy -> ((Minion) enemy).finishAddingPaths());
@@ -146,6 +165,22 @@ public class MapLevel extends GameState {
      * All of these "extract[x]" do relatively the same thing, they go through the map object and check if the map has
      * the property [x], if so, it loads it into the game so it now becomes meaningful.
      */
+    protected void extractItems() {
+        JSONObject itemObject = map.getObject("items");
+        // not all maps have items, if they do not, then stop here
+        if (itemObject == null)
+            return;
+        // get all the objects as an array
+        JSONArray itemArray = (JSONArray) itemObject.get("objects");
+
+        // go through each one and convert it into an ItemSpawner
+        for (Object item: itemArray) {
+            JSONObject itemAsJSON = (JSONObject) item;
+            int id = Integer.parseInt(itemAsJSON.get("name").toString());
+            Rectangle bounds = convertJSONToRectangle(itemAsJSON);
+            itemSpawners.add(new ItemSpawner(id, bounds));
+        }
+    }
     protected void extractWarps() {
         JSONObject warpObject = map.getObject("warps");
         if (warpObject == null)

@@ -48,13 +48,13 @@ public class Talking extends GameState{
         // will result in an out of bounds error.
         if (position == conversation.length()) {
             // done with conversation, back to game play!
-            if (keyInput.isPressed(KeyEvent.VK_SPACE)){
+            if (keyInput.isPressed(KeyEvent.VK_F)){
                 soundManager.playSound("confirm");
                 parentManager.deleteCurrentGame();
             }
         }
         else{
-            if (conversation.charAt(position) == PAUSE_CONVO && keyInput.isPressed(KeyEvent.VK_SPACE)) {
+            if (conversation.charAt(position) == PAUSE_CONVO && keyInput.isPressed(KeyEvent.VK_F)) {
                 currentScreenText = "";
                 position++;
                 soundManager.playSound("confirm");
@@ -67,8 +67,8 @@ public class Talking extends GameState{
 
     @Override
     public void draw(Graphics2D g) {
-        g.setFont(new Font("Droid Sans", Font.PLAIN, 20));
         previousState.draw(g);
+        g.setFont(new Font("Droid Sans", Font.PLAIN, 20));
         g.drawImage(textBox, 0, 608, null);
         g.setColor(Color.white);
         g.drawString(currentScreenText, 40, 650);
