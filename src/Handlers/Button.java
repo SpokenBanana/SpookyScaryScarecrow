@@ -33,6 +33,9 @@ public class Button extends Rectangle {
     public void changeText(String text) {
         buttonText = text;
     }
+    public String getButtonText() {
+        return buttonText;
+    }
 
     public void draw(Graphics2D g) {
         g.setFont(buttonFont);

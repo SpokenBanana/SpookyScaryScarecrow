@@ -2,6 +2,7 @@ package GameStates;
 
 import AssetManagers.Map;
 import AssetManagers.SoundManager;
+import DataManagers.SavedFile;
 import Entity.ArcadeMachine;
 import Entity.Block;
 import Entity.Enemies.*;
@@ -31,19 +32,33 @@ public class MapLevel extends GameState {
     private ArrayList<Block> blocks;
     private ArrayList<ItemSpawner> itemSpawners;
     private ArrayList<EventState> eventStates;
-    private String currentMusic;
+    private String currentMusic, currentLevel;
+
+    // current saved game
+    private SavedFile currentGame;
 
     public MapLevel(GameStateManager manager, KeyInput keys, MouseInput mouse) {
         super(manager, keys, mouse);
         soundManager = new SoundManager();
+        currentGame = new SavedFile();
+
         blocks = new ArrayList<>();
+        eventStates = new ArrayList<>();
+        enemies = new ArrayList<>();
+        itemSpawners = new ArrayList<>();
 
         // get sounds
         soundManager.addSound("confirm", "confirm.wav");
 
         player = new Player(keys);
-        setLevel("level3.json");
+        setLevel("route2.json");
         playerHUD = new PlayerHUD(player);
+    }
+
+    public MapLevel(GameStateManager manager, KeyInput keys, MouseInput mouse, SavedFile file) {
+        this(manager, keys, mouse);
+        currentGame = file;
+        loadGameFromFile();
     }
 
     @Override
@@ -55,7 +70,7 @@ public class MapLevel extends GameState {
                     player.punch(enemy);
         }
         else if (keyInput.isPressed(KeyEvent.VK_ENTER)) {
-            parentManager.addGame(new PauseState(parentManager, keyInput, mouseInput));
+            parentManager.addGame(new PauseState(parentManager, keyInput, mouseInput, this));
         }
 
         // event states are triggered by facing the area and pressing the action button [F]
@@ -65,8 +80,10 @@ public class MapLevel extends GameState {
                 eventState.activate(parentManager, this, player);
             }
             // Warps are an eventState but are triggered when the player walks into it. So we handle that here
-            else if (player.getPosition().intersects(eventState.eventArea))
+            else if (player.getPosition().intersects(eventState.eventArea)){
                 eventState.activate(parentManager, this, player);
+                break;
+            }
         }
 
         // goes through and checks if the player has hit an item, if so, add it to the players inventory and delete it
@@ -74,6 +91,7 @@ public class MapLevel extends GameState {
         itemSpawners.removeIf(item -> {
             if (item.intersects(player.getPosition())) {
                 player.addItem(item.getId());
+                currentGame.addToItemIgnore(currentLevel, item.x, item.y);
                 return true;
             }
             return false;
@@ -113,13 +131,44 @@ public class MapLevel extends GameState {
             soundManager.resumeSound(currentMusic, true);
     }
 
-    public void setLevel(String level) {
+    /**
+     * This will load the game from the contents of the currentGame file.
+     */
+    public void loadGameFromFile() {
+        JSONObject saveData = currentGame.getSavedGame();
+        JSONObject playerProperties = (JSONObject) saveData.get("player");
+        int x = Integer.parseInt(playerProperties.get("x").toString());
+        int y = Integer.parseInt(playerProperties.get("y").toString());
+        int health = Integer.parseInt(playerProperties.get("health").toString());
 
+        player.moveTo(x, y);
+        player.setHealth(health);
+        JSONArray itemArray = (JSONArray) playerProperties.get("items");
+        for (int i = 0; i < itemArray.size(); i++) {
+            if (!itemArray.get(i).toString().equals("-1")) {
+                int amount = Integer.parseInt(itemArray.get(i).toString());
+                player.addItem(i, amount);
+            }
+        }
+        setLevel(saveData.get("level").toString());
+    }
+
+    public void saveGame() {
+        currentGame.saveFile(player, currentLevel);
+    }
+
+    /**
+     * Changes the current level to the level given
+     * @param level the name of the .json file inside Assets/Levels/ to load
+     */
+    public void setLevel(String level) {
+        currentLevel = level;
         map = new Map(level);
 
-        eventStates = new ArrayList<>();
+        eventStates.clear();
         blocks.clear();
-        itemSpawners = new ArrayList<>();
+        enemies.clear();
+        itemSpawners.clear();
 
         // some maps specify a song they want to play in the background, we load that song here
         String music = getMusic();
@@ -145,13 +194,41 @@ public class MapLevel extends GameState {
         extractSpeech();
         extractWarps();
 
+        removeItemsToIgnore(level);
+
         // only the arcade map wants the arcade machines
         if (level.equals("arcade.json"))
             extractArcadeMachines();
 
+
         // let the player know about the collision blocks
         player.setBlocks(blocks);
     }
+
+    /**
+     * Gets all the items that we have already collected in the level and removes them so we don't always load up the
+     * item even after it was picked up
+     */
+    protected void removeItemsToIgnore(String level) {
+        itemSpawners.removeIf(item -> {
+            // currentGame keeps track of items we have picked up, we know if we picked up an item if the location
+            // from currentGame matches the item's location since only one item can take up a certain location at a time
+            for (Point point : currentGame.getItemsToIgnore(level)) {
+                if (point.x == item.x & point.y == item.y) {
+                    // do delete
+                    return true;
+                }
+            }
+            // do not delete
+            return false;
+        });
+    }
+
+    /**
+     * Some maps have a special song they want to play in the background, here is where we check if a map does, if so,
+     * we return the song it wants to play
+     * @return the path of the song desired to play
+     */
     protected String getMusic() {
         String file = null;
         try {
@@ -163,7 +240,7 @@ public class MapLevel extends GameState {
 
     /**
      * All of these "extract[x]" do relatively the same thing, they go through the map object and check if the map has
-     * the property [x], if so, it loads it into the game so it now becomes meaningful.
+     * the property [x], if so, it loads it into the game as its respective object so it now becomes meaningful.
      */
     protected void extractItems() {
         JSONObject itemObject = map.getObject("items");
@@ -194,9 +271,10 @@ public class MapLevel extends GameState {
     protected void extractBlocks() {
         // I named the objects I want as walls "walls" in the JSON files.
         JSONObject wallObjects = map.getObject("walls");
+
+        // this map has no walls, no need to continue
         if (wallObjects == null)
             return;
-        blocks = new ArrayList<>();
 
         // objects contain an array of objects defined under the "objects" property.
         JSONArray wallArray = (JSONArray) wallObjects.get("objects");
@@ -268,7 +346,6 @@ public class MapLevel extends GameState {
         }
     }
     protected void extractEnemies() {
-        enemies = new ArrayList<>();
         JSONObject enemyObject = map.getObject("enemies");
         if (enemyObject == null)
             return;

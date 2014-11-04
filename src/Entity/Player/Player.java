@@ -108,6 +108,9 @@ public class Player extends Entity {
         super.update();
     }
 
+    public void setHealth(int amount) {
+        health = amount;
+    }
     public void setCurrentItem(short id) {
         // make sure we are setting a valid id
         if (id < Item.ITEM_AMOUNT)
@@ -125,6 +128,18 @@ public class Player extends Entity {
         if (items[id] == null)
             items[id] = createItem(id);
         items[id].add(1);
+    }
+
+
+    /**
+     * This will add a certain amount of items to the players inventory
+     * @param id id of the item
+     * @param amount the amount of items to add
+     */
+    public void addItem(int id, int amount) {
+        if (items[id] == null)
+            items[id] = createItem(id);
+        items[id].add(amount);
     }
 
     /**
@@ -183,7 +198,7 @@ public class Player extends Entity {
                 return null;
         }
     }
-    protected Item[] getItems() {
+    public Item[] getItems() {
         return items;
     }
 
