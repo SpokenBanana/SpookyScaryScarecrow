@@ -5,6 +5,7 @@ import AssetManagers.SoundManager;
 import Entity.Enemies.Enemy;
 import Entity.Entity;
 import Entity.Items.Item;
+import Entity.Items.Key;
 import Entity.Items.Sword;
 import Handlers.KeyInput;
 
@@ -112,8 +113,11 @@ public class Player extends Entity {
         health = amount;
     }
     public void setCurrentItem(short id) {
-        // make sure we are setting a valid id
-        if (id < Item.ITEM_AMOUNT)
+        // make sure we are setting a valid id, then if we have any of that item left, only then can we equip it
+        if (id < Item.ITEM_AMOUNT && id >= 0 && items[id].amount > 0)
+            currentItem = id;
+        // if we are trying to un-equip an item
+        else if (id == -1)
             currentItem = id;
     }
     public short getCurrentItem() {
@@ -128,6 +132,27 @@ public class Player extends Entity {
         if (items[id] == null)
             items[id] = createItem(id);
         items[id].add(1);
+    }
+
+    public void useCurrentItem() {
+        // no item equipped
+        if (currentItem == -1)
+            return;
+
+        items[currentItem].action();
+
+        // last of item used, cannot be equipped
+        if (items[currentItem].amount == 0)
+            currentItem = -1;
+    }
+
+    /**
+     * Tells you whether or not the player as this item
+     * @param id id of the item
+     * @return true if the player has the item
+     */
+    public boolean hasItem(int id) {
+        return items[id] != null && items[id].amount != 0;
     }
 
 
@@ -194,6 +219,8 @@ public class Player extends Entity {
         switch (id) {
             case 0:
                 return new Sword();
+            case 1:
+                return new Key();
             default:
                 return null;
         }

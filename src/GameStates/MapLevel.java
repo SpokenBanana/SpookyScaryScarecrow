@@ -97,6 +97,18 @@ public class MapLevel extends GameState {
             return false;
         });
 
+        // some blocks are doors so we watch out for that.
+        blocks.removeIf(block -> {
+            // if the block is a door, the player is touching it, and the player has a key and equiped, then we can destroy it
+            if (block.isDoor() && block.intersects(player.getFacingBlock()) && player.getCurrentItem() == 1) {
+                player.useCurrentItem();
+                // we will treat the door like an item in that we will remember we opened it and remove it
+                currentGame.addToItemIgnore(currentLevel, block.x, block.y);
+                return true;
+            }
+            return false;
+        });
+
         player.update();
         playerHUD.update(player, mouseInput);
 
@@ -118,6 +130,10 @@ public class MapLevel extends GameState {
 
         player.draw(g);
         itemSpawners.forEach(item -> item.draw(g));
+
+        // goes through collection and gets all which isDoor() returns true, then for each one, invokes .draw() to draw it
+        blocks.stream().filter(Block::isDoor).forEach(block -> block.draw(g));
+
         // draw last layer
         map.draw(g, 2);
 
@@ -210,18 +226,27 @@ public class MapLevel extends GameState {
      * item even after it was picked up
      */
     protected void removeItemsToIgnore(String level) {
-        itemSpawners.removeIf(item -> {
-            // currentGame keeps track of items we have picked up, we know if we picked up an item if the location
-            // from currentGame matches the item's location since only one item can take up a certain location at a time
-            for (Point point : currentGame.getItemsToIgnore(level)) {
-                if (point.x == item.x & point.y == item.y) {
-                    // do delete
-                    return true;
-                }
+        // the test to determine if the item should be ignored
+        itemSpawners.removeIf(item -> shouldBeIgnored(item.getLocation(), level));
+
+        // blocks contains some doors we want to remember we already opened too
+        blocks.removeIf(block -> shouldBeIgnored(block.getLocation(), level));
+    }
+
+    /**
+     * Determines based on whether or not the location has been stored in currentGame to load or not.
+     * @param item the location of the item
+     * @param level the name of the level
+     * @return whether or not the item should be ignored
+     */
+    protected boolean shouldBeIgnored(Point item, String level){
+        for (Point point : currentGame.getItemsToIgnore(level)) {
+            if (point.equals(item)) {
+                // do delete
+                return true;
             }
-            // do not delete
-            return false;
-        });
+        }
+        return false;
     }
 
     /**
@@ -282,8 +307,14 @@ public class MapLevel extends GameState {
         for (Object wall : wallArray) {
             // we convert the object to a JSONObject to retrieve the properties we want.
             JSONObject wallAsJson = (JSONObject) wall;
+            Block block = new Block(convertJSONToRectangle(wallAsJson));
 
-            blocks.add(new Block(convertJSONToRectangle(wallAsJson)));
+            // if this property even exists, we know it was meant to be a door
+            JSONObject properties = (JSONObject) wallAsJson.get("properties");
+            if (properties.get("isDoor") != null)
+                block.setAsDoor();
+
+            blocks.add(block);
         }
     }
     protected void extractArcadeMachines() {

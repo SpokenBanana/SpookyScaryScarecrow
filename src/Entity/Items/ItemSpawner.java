@@ -15,10 +15,14 @@ public class ItemSpawner extends Rectangle{
     private int id;
     public ItemSpawner(int id, Rectangle bounds) {
         super(bounds);
+        this.id = id;
         try{
             switch (id) {
                 case 0:
                     sprite = ImageIO.read(new File("Assets/Sprites/items/sword.png"));
+                    break;
+                case 1:
+                    sprite = ImageIO.read(new File("Assets/Sprites/items/key.png"));
                     break;
             }
         } catch (Exception e) {

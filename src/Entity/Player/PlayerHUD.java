@@ -70,7 +70,7 @@ public class PlayerHUD {
             else{
                 g.setColor(player.getCurrentItem() == item.id ? Color.green : Color.gray);
                 g.fill(item.bounds);
-                item.draw(g, x, y);
+                item.draw(g);
                 g.setColor(Color.white);
                 g.drawString(Integer.toString(item.amount), x + 20, y + 27);
                 y += item.bounds.height;
