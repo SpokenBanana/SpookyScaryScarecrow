@@ -75,8 +75,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":192,
-                 "y":480
+                 "x":160,
+                 "y":416
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -230,6 +230,30 @@
          "name":"Tile Layer 3",
          "opacity":1,
          "type":"tilelayer",
+         "visible":true,
+         "width":19,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "height":19,
+         "name":"items",
+         "objects":[
+                {
+                 "height":32,
+                 "name":"0",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":256,
+                 "y":256
+                }],
+         "opacity":1,
+         "type":"objectgroup",
          "visible":true,
          "width":19,
          "x":0,

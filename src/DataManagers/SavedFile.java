@@ -10,23 +10,33 @@ import org.json.simple.parser.ParseException;
 import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
-    Takes care of saved files, retrieving them and saving them.
+ * This class contains all the saved data the game needs for a certain saved game. It keeps track of items that have
+ * been collected in a HashMap to save temporarily so that all unsaved data remains unsaved. When the player decides to
+ * save, it writes all the data in HashMap in it's respective file so we can later retrieve them.
 */
 public class SavedFile {
     
     private final String rootPath = "Assets/SavedGames/";
     private String saveFile;
+
+    // we store any info we plan to save here, and once the player decides to save, we write the contents in a text file
+    // to restore when the player plays again
+    private HashMap<String, ArrayList<Point>> temporaryFiles;
+
     private JSONObject savedGame;
 
     public SavedFile(){
         // the default location of the directory we want to save these files to
         saveFile = "tmp";
+        temporaryFiles = new HashMap<>();
     }
     public SavedFile(String relativePath) {
         saveFile = relativePath;
+        temporaryFiles = new HashMap<>();
     }
 
     public void setSaveFile(String path) {
@@ -52,9 +62,21 @@ public class SavedFile {
      * @param level the name of the level we want to save
      */
     public void saveFile(Player player, String level) {
+        // if saveFile == "tmp" then the player just started a new file, and since he wants to save, we have to save
+        // all these files to a different location since "tmp" gets deleted after the session is over
+        if (saveFile.equals("tmp")) {
+            File savedGames = new File(rootPath);
+            saveFile = "Saved_Game_" + savedGames.list().length + "/";
+            savedGames = new File(rootPath + saveFile);
+            savedGames.mkdir();
+        }
+
+
         JSONObject gameToSave = new JSONObject();
 
         JSONArray itemArray = new JSONArray();
+
+        // save all the items the player has as a JSONArray
         for (Item item : player.getItems()) {
             if (item == null)
                 itemArray.add("-1");
@@ -69,16 +91,34 @@ public class SavedFile {
         playerObject.put("health", Integer.toString(player.getHealth()));
         playerObject.put("items", itemArray);
 
+        // add all the data to the file we want to save as
         gameToSave.put("player", playerObject);
         gameToSave.put("level", level);
 
+        // save all data from temporaryFiles
+        for (String key : temporaryFiles.keySet()) {
+            File file = new File(rootPath + saveFile + key);
+            try {
+                Writer writer;
+
+                // it exists, so we want to append it
+                if (file.exists())
+                    writer = new FileWriter(file, true);
+                // doesn't exists, create it
+                else
+                    writer = new PrintWriter(file);
+
+                for (Point point : temporaryFiles.get(key))
+                    writer.append(point.x + " " + point.y + "\n");
+                writer.close();
+            } catch (Exception e) {}
+        }
+
+        // they were saved, no longer temporary
+        temporaryFiles.clear();
+
+        // now to save the game data
         try{
-            if (saveFile.equals("tmp")) {
-                File savedGames = new File(rootPath);
-                saveFile = "Saved_Game_" + savedGames.list().length + "/";
-                savedGames = new File(rootPath + saveFile);
-                savedGames.mkdir();
-            }
             File file = new File(rootPath + saveFile + "gameSave.json");
             PrintWriter writer = new PrintWriter(file);
             writer.write(gameToSave.toJSONString());
@@ -100,14 +140,26 @@ public class SavedFile {
         // do not want that .json, we want it as a .txt
         if (filename.endsWith(".json")){
             filename = filename.substring(0, filename.indexOf(".json"));
+            filename += ".txt";
+        }
+        // add the point to the collection associated with the file name.
+        if (temporaryFiles.containsKey(filename)) {
+            temporaryFiles.get(filename).add(new Point(x, y));
+        }
+        else{
+            ArrayList<Point> points = new ArrayList<>();
+            points.add(new Point(x, y));
+            temporaryFiles.put(filename, points);
         }
 
-        File save = new File(rootPath + saveFile + filename + ".txt");
+        /*
+        File save = new File(rootPath + saveFile + filename);
         try{
             Writer write = new FileWriter(save);
             write.append(x + " " +  y);
             write.close();
         }catch (Exception e) {}
+        */
     }
 
     /**
@@ -122,6 +174,13 @@ public class SavedFile {
             level += ".txt";
         }
         ArrayList<Point> itemsToIgnore = new ArrayList<>();
+
+        // get all things from the temporary storage
+        for (String key : temporaryFiles.keySet())
+            for (Point point : temporaryFiles.get(key))
+                itemsToIgnore.add(point);
+
+        // if there is data saved from this level, load it up also
         try{
             Scanner fileReader = new Scanner(new File("Assets/SavedGames/" + saveFile + level));
             while (fileReader.hasNext()){
@@ -133,6 +192,7 @@ public class SavedFile {
             fileReader.close();
         } catch (Exception e) {
         }
+
         return itemsToIgnore;
     }
 }
