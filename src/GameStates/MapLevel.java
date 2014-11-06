@@ -6,6 +6,7 @@ import DataManagers.SavedFile;
 import Entity.ArcadeMachine;
 import Entity.Block;
 import Entity.Enemies.*;
+import Entity.Items.Item;
 import Entity.Items.ItemSpawner;
 import Entity.NPC;
 import Entity.Player.Player;
@@ -69,8 +70,12 @@ public class MapLevel extends GameState {
                 if (enemy.getPosition().intersects(player.getFacingBlock()))
                     player.punch(enemy);
         }
+        // pause game
         else if (keyInput.isPressed(KeyEvent.VK_ENTER)) {
             parentManager.addGame(new PauseState(parentManager, keyInput, mouseInput, this));
+        }
+        else if (keyInput.isPressed(KeyEvent.VK_C)) {
+            parentManager.addGame(new CraftingState(parentManager, keyInput, mouseInput, player));
         }
 
         // event states are triggered by facing the area and pressing the action button [F]
@@ -99,8 +104,8 @@ public class MapLevel extends GameState {
 
         // some blocks are doors so we watch out for that.
         blocks.removeIf(block -> {
-            // if the block is a door, the player is touching it, and the player has a key and equiped, then we can destroy it
-            if (block.isDoor() && block.intersects(player.getFacingBlock()) && player.getCurrentItem() == 1) {
+            // if the block is a door, the player is touching it, and the player has a key and equipped, then we can destroy it
+            if (block.isDoor() && block.intersects(player.getFacingBlock()) && player.getCurrentItem() == Item.KEY_ID) {
                 player.useCurrentItem();
                 // we will treat the door like an item in that we will remember we opened it and remove it
                 currentGame.addToItemIgnore(currentLevel, block.x, block.y);
@@ -152,13 +157,18 @@ public class MapLevel extends GameState {
      */
     public void loadGameFromFile() {
         JSONObject saveData = currentGame.getSavedGame();
+
+        // get saved player properties
         JSONObject playerProperties = (JSONObject) saveData.get("player");
         int x = Integer.parseInt(playerProperties.get("x").toString());
         int y = Integer.parseInt(playerProperties.get("y").toString());
         int health = Integer.parseInt(playerProperties.get("health").toString());
 
+        // move player to saved location
         player.moveTo(x, y);
         player.setHealth(health);
+
+        // give player his items
         JSONArray itemArray = (JSONArray) playerProperties.get("items");
         for (int i = 0; i < itemArray.size(); i++) {
             if (!itemArray.get(i).toString().equals("-1")) {
@@ -166,6 +176,8 @@ public class MapLevel extends GameState {
                 player.addItem(i, amount);
             }
         }
+
+        // set level to where it was last saved
         setLevel(saveData.get("level").toString());
     }
 
@@ -174,13 +186,14 @@ public class MapLevel extends GameState {
     }
 
     /**
-     * Changes the current level to the level given
+     * Changes the current level to the level given. It loads all the things the file specifies it wants in that map
      * @param level the name of the .json file inside Assets/Levels/ to load
      */
     public void setLevel(String level) {
         currentLevel = level;
         map = new Map(level);
 
+        // new level, so forget about the last one
         eventStates.clear();
         blocks.clear();
         enemies.clear();
@@ -210,6 +223,7 @@ public class MapLevel extends GameState {
         extractSpeech();
         extractWarps();
 
+        // some items were already picked up, so don't load them again
         removeItemsToIgnore(level);
 
         // only the arcade map wants the arcade machines
@@ -225,7 +239,7 @@ public class MapLevel extends GameState {
      * Gets all the items that we have already collected in the level and removes them so we don't always load up the
      * item even after it was picked up
      */
-    protected void removeItemsToIgnore(String level) {
+    private void removeItemsToIgnore(String level) {
         // the test to determine if the item should be ignored
         itemSpawners.removeIf(item -> shouldBeIgnored(item.getLocation(), level));
 
@@ -239,14 +253,12 @@ public class MapLevel extends GameState {
      * @param level the name of the level
      * @return whether or not the item should be ignored
      */
-    protected boolean shouldBeIgnored(Point item, String level){
-        for (Point point : currentGame.getItemsToIgnore(level)) {
-            if (point.equals(item)) {
-                // do delete
-                return true;
-            }
-        }
-        return false;
+    private boolean shouldBeIgnored(Point item, String level){
+        for (Point point : currentGame.getItemsToIgnore(level))
+            if (point.equals(item))
+                return true; // do delete
+
+        return false; // do not
     }
 
     /**
@@ -254,7 +266,7 @@ public class MapLevel extends GameState {
      * we return the song it wants to play
      * @return the path of the song desired to play
      */
-    protected String getMusic() {
+    private String getMusic() {
         String file = null;
         try {
             JSONObject properties = (JSONObject) map.get("properties");
@@ -267,7 +279,7 @@ public class MapLevel extends GameState {
      * All of these "extract[x]" do relatively the same thing, they go through the map object and check if the map has
      * the property [x], if so, it loads it into the game as its respective object so it now becomes meaningful.
      */
-    protected void extractItems() {
+    private void extractItems() {
         JSONObject itemObject = map.getObject("items");
         // not all maps have items, if they do not, then stop here
         if (itemObject == null)
@@ -283,7 +295,7 @@ public class MapLevel extends GameState {
             itemSpawners.add(new ItemSpawner(id, bounds));
         }
     }
-    protected void extractWarps() {
+    private void extractWarps() {
         JSONObject warpObject = map.getObject("warps");
         if (warpObject == null)
             return;
@@ -293,7 +305,7 @@ public class MapLevel extends GameState {
             eventStates.add(new Warp(warpAsJSON.get("name").toString(), convertJSONToRectangle(warpAsJSON)));
         }
     }
-    protected void extractBlocks() {
+    private void extractBlocks() {
         // I named the objects I want as walls "walls" in the JSON files.
         JSONObject wallObjects = map.getObject("walls");
 
@@ -317,7 +329,7 @@ public class MapLevel extends GameState {
             blocks.add(block);
         }
     }
-    protected void extractArcadeMachines() {
+    private void extractArcadeMachines() {
         JSONObject arcadeObject = map.getObject("arcades");
         if (arcadeObject == null)
             return;
@@ -341,7 +353,7 @@ public class MapLevel extends GameState {
      * @param toRectangle the object we want to transform as a rectangle
      * @return rectangle from the data given from the JSONObject
      */
-    protected Rectangle convertJSONToRectangle(JSONObject toRectangle) {
+    private Rectangle convertJSONToRectangle(JSONObject toRectangle) {
         // JSONObject's get() method returns the value in a generic Object-type. We expect the
         // property "x" to contain a numerical value, so to convert it to a numerical value we must
         // first convert it to a string with Object's toString() method and then we can convert it back
@@ -352,7 +364,7 @@ public class MapLevel extends GameState {
         int height = Integer.parseInt(toRectangle.get("height").toString());
         return new Rectangle(x, y, width, height);
     }
-    protected void extractSpeech(){
+    private void extractSpeech(){
         JSONObject speechObject = map.getObject("speech");
         if (speechObject == null)
             return;
@@ -364,7 +376,7 @@ public class MapLevel extends GameState {
             eventStates.add(new ConversationEvent(conversation, keyInput, convertJSONToRectangle(speechAsJSON)));
         }
     }
-    protected void extractNPC() {
+    private void extractNPC() {
         JSONObject npcObject = map.getObject("npc");
         if (npcObject == null) return;
         JSONArray npcArray = (JSONArray) npcObject.get("objects");
@@ -376,7 +388,7 @@ public class MapLevel extends GameState {
             eventStates.add(new NPC(bounds.getLocation(), conversation));
         }
     }
-    protected void extractEnemies() {
+    private void extractEnemies() {
         JSONObject enemyObject = map.getObject("enemies");
         if (enemyObject == null)
             return;

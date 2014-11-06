@@ -76,5 +76,10 @@ public class PlayerHUD {
                 y += item.bounds.height;
             }
         }
+
+        y+=64;
+        g.setColor(Color.white);
+        g.setFont(new Font("Droid Sans", Font.PLAIN, 12));
+        g.drawString("Press [C] to craft!", x, y);
     }
 }

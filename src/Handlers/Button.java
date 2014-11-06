@@ -1,5 +1,7 @@
 package Handlers;
 
+import AssetManagers.SoundManager;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -15,12 +17,15 @@ public class Button extends Rectangle {
     protected BufferedImage backgroundSprite;
     protected String buttonText;
     protected final int CHARACTER_WIDTH = 5;
-    public boolean isHovered;
+    private boolean isHovered;
     protected final Font buttonFont = new Font("Sans Serif", Font.PLAIN, 15);
+    private SoundManager sounds;
     protected final Color hoveredColor = new Color(20,100,185), regularColor = Color.black;
 
     public Button(Rectangle position, String text) {
         super(position);
+        sounds = new SoundManager();
+        sounds.addSound("hover", "hover.wav");
         try {
             backgroundSprite = ImageIO.read(new File("Assets/UI/button.png"));
         } catch (Exception e) {
@@ -36,6 +41,15 @@ public class Button extends Rectangle {
     public String getButtonText() {
         return buttonText;
     }
+    public void setHovered(boolean hovered) {
+        if (!isHovered && hovered)
+            sounds.playSound("hover");
+        isHovered = hovered;
+    }
+    public boolean isHovered(){
+        return isHovered;
+    }
+
 
     public void draw(Graphics2D g) {
         g.setFont(buttonFont);

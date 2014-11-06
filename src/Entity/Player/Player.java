@@ -4,9 +4,7 @@ import AssetManagers.Animation;
 import AssetManagers.SoundManager;
 import Entity.Enemies.Enemy;
 import Entity.Entity;
-import Entity.Items.Item;
-import Entity.Items.Key;
-import Entity.Items.Sword;
+import Entity.Items.*;
 import Handlers.KeyInput;
 
 import java.awt.*;
@@ -120,6 +118,9 @@ public class Player extends Entity {
         else if (id == -1)
             currentItem = id;
     }
+    public Item getItem(int id) {
+        return items[id];
+    }
     public short getCurrentItem() {
         return currentItem;
     }
@@ -132,6 +133,15 @@ public class Player extends Entity {
         if (items[id] == null)
             items[id] = createItem(id);
         items[id].add(1);
+    }
+
+    /**
+     * Reduces the item count by one
+     * @param id the id of the item to reduce
+     */
+    public void removeItem(int id) {
+        if (items[id] != null)
+            items[id].amount--;
     }
 
     public void useCurrentItem() {
@@ -217,10 +227,16 @@ public class Player extends Entity {
      */
     protected Item createItem(int id) {
         switch (id) {
-            case 0:
+            case Item.SWORD_ID:
                 return new Sword();
-            case 1:
+            case Item.KEY_ID:
                 return new Key();
+            case Item.WOOD_ID:
+                return new Wood();
+            case Item.GRASS_ID:
+                return new Grass();
+            case Item.STONE_ID:
+                return new Stone();
             default:
                 return null;
         }

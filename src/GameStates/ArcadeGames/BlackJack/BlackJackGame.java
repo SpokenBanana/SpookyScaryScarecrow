@@ -64,8 +64,8 @@ public class BlackJackGame extends ArcadeGame {
             case Playing:
                 if (keyInput.isPressed(KeyEvent.VK_ENTER))
                     state = State.Pause;
-                turnIn.isHovered = mouseInput.isMouseOver(turnIn);
-                hit.isHovered = mouseInput.isMouseOver(hit);
+                turnIn.setHovered(mouseInput.isMouseOver(turnIn));
+                hit.setHovered(mouseInput.isMouseOver(hit));
 
                 if (mouseInput.didMouseClickOn(hit)) {
                     // deal cards

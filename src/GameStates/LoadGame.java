@@ -37,13 +37,13 @@ public class LoadGame extends GameState {
         for (Button button : buttons) {
             if (button == null)
                 continue;
-            button.isHovered = mouseInput.isMouseOver(button);
+            button.setHovered(mouseInput.isMouseOver(button));
             if (mouseInput.didMouseClickOn(button)) {
                 SavedFile file = new SavedFile(button.getButtonText() + "/");
                 parentManager.setGame(new MapLevel(parentManager, keyInput, mouseInput, file));
             }
         }
-        back.isHovered = mouseInput.isMouseOver(back);
+        back.setHovered(mouseInput.isMouseOver(back));
         if (mouseInput.didMouseClickOn(back)) {
             parentManager.setGame(new Menu(parentManager, mouseInput, keyInput));
         }

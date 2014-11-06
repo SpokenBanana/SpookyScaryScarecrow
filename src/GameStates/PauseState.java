@@ -24,9 +24,9 @@ public class PauseState extends GameState {
 
     @Override
     public void update() {
-        resume.isHovered = mouseInput.isMouseOver(resume);
-        exit.isHovered = mouseInput.isMouseOver(exit);
-        save.isHovered = mouseInput.isMouseOver(save);
+        resume.setHovered(mouseInput.isMouseOver(resume));
+        exit.setHovered(mouseInput.isMouseOver(exit));
+        save.setHovered(mouseInput.isMouseOver(save));
 
         if (mouseInput.didMouseClickOn(resume))
             parentManager.deleteCurrentGame();

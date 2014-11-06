@@ -11,7 +11,7 @@ public abstract class Item {
     protected BufferedImage icon;
     public Rectangle bounds;
     public int amount;
-    public static final byte ITEM_AMOUNT = 5;
+    public static final byte ITEM_AMOUNT = 5, SWORD_ID = 0, KEY_ID = 1, WOOD_ID = 2, GRASS_ID = 3, STONE_ID = 4;
 
     // how we keep track of which item is which
     public int id;
@@ -40,5 +40,13 @@ public abstract class Item {
      */
     public void move(int x, int y) {
         bounds.setLocation(x, y);
+    }
+
+    /**
+     * Once the item is picked up, it goes to a specific place on the screen which can be determined by the id.
+     * Since the formula is the same for all items, we can just implement it here.
+     */
+    public void setBounds() {
+        bounds = new Rectangle(620,120 + (id * 32),32,32);
     }
 }

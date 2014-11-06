@@ -1,7 +1,6 @@
 package Entity.Items;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.io.File;
 
 /**
@@ -11,8 +10,8 @@ public class Sword extends Item {
     private int damage;
     public Sword() {
         damage = 15;
-        id = 0;
-        bounds = new Rectangle(620,120 + (id * 32),32,32);
+        id = Item.SWORD_ID;
+        setBounds();
         try {
             icon = ImageIO.read(new File("Assets/Sprites/items/sword.png"));
         } catch (Exception e) {

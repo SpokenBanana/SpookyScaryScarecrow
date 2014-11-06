@@ -34,16 +34,8 @@ public class Menu extends GameState {
 
     @Override
     public void update() {
-        start.isHovered = mouseInput.isMouseOver(start);
-        load.isHovered = mouseInput.isMouseOver(load);
-
-        // this logic is simply to play the "hover" sound effect only once the mouse first arrives on the button
-        if (start.isHovered && !hovered){
-            hovered = true;
-            soundManager.playSound("hover");
-        }
-        else if (!start.isHovered)
-            hovered = false;
+        start.setHovered(mouseInput.isMouseOver(start));
+        load.setHovered(mouseInput.isMouseOver(load));
 
         if (mouseInput.didMouseClickOn(start)){
             soundManager.playSound("confirm");

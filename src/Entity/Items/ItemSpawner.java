@@ -18,11 +18,20 @@ public class ItemSpawner extends Rectangle{
         this.id = id;
         try{
             switch (id) {
-                case 0:
+                case Item.SWORD_ID:
                     sprite = ImageIO.read(new File("Assets/Sprites/items/sword.png"));
                     break;
-                case 1:
+                case Item.KEY_ID:
                     sprite = ImageIO.read(new File("Assets/Sprites/items/key.png"));
+                    break;
+                case Item.GRASS_ID:
+                    sprite = ImageIO.read(new File("Assets/Sprites/items/grass.png"));
+                    break;
+                case Item.STONE_ID:
+                    sprite = ImageIO.read(new File("Assets/Sprites/items/stone.png"));
+                    break;
+                case Item.WOOD_ID:
+                    sprite = ImageIO.read(new File("Assets/Sprites/items/wood.png"));
                     break;
             }
         } catch (Exception e) {
