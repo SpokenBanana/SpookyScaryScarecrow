@@ -9,9 +9,9 @@ import java.awt.*;
  * State to be displayed when the player pauses the game
  */
 public class PauseState extends GameState {
-    Handlers.Button resume, exit, save;
-    MapLevel prevState;
-    String status;
+    protected Handlers.Button resume, exit, save;
+    protected MapLevel prevState;
+    protected String status;
 
     public PauseState(GameStateManager manager, KeyInput keys, MouseInput mouse, MapLevel previousState) {
         super(manager, keys, mouse);
@@ -38,8 +38,7 @@ public class PauseState extends GameState {
         }
         else if (mouseInput.didMouseClickOn(save)) {
             // save file
-            prevState.saveGame();
-            status = "Game Saved!";
+            onSave();
         }
     }
 
@@ -50,5 +49,13 @@ public class PauseState extends GameState {
         g.setFont(new Font("Pericles", Font.PLAIN, 15));
         g.drawString(status, save.x + save.width + 10, save.y + 20);
         exit.draw(g);
+    }
+
+    /**
+     * What to do when the player presses save
+     */
+    protected void onSave() {
+        prevState.saveGame();
+        status = "Game Saved!";
     }
 }

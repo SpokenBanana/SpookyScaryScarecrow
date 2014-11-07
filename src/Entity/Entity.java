@@ -86,16 +86,19 @@ public abstract class Entity {
      */
     public void hit(int damage) {
         // this allows the entity time to recover or run away without being barraged by attacks
-        if (!hurt)
+        if (!hurt) {
             health -= damage;
+            hurtTime = 150;
+        }
         hurt = true;
-        hurtTime = 150;
     }
     /**
         heals the player by the amount given
      */
     public void recover(int amount) {
         health += amount;
+        if (health > 100)
+            health = 100;
     }
 
     /**

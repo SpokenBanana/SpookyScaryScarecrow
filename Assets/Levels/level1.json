@@ -177,6 +177,32 @@
                  "width":32,
                  "x":448,
                  "y":384
+                }, 
+                {
+                 "height":64,
+                 "name":"Oh cool! You know how to talk to me!`You can stand in front of things and press F to get something to happen!`Like talking to me!`Talk to other people to learn more about our world!",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":160,
+                 "y":128
+                }, 
+                {
+                 "height":64,
+                 "name":"I love punching things!`You can punch too! Just press [SPACE]!",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":256,
+                 "y":224
                 }],
          "opacity":1,
          "type":"objectgroup",

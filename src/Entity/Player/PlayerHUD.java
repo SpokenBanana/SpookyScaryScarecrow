@@ -75,6 +75,7 @@ public class PlayerHUD {
         g.setColor(Color.white);
         g.setFont(new Font("Pericles", Font.PLAIN, 10));
         g.drawString("Press [C] to craft!", 610, 150 + (Item.ITEM_AMOUNT * 32));
+        g.drawString("[F] Action Button", 610, 170 + (Item.ITEM_AMOUNT * 32));
 
         g.setFont(new Font("Pericles", Font.BOLD, 15));
         g.drawString(itemDesc, 20, 630);

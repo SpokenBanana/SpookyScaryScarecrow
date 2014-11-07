@@ -35,6 +35,9 @@ public class MapLevel extends GameState {
     private ArrayList<EventState> eventStates;
     private String currentMusic, currentLevel;
 
+    // where the player entered the current level
+    private Point playerEnteredLocation;
+
     // current saved game
     private SavedFile currentGame;
 
@@ -52,8 +55,9 @@ public class MapLevel extends GameState {
         soundManager.addSound("confirm", "confirm.wav");
 
         player = new Player(keys, mouseInput);
-        setLevel("route2.json");
+        setLevel("level1.json");
         playerHUD = new PlayerHUD(player);
+        playerEnteredLocation = player.getPosition().getLocation();
     }
 
     public MapLevel(GameStateManager manager, KeyInput keys, MouseInput mouse, SavedFile file) {
@@ -87,6 +91,7 @@ public class MapLevel extends GameState {
             // Warps are an eventState but are triggered when the player walks into it. So we handle that here
             else if (player.getPosition().intersects(eventState.eventArea)){
                 eventState.activate(parentManager, this, player);
+                playerEnteredLocation = player.getPosition().getLocation();
                 break;
             }
         }
@@ -122,6 +127,10 @@ public class MapLevel extends GameState {
 
         // remove any any which is dead
         enemies.removeIf(enemy -> enemy.getHealth() <= 0);
+
+        // GAME OVER player died
+        if (player.getHealth() <= 0)
+            parentManager.addGame(new GameOverState(parentManager, keyInput, mouseInput, this));
     }
 
     @Override
@@ -188,6 +197,17 @@ public class MapLevel extends GameState {
 
     public void saveGame() {
         currentGame.saveFile(player, currentLevel);
+    }
+
+
+    /**
+     * Moves the player back to the location he entered the level in and restores health
+     */
+    public void resetLevel() {
+        player.moveTo(playerEnteredLocation.x, playerEnteredLocation.y);
+        player.resetStats();
+        // reload the level
+        setLevel(currentLevel);
     }
 
     /**w

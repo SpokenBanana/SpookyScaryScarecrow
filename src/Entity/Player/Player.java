@@ -139,6 +139,11 @@ public class Player extends Entity {
     public void setHealth(int amount) {
         health = amount;
     }
+    public void resetStats() {
+        health = 100;
+        hurt = false;
+        hurtTime = 0;
+    }
     public void setCurrentItem(short id) {
         // make sure we are setting a valid id, then if we have any of that item left, only then can we equip it
         if (id < Item.ITEM_AMOUNT && id >= 0 && items[id].amount > 0)
