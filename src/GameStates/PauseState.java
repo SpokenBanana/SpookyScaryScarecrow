@@ -47,7 +47,8 @@ public class PauseState extends GameState {
     public void draw(Graphics2D g) {
         resume.draw(g);
         save.draw(g);
-        g.drawString(status, save.x + save.width + 10, save.y);
+        g.setFont(new Font("Pericles", Font.PLAIN, 15));
+        g.drawString(status, save.x + save.width + 10, save.y + 20);
         exit.draw(g);
     }
 }

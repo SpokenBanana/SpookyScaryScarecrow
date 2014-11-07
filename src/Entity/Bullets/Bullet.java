@@ -19,14 +19,15 @@ public abstract class Bullet {
         position = location;
         vel = 4;
         damage = 5;
+
         // formula to determine angle position need to travel to target.
         angle = Math.atan2(target.x - position.x, target.y - position.y);
     }
 
     public void update() {
         // add to the location by the angle we want multiplied by the speed we want to get the right effect
-        position.x += (int) (Math.sin(angle) * vel);
-        position.y += (int) (Math.cos(angle) * vel);
+        position.x += (Math.sin(angle) * vel);
+        position.y += (Math.cos(angle) * vel);
     }
 
     public Rectangle getPosition() {

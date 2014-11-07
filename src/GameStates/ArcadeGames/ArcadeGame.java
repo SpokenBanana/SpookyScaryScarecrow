@@ -10,6 +10,7 @@ public abstract class ArcadeGame extends GameState {
     public enum State {
         Playing, Menu, GameOver, Pause
     }
+    protected final String ARCADE_FONT = "Verdana";
     protected State state;
 
     public ArcadeGame(GameStateManager manager, KeyInput keys, MouseInput mouse) {

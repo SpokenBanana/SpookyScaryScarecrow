@@ -2,13 +2,16 @@ package Entity.Player;
 
 import AssetManagers.Animation;
 import AssetManagers.SoundManager;
+import Entity.Bullets.Bullet;
 import Entity.Enemies.Enemy;
 import Entity.Entity;
 import Entity.Items.*;
 import Handlers.KeyInput;
+import Handlers.MouseInput;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -16,16 +19,20 @@ import java.util.Random;
  */
 public class Player extends Entity {
     protected KeyInput keyInput;
+    protected MouseInput mouseInput;
     protected SoundManager soundManager;
 
     private Item[] items;
     private short currentItem;
+    public ArrayList<Bullet> bullets;
 
     // we want to wait before we play another sound
     protected int soundDelay;
 
-    public Player(KeyInput keys) {
+    public Player(KeyInput keys, MouseInput mouseInput) {
+        this.mouseInput = mouseInput;
         items = new Item[Item.ITEM_AMOUNT];
+        bullets = new ArrayList<>();
 
         // -1 means no item currently equipped
         currentItem = -1;
@@ -43,7 +50,8 @@ public class Player extends Entity {
         position = new Rectangle(32,32,32,64);
         oldPosition = new Point(position.x, position.y);
         targetPosition = new Point(position.x, position.y);
-        velocity = 10;
+        velocity = 11;
+
         // adding standing sprites
         sprites.addSprite("rightStanding", "Player/rightstanding.png", true);
         sprites.addSprite("leftStanding", "Player/leftstanding.png");
@@ -62,7 +70,12 @@ public class Player extends Entity {
         sprites.addAnimation("upWalking", new Animation("Player/upWalking.png", 3, 200));
         sprites.addAnimation("downWalking", new Animation("Player/downwalking.png", 3, 200));
     }
-    public void update() {
+
+    /**
+     * Does all the logical updates to the player, such as handling input, moving, making sure everything looks okay.
+     * The player interacts the most with the enemies so we need a reference to the enemies currently on the screen
+     */
+    public void update(ArrayList<Enemy> enemies) {
         if (keyInput.isHeld(KeyEvent.VK_RIGHT) || keyInput.isHeld(KeyEvent.VK_D)) {
             playFootStepSound();
             facingDirection = currentDirection = Direction.Right;
@@ -104,7 +117,23 @@ public class Player extends Entity {
                     break;
             }
         }
+
+        // update current item
+        if (currentItem != -1)
+            items[currentItem].update();
+        bullets.forEach(bullet -> bullet.update());
+        filterBullets(enemies);
         super.update();
+    }
+
+    @Override
+    public void draw(Graphics2D g) {
+        // call Entity's draw()
+        super.draw(g);
+
+        if (currentItem != -1)
+            items[currentItem].actionDraw(g);
+        bullets.forEach(bullet -> bullet.draw(g));
     }
 
     public void setHealth(int amount) {
@@ -120,6 +149,9 @@ public class Player extends Entity {
     }
     public Item getItem(int id) {
         return items[id];
+    }
+    public Item[] getItems() {
+        return items;
     }
     public short getCurrentItem() {
         return currentItem;
@@ -156,6 +188,7 @@ public class Player extends Entity {
             currentItem = -1;
     }
 
+
     /**
      * Tells you whether or not the player as this item
      * @param id id of the item
@@ -182,7 +215,15 @@ public class Player extends Entity {
      * enemy
      */
     public void punch(Enemy enemy) {
-        enemy.hit(10);
+        if (currentItem == Item.SWORD_ID ){
+            // a hit only counts when the enemy isn't hurt
+            if (!enemy.isHurt()) {
+                useCurrentItem();
+                enemy.hit(20);
+            }
+        }
+        else
+           enemy.hit(10);
     }
 
     /**
@@ -225,10 +266,10 @@ public class Player extends Entity {
      * @param id id of the item
      * @return the item associated with the id
      */
-    protected Item createItem(int id) {
+    public Item createItem(int id) {
         switch (id) {
             case Item.SWORD_ID:
-                return new Sword();
+                return new Sword(this);
             case Item.KEY_ID:
                 return new Key();
             case Item.WOOD_ID:
@@ -237,12 +278,41 @@ public class Player extends Entity {
                 return new Grass();
             case Item.STONE_ID:
                 return new Stone();
+            case Item.FIRE_ID:
+                return new Fire(mouseInput, this);
+            case Item.Bow_ID:
+                return new Bow(mouseInput, this);
+            case Item.ARROW_ID:
+                return new ArrowItem();
             default:
                 return null;
         }
     }
-    public Item[] getItems() {
-        return items;
+
+    private void filterBullets(ArrayList<Enemy> enemies) {
+        ArrayList<Bullet> toRemove = new ArrayList<>();
+        for (Bullet bullet : bullets) {
+            Rectangle bounds = bullet.getPosition();
+
+            // if the bullet is out of the screen or has hit a block, remove it.
+            if (bounds.x < 0 || bounds.x > 608|| bounds.y < 0 || bounds.y > 608 ||
+                    blocks.stream().anyMatch(block -> block.intersects(bounds)))
+                toRemove.add(bullet);
+            else {
+                // check if the player hit any enemies, if so, deal damage and remove it.
+                enemies.forEach(enemy -> {
+                    if (enemy.getPosition().intersects(bounds)) {
+                        enemy.hit(bullet.damage);
+                        toRemove.add(bullet);
+                    }
+                });
+            }
+        }
+
+        // remove from bullets anything in the toRemove collection
+        toRemove.forEach(bullets::remove);
     }
+
+
 
 }

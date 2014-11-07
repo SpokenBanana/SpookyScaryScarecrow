@@ -8,6 +8,7 @@ import java.io.File;
  */
 public class Wood extends Item{
     public Wood() {
+        description = "WOOD | Doesn't look that useful, maybe I can make stuff with it";
         id = WOOD_ID;
         setBounds();
         try{

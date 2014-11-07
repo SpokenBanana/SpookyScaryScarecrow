@@ -16,9 +16,9 @@ import java.io.File;
 public class Button extends Rectangle {
     protected BufferedImage backgroundSprite;
     protected String buttonText;
-    protected final int CHARACTER_WIDTH = 5;
+    protected final int CHARACTER_WIDTH = 7;
     private boolean isHovered;
-    protected final Font buttonFont = new Font("Sans Serif", Font.PLAIN, 15);
+    protected final Font buttonFont = new Font("Pericles", Font.PLAIN, 15);
     private SoundManager sounds;
     protected final Color hoveredColor = new Color(20,100,185), regularColor = Color.black;
 
@@ -60,7 +60,7 @@ public class Button extends Rectangle {
         g.setColor(Color.WHITE);
                                                     // trying to center the text.
         g.drawString(buttonText, x + ((width - (buttonText.length() * CHARACTER_WIDTH)) / 2),
-                y + (height / 2) + CHARACTER_WIDTH );
+                y + (height / 2) + 5);
     }
 
 

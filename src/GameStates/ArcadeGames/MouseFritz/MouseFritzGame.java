@@ -62,6 +62,8 @@ public class MouseFritzGame extends ArcadeGame{
                     state = State.Pause;
 
                 player.move(mouseInput.getMouseLocation());
+
+                // player gets penalized when he tried to move mouse out of the playing area
                 if (player.x > GAME_WIDTH || player.y > GAME_HEIGHT) {
                     // there's a delay so the score doesn't go down insanely fast
                     if (scorePenaltyDelay <= 0) {
@@ -71,24 +73,20 @@ public class MouseFritzGame extends ArcadeGame{
                     else
                         scorePenaltyDelay--;
                 }
+
                 balls.forEach(ball -> ball.update(GAME_WIDTH, GAME_HEIGHT));
 
+                // BALLS ARE ON THE FRITZ!! (player cannot touch them)
                 if (--timeUntilFritz <= 0) {
+
+                    // the balls "go on the fritz" when timeUntilFritz is negative
                     if (timeUntilFritz == 0)
                         balls.forEach(ball -> ball.onTheFritz = true);
-                    // after a certain amount of time in this state, we move to the other
-                    if (timeUntilFritz <= -400){
-                        balls.forEach(ball -> ball.onTheFritz = false);
-                        rounds--;
-                        if (rounds == 0){
-                            state = State.GameOver;
-                            soundManager.stopCurrentSound();
-                            soundManager.playSound("menu_music", true);
-                        }
-                        timeUntilFritz = 400;
-                    }
 
+
+                    // have a delay so the player's score does not fall every 60th of a second
                     if (delay <= 0) {
+                        // player hit a ball when he wasn't supposed to
                         if (balls.stream().anyMatch(brick -> brick.intersects(player))) {
                             score--;
                             delay = 20;
@@ -96,7 +94,24 @@ public class MouseFritzGame extends ArcadeGame{
                     }
                     else
                         delay--;
+
+                    // after a certain amount of time in this state, the balls go back to normal
+                    if (timeUntilFritz <= -400){
+                        balls.forEach(ball -> ball.onTheFritz = false);
+                        rounds--;
+
+                        // after the rounds end, the game ends
+                        if (rounds == 0){
+                            state = State.GameOver;
+                            soundManager.stopCurrentSound();
+                            soundManager.playSound("menu_music", true);
+                        }
+
+                        // set time until the next "Fritz" moment
+                        timeUntilFritz = 400;
+                    }
                 }
+                // balls are normal, player has to match them now
                 else {
                     if (delay <= 0)
                         checkCursorAndBallCollision();
@@ -116,7 +131,7 @@ public class MouseFritzGame extends ArcadeGame{
 
     @Override
     public void draw(Graphics2D g) {
-        g.setFont(new Font("Droid Sans", Font.BOLD, 20));
+        g.setFont(new Font(ARCADE_FONT, Font.BOLD, 15));
         g.setColor(new Color(20,90,140));
         g.fillRect(0,0, GAME_WIDTH, GAME_HEIGHT);
         g.setColor(Color.white);
@@ -181,7 +196,8 @@ public class MouseFritzGame extends ArcadeGame{
         for (Ball ball : balls) {
             // player hit a ball
             if (ball.intersects(player)) {
-                // check if he is trying to match a ball or not
+
+                // check if he is trying to match a ball or not, is matching one if ballChosen is null
                 if (player.ballChosen == null) {
                     // first ball hit, it's the color he has to match now
                     player.ballChosen = ball;
@@ -190,14 +206,17 @@ public class MouseFritzGame extends ArcadeGame{
                 else {
                     // already has a ball he has to match, see if he matched the right ball
                     if (player.ballChosen.color == ball.color && player.ballChosen != ball) {
-                        // he did! reward with a point
+                        // he did! reward with some points
                         score += 10;
+
+                        // reset the chosen balls
                         player.ballChosen.selected = false;
                         player.ballChosen = null;
+
                         delay = 40;
                     }
                     else if (player.ballChosen.color != ball.color && player.ballChosen != ball){
-                        // he failed, penalize score and reset his picks
+                        // he failed, penalize score and reset his choices
                         score--;
                         player.ballChosen.selected = false;
                         player.ballChosen = null;

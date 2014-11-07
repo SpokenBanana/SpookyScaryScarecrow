@@ -33,6 +33,15 @@ public class ItemSpawner extends Rectangle{
                 case Item.WOOD_ID:
                     sprite = ImageIO.read(new File("Assets/Sprites/items/wood.png"));
                     break;
+                case Item.FIRE_ID:
+                    sprite = ImageIO.read(new File("Assets/Sprites/items/fire.png"));
+                    break;
+                case Item.Bow_ID:
+                    sprite = ImageIO.read(new File("Assets/Sprites/items/bow.png"));
+                    break;
+                case Item.ARROW_ID:
+                    sprite = ImageIO.read(new File("Assets/Sprites/items/arrow.png"));
+                    break;
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -11,7 +11,15 @@ public abstract class Item {
     protected BufferedImage icon;
     public Rectangle bounds;
     public int amount;
-    public static final byte ITEM_AMOUNT = 5, SWORD_ID = 0, KEY_ID = 1, WOOD_ID = 2, GRASS_ID = 3, STONE_ID = 4;
+
+    // certain items can depreciate after a some uses. In this case, when depreciation is lower than 0, it is depreciated
+    protected short depreciation;
+
+    // tells about the item and how to use it
+    protected String description;
+
+    public static final byte ITEM_AMOUNT = 8, SWORD_ID = 0, KEY_ID = 1, WOOD_ID = 2, GRASS_ID = 3, STONE_ID = 4,
+                                              FIRE_ID = 5, Bow_ID = 6, ARROW_ID = 7;
 
     // how we keep track of which item is which
     public int id;
@@ -23,8 +31,37 @@ public abstract class Item {
         g.drawImage(icon, bounds.x, bounds.y, bounds.width, bounds.height, null);
     }
     public void draw(Graphics2D g, int x, int y) {
-        g.drawImage(icon, x, y, bounds.width, bounds.height, null);
+        if (icon != null)
+            g.drawImage(icon, x, y, bounds.width, bounds.height, null);
     }
+
+    public int getDepreciation() {
+        return depreciation;
+    }
+    public void setDepreciation(int amount) {
+        // depreciation cannot be lower than 0
+        depreciation = amount < 0 ? 0 : (short) amount;
+    }
+    public String getDescription() { return description; }
+
+    /**
+     * Add the amount given to depreciation and returns new value. Depreciation cannot be lower than 0
+     * @param diff the amount to change depreciation by
+     * @return the new depreciation value
+     */
+    public int changeDepreciation(int diff) {
+        depreciation += diff;
+        if (depreciation < 0)
+            depreciation = 0;
+        return depreciation;
+    }
+
+    /**
+     * Not all items will need to use actionDraw() so we leave it as an unimplemented method to not force any item to
+     * override it
+     * @param g the "brush" we use to draw with
+     */
+    public void actionDraw(Graphics2D g) {}
     /**
      * Adds the given amount to the total amount
      * @param amnt the amount you want to add

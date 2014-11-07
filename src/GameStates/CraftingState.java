@@ -61,7 +61,7 @@ public class CraftingState extends GameState {
 
                 // the player cannot place items on slot[2] and can only place an item if he has selected one
                 if (i != 2 && cursorItem != -1 && isValidAddition(i, cursorItem)) {
-                    slots[i] = createItem(cursorItem);
+                    slots[i] = player.createItem(cursorItem);
                     slots[i].add(1); // to show how much of the item will be taken from the player's inventory when he crafts this
 
                     // if they changed something, then we need to clear the output slot since a new item should appear
@@ -99,6 +99,9 @@ public class CraftingState extends GameState {
 
         back.setHovered(mouseInput.isMouseOver(back));
         if (mouseInput.didMouseClickOn(back)) {
+            // if the crafting has made the player's current item to be emptied, than we un-assign it
+            if (player.getCurrentItem() != -1 && player.getItem(player.getCurrentItem()).amount <= 0)
+                player.setCurrentItem((short)-1);
             parentManager.deleteCurrentGame();
         }
     }
@@ -111,13 +114,12 @@ public class CraftingState extends GameState {
         g.drawString("Spooky Crafting!", 150, 50);
 
         // description and instructions on how to craft
-        g.setFont(new Font("Droid Sans", Font.BOLD, 15));
+        g.setFont(new Font("Verdana", Font.BOLD, 13));
         g.drawString("Select an item by clicking it from the side ->", 250, 220);
         g.drawString("After selecting an item, click on any of the first two slots", 10, 180);
         g.drawString("After selecting two items to the two slots, an item should appear on the third!", 10, 300);
-        g.drawString("Click the third item to get it!", 10, 350);
-        g.drawString("Only certain combinations of two items produce an item, think carefully!", 10, 400);
-
+        g.drawString("Click the third item to get it!", 10, 325);
+        g.drawString("Only certain combinations of two items produce an item, think carefully!", 10, 350);
 
         g.setFont(new Font("Droid Sans", Font.PLAIN, 15));
 
@@ -149,7 +151,11 @@ public class CraftingState extends GameState {
                 y += 32;
             }
             else {
-                g.setColor(cursorItem == item.id ? Color.green : Color.gray);
+                if (item.amount == 0)
+                    g.setColor(new Color(30,30,30));
+                else
+                    g.setColor(cursorItem == item.id ? Color.green : Color.gray);
+
                 g.fill(item.bounds);
                 item.draw(g);
                 g.setColor(Color.white);
@@ -158,27 +164,6 @@ public class CraftingState extends GameState {
             }
         }
         back.draw(g);
-    }
-    /**
-     * Created the item associated with the id and returns it
-     * @param id id of the item
-     * @return the item associated with the id
-     */
-    private Item createItem(int id) {
-        switch (id) {
-            case Item.SWORD_ID:
-                return new Sword();
-            case Item.KEY_ID:
-                return new Key();
-            case Item.WOOD_ID:
-                return new Wood();
-            case Item.GRASS_ID:
-                return new Grass();
-            case Item.STONE_ID:
-                return new Stone();
-            default:
-                return null;
-        }
     }
 
     /**
@@ -193,6 +178,19 @@ public class CraftingState extends GameState {
         if ((first instanceof Wood && second instanceof Stone) || (first instanceof Stone && second instanceof Wood)) {
             return new Sword();
         }
+
+        // stone and stone make fire!
+        if (first instanceof Stone && second instanceof Stone)
+            return new Fire();
+
+        // wood and grass make a bow
+        if ((first instanceof Wood && second instanceof Grass) || (first instanceof Grass && second instanceof Wood))
+            return new Bow();
+
+        // grass and stone make an arrow
+        if ((first instanceof Grass && second instanceof Stone) || (first instanceof Stone && second instanceof Grass))
+            return new ArrowItem();
+
         return null;
     }
 
@@ -205,7 +203,7 @@ public class CraftingState extends GameState {
      * @return whether or not the insert is valid
      */
     private boolean isValidAddition(int slotId, int itemId) {
-        // will give 1 if slotID = 2, 2 of slotId = 1 so that we can check the other slot
+        // will give 0 if slotID = 1, 1 of slotId = 0 so that we can check the other slot
         int otherSlot = (((slotId - 1) % 2) + 2) % 2;
 
         // other slot is closed, so it is valid
@@ -214,7 +212,7 @@ public class CraftingState extends GameState {
 
         // if the item  is different that the other selected item, then it is valid, if they are the same, then the
         // player better have more than one of that item, otherwise it is not valid.
-        return slots[otherSlot].id == itemId && player.getItem(itemId).amount > 1;
+        return slots[otherSlot].id != itemId || player.getItem(itemId).amount > 1;
 
     }
 }

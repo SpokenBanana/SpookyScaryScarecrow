@@ -30,6 +30,7 @@ public class BreakoutGame extends ArcadeGame {
     // a color for each row!
     private Color[] rowColors = {Color.red, Color.white, Color.orange, Color.cyan, Color.green, Color.pink,
                                  Color.yellow};
+
     private final short BRICK_WIDTH = 55, BRICK_HEIGHT = 25, BRICK_SPACING = 5;
     private boolean gameRestart;
     private Rectangle player, ball;
@@ -71,12 +72,18 @@ public class BreakoutGame extends ArcadeGame {
                 // make the paddle follow the mouse
                 player.x = (int) mouseInput.getMouseLocation().getX() - (player.width / 2);
 
+                // if the ball got repositioned, wait until the player clicks to move again
                 if (!gameRestart)
                     moveBall();
+
                 checkBallCollision();
                 checkBallAndBrickCollision();
+
+                // ball went past the player, got to place the ball back in the middle
                 if (ball.y > GAME_HEIGHT)
                     repositionGame();
+
+                // either the player lost or he won, either one, the game ends
                 if (lives == 0 || bricks.size() == 0) {
                     soundManager.stopCurrentSound();
                     soundManager.playSound("menu_music", true);
@@ -94,7 +101,7 @@ public class BreakoutGame extends ArcadeGame {
 
     @Override
     public void draw(Graphics2D g) {
-        g.setFont(new Font("Droid Sans", Font.BOLD, 20));
+        g.setFont(new Font(ARCADE_FONT, Font.BOLD, 15));
         g.setColor(new Color(20, 50, 100));
         g.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
         g.setColor(Color.white);
@@ -105,8 +112,10 @@ public class BreakoutGame extends ArcadeGame {
                 // easy to read iterating through the collection and calling the update method on each "brick".
                 bricks.forEach(bricks -> bricks.draw(g));
                 g.setColor(Color.white);
+
                 if (gameRestart)
                     g.drawString("Click to begin!", 300, 350);
+
                 g.fill(player);
                 g.fillOval(ball.x, ball.y, ball.width, ball.height);
 
@@ -159,10 +168,12 @@ public class BreakoutGame extends ArcadeGame {
                 ballxVel *= -1;
             moveBall();
         }
+        // ball hit top of screen
         else if (ball.y < 0) {
             ballyVel *= -1;
             moveBall();
         }
+        // ball hit left or right edge
         else if (ball.x < 0 || ball.x > GAME_WIDTH - ball.width) {
             ballxVel *= -1;
             moveBall();

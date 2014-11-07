@@ -94,7 +94,7 @@ public class PongGame extends ArcadeGame {
     public void draw(Graphics2D g) {
         g.setColor(new Color(20,20,40));
         g.fillRect(0,0, GAME_WIDTH, GAME_HEIGHT);
-        g.setFont(new Font("Sans Serif", Font.BOLD, 25));
+        g.setFont(new Font(ARCADE_FONT, Font.BOLD, 20));
         g.setColor(Color.white);
         switch (state) {
             case Menu:

@@ -53,6 +53,7 @@ public class LoadGame extends GameState {
     @Override
     public void draw(Graphics2D g) {
         g.setColor(Color.white);
+        g.setFont(new Font("Pericles", Font.BOLD, 27));
         g.drawString("Saved Games", 250, 50);
         for (Button button : buttons)
             if (button != null)

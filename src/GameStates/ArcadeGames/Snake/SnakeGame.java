@@ -251,7 +251,7 @@ public class SnakeGame extends ArcadeGame {
         g.setColor(new Color(50,70,160));
         g.fillRect(0,0, WIDTH, HEIGHT);
 
-        g.setFont(new Font("Sans Serif", Font.BOLD, 15));
+        g.setFont(new Font(ARCADE_FONT, Font.BOLD, 15));
         g.setColor(Color.white);
         g.drawString("SNAKE", 450,50);
         g.drawString("Press [ENTER] to pause/resume", 50, 440);

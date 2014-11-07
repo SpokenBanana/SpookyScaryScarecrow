@@ -10,6 +10,7 @@ import java.io.File;
 public class Key extends Item{
 
     public Key() {
+        description = "KEY | Looks like this can open something.";
         id = 1;
         bounds = new Rectangle(620,120 + (id * 32),32,32);
         try{

@@ -78,10 +78,15 @@ public class SavedFile {
 
         // save all the items the player has as a JSONArray
         for (Item item : player.getItems()) {
-            if (item == null)
-                itemArray.add("-1");
-            else
-                itemArray.add(Integer.toString(item.amount));
+            JSONObject itemObject = new JSONObject();
+            if (item == null) {
+                itemObject.put("amount", "-1");
+            }
+            else{
+                itemObject.put("amount", Integer.toString(item.amount));
+                itemObject.put("depreciation", item.getDepreciation());
+            }
+            itemArray.add(itemObject);
         }
 
         // will contain the properties we care about the player

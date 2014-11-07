@@ -8,6 +8,7 @@ import java.io.File;
  */
 public class Grass extends Item{
     public Grass() {
+        description = "GRASS | Doesn't look useful either. Better make something with it then...";
         id = Item.GRASS_ID;
         setBounds();
         try{

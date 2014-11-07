@@ -8,6 +8,7 @@ import java.io.File;
  */
 public class Stone extends Item {
     public Stone() {
+        description = "STONE | Doesn't look useful either, guess I can make stuff with it";
         id = Item.STONE_ID;
         setBounds();
         try{

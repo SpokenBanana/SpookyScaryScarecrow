@@ -64,6 +64,8 @@ public class BlackJackGame extends ArcadeGame {
             case Playing:
                 if (keyInput.isPressed(KeyEvent.VK_ENTER))
                     state = State.Pause;
+
+                // make buttons responsive
                 turnIn.setHovered(mouseInput.isMouseOver(turnIn));
                 hit.setHovered(mouseInput.isMouseOver(hit));
 
@@ -112,7 +114,7 @@ public class BlackJackGame extends ArcadeGame {
     @Override
     public void draw(Graphics2D g) {
         g.drawImage(bkg, 0,0, null);
-        g.setFont(new Font("Droid Sans", Font.BOLD, 20));
+        g.setFont(new Font(ARCADE_FONT, Font.BOLD, 15));
         g.setColor(Color.white);
         g.drawString("Press [ENTER] to play/pause", 50, 660);
         switch (state) {
@@ -134,6 +136,8 @@ public class BlackJackGame extends ArcadeGame {
                 turnIn.draw(g);
                 hit.draw(g);
                 playerHand.forEach(hand -> hand.draw(g, cardSprite));
+                g.setColor(Color.white);
+                g.drawString("Score: " + playerScore, 100, 450);
                 break;
             case Pause:
                 g.drawString("| |", 250,300);
@@ -152,19 +156,20 @@ public class BlackJackGame extends ArcadeGame {
                 g.drawString("Opponent score: " + computerScore, 444, 30);
 
                 g.setColor(Color.white);
+                g.drawString("Press [ENTER] to play again!", 250, 300);
                 switch (endDecision) {
                     case Win:
-                        g.drawString("YOU WON!!!", 20, 630);
+                        g.drawString("YOU WON!!!", 300, 330);
                         if (playerScore == 21)
-                            g.drawString("Perfect 21!", 120, 630);
+                            g.drawString("Perfect 21!", 300, 380);
                         break;
                     case Lost:
-                        g.drawString("YOU LOST!!!", 20, 630);
+                        g.drawString("YOU LOST!!!", 300, 330);
                         if (playerScore > 21)
-                            g.drawString("Awww! Busted!", 120, 630);
+                            g.drawString("Awww! Busted!", 300, 380);
                         break;
                     case Tie:
-                        g.drawString("You tied...", 20, 630);
+                        g.drawString("You tied...", 300, 330);
                         break;
                 }
                 break;
@@ -230,8 +235,14 @@ public class BlackJackGame extends ArcadeGame {
         computerHand.clear();
         addRandomCardTo(computerHand);
         addRandomCardTo(computerHand);
+
+        playerScore = getTotalValue(playerHand);
     }
 
+    /**
+     * Generates a random card to add to the hand, it makes sure no duplicated are generated
+     * @param hand the hand to add the new card to
+     */
     private void addRandomCardTo(ArrayList<Card> hand) {
         Card randomCard;
         boolean inPlayerHand = false, inComputerHand = false;
@@ -249,12 +260,15 @@ public class BlackJackGame extends ArcadeGame {
             y = lastCard.y;
         }
 
+        // generate card!
         do {
+            // random suit
             char suit = suits[random.nextInt(suits.length)];
 
             // Math checks out so the value can only be between 2 and 11;
             String value = Integer.toString(random.nextInt(10) + 2);
 
+            // a new card made!
             randomCard = new Card(new Rectangle(x, y, 150, 130), value + suit);
 
             // go through and check if the card exists in the players hand

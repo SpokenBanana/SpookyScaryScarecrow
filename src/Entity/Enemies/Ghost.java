@@ -33,7 +33,7 @@ public class Ghost extends Enemy {
      */
     protected void filterFinishedBullets(Player player) {
         Rectangle playerPosition = player.getPosition();
-        ArrayList<Bullet> toRemove = new ArrayList<Bullet>();
+        ArrayList<Bullet> toRemove = new ArrayList<>();
         for (Bullet bullet : bullets) {
             Rectangle bulletPosition = bullet.getPosition();
             if (bulletPosition.x < 0 || bulletPosition.x > 608 || bulletPosition.y < 0 || bulletPosition.y > 608) {
@@ -45,8 +45,7 @@ public class Ghost extends Enemy {
                 player.hit(bullet.damage);
             }
         }
-        for (Bullet bullet : toRemove)
-            bullets.remove(bullet);
+        toRemove.forEach(bullets::remove);
     }
 
     @Override
@@ -71,6 +70,7 @@ public class Ghost extends Enemy {
 
         for(Bullet bullet : bullets)
             bullet.update();
+
         filterFinishedBullets(player);
         super.update();
     }
@@ -82,7 +82,8 @@ public class Ghost extends Enemy {
 
     @Override
     public void draw(Graphics2D g) {
-        for (Bullet bullet : bullets) bullet.draw(g);
+        for (Bullet bullet : bullets)
+            bullet.draw(g);
         super.draw(g);
     }
 }

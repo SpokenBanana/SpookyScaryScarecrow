@@ -1,5 +1,7 @@
 package Entity.Items;
 
+import Entity.Player.Player;
+
 import javax.imageio.ImageIO;
 import java.io.File;
 
@@ -8,8 +10,12 @@ import java.io.File;
  */
 public class Sword extends Item {
     private int damage;
+    private Player player;
+
     public Sword() {
+        description = "SWORD | Pressing [SPACE] deals more damage with this equipped!";
         damage = 15;
+        depreciation = 100;
         id = Item.SWORD_ID;
         setBounds();
         try {
@@ -18,14 +24,24 @@ public class Sword extends Item {
 
         }
     }
+    public Sword(Player player) {
+        this();
+        this.player = player;
+    }
 
     @Override
     public void update() {
-        // no updating for sword
     }
 
     @Override
     public void action() {
+        // decrease depreciation on every use, if it goes lower than or equal to 0, we broke it
+        if ((depreciation -= 5) <= 0) {
+            // reduce amount
+            amount--;
 
+            // reset depreciation either way
+            depreciation = 100;
+        }
     }
 }

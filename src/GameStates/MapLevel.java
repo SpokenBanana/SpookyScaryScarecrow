@@ -51,7 +51,7 @@ public class MapLevel extends GameState {
         // get sounds
         soundManager.addSound("confirm", "confirm.wav");
 
-        player = new Player(keys);
+        player = new Player(keys, mouseInput);
         setLevel("route2.json");
         playerHUD = new PlayerHUD(player);
     }
@@ -114,7 +114,7 @@ public class MapLevel extends GameState {
             return false;
         });
 
-        player.update();
+        player.update(enemies);
         playerHUD.update(player, mouseInput);
 
         // update all enemies
@@ -172,8 +172,13 @@ public class MapLevel extends GameState {
         JSONArray itemArray = (JSONArray) playerProperties.get("items");
         for (int i = 0; i < itemArray.size(); i++) {
             if (!itemArray.get(i).toString().equals("-1")) {
-                int amount = Integer.parseInt(itemArray.get(i).toString());
-                player.addItem(i, amount);
+                JSONObject itemObject = (JSONObject) itemArray.get(i);
+                int amount = Integer.parseInt(itemObject.get("amount").toString());
+                if (amount != -1){
+                    player.addItem(i, amount);
+                    int depreciation = Integer.parseInt(itemObject.get("depreciation").toString());
+                    player.getItem(i).setDepreciation(depreciation);
+                }
             }
         }
 
@@ -185,13 +190,14 @@ public class MapLevel extends GameState {
         currentGame.saveFile(player, currentLevel);
     }
 
-    /**
+    /**w
      * Changes the current level to the level given. It loads all the things the file specifies it wants in that map
      * @param level the name of the .json file inside Assets/Levels/ to load
      */
     public void setLevel(String level) {
         currentLevel = level;
         map = new Map(level);
+        player.bullets.clear();
 
         // new level, so forget about the last one
         eventStates.clear();

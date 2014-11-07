@@ -119,6 +119,9 @@ public abstract class Entity {
     public Rectangle getPosition() {
         return position;
     }
+    public boolean isHurt() {
+        return hurt;
+    }
     /**
         Returns the opposite direction of a given direction. Can be useful for when we want something facing someone
      */

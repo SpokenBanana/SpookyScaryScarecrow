@@ -18,11 +18,13 @@ public class Shooter extends Enemy {
     private boolean hiding;
     public Shooter(Point spawn) {
         super(spawn);
+        health = 25;
         bullets = new ArrayList<Bullet>();
         sprites.addSprite("shooting", "Enemies/Shooter/shooter.png", true);
         sprites.addSprite("hiding", "Enemies/Shooter/hidingShooter.png");
         position = new Rectangle(spawn.x, spawn.y, 32,32);
         shootingTimeDelay = new Random().nextInt(100);
+        currentDirection = Direction.Standing;
         hiding = false;
     }
 
@@ -35,6 +37,7 @@ public class Shooter extends Enemy {
             sprites.setCurrent("hiding");
         }
         else {
+            hiding = false;
             sprites.setCurrent("shooting");
             // we don't want him to shoot too much, only in intervals
             if (shootingTimeDelay <= 0) {
@@ -50,7 +53,7 @@ public class Shooter extends Enemy {
             bullet.update();
 
         filterFinishedBullets(player);
-
+        super.update();
     }
 
 
