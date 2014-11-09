@@ -42,6 +42,9 @@ public class ItemSpawner extends Rectangle{
                 case Item.ARROW_ID:
                     sprite = ImageIO.read(new File("Assets/Sprites/items/arrow.png"));
                     break;
+                case Item.HEALTH_ID:
+                    sprite = ImageIO.read(new File("Assets/Sprites/items/health.png"));
+                    break;
             }
         } catch (Exception e) {
             e.printStackTrace();

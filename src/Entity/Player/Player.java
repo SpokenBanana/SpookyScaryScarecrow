@@ -121,7 +121,8 @@ public class Player extends Entity {
         // update current item
         if (currentItem != -1)
             items[currentItem].update();
-        bullets.forEach(bullet -> bullet.update());
+
+        bullets.forEach(Bullet::update);
         filterBullets(enemies);
         super.update();
     }
@@ -289,6 +290,8 @@ public class Player extends Entity {
                 return new Bow(mouseInput, this);
             case Item.ARROW_ID:
                 return new ArrowItem();
+            case Item.HEALTH_ID:
+                return new Health(this, keyInput);
             default:
                 return null;
         }

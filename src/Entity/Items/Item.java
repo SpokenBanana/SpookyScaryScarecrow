@@ -18,8 +18,8 @@ public abstract class Item {
     // tells about the item and how to use it
     protected String description;
 
-    public static final byte ITEM_AMOUNT = 8, SWORD_ID = 0, KEY_ID = 1, WOOD_ID = 2, GRASS_ID = 3, STONE_ID = 4,
-                                              FIRE_ID = 5, Bow_ID = 6, ARROW_ID = 7;
+    public static final byte ITEM_AMOUNT = 9, SWORD_ID = 0, KEY_ID = 1, WOOD_ID = 2, GRASS_ID = 3, STONE_ID = 4,
+                                              FIRE_ID = 5, Bow_ID = 6, ARROW_ID = 7, HEALTH_ID = 8;
 
     // how we keep track of which item is which
     public int id;

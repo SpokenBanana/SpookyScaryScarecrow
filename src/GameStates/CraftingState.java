@@ -190,6 +190,8 @@ public class CraftingState extends GameState {
         // grass and stone make an arrow
         if ((first instanceof Grass && second instanceof Stone) || (first instanceof Stone && second instanceof Grass))
             return new ArrowItem();
+        if (first instanceof Grass && second instanceof Grass)
+            return new Health();
 
         return null;
     }
