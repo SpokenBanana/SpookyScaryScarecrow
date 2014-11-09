@@ -84,6 +84,8 @@ public class MapLevel extends GameState {
 
         // event states are triggered by facing the area and pressing the action button [F]
         for (EventState eventState : eventStates) {
+            eventState.update(player);
+
             // we don't want the player to "warp" to a new map by pressing [F] and facing it
             if (!(eventState instanceof Warp) && keyInput.isPressed(KeyEvent.VK_F) && player.getFacingBlock().intersects(eventState.eventArea)) {
                 eventState.activate(parentManager, this, player);
