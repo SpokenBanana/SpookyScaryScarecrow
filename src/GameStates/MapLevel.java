@@ -399,7 +399,24 @@ public class MapLevel extends GameState {
         for (Object speech : speechArray) {
             JSONObject speechAsJSON = (JSONObject) speech;
             String conversation = speechAsJSON.get("name").toString();
-            eventStates.add(new ConversationEvent(conversation, keyInput, convertJSONToRectangle(speechAsJSON)));
+            Object type = speechAsJSON.get("type");
+
+            // get the EventState ready
+            Rectangle eventArea = convertJSONToRectangle(speechAsJSON);
+            EventState state = new ConversationEvent(conversation, keyInput, eventArea);
+
+            // now check if this was supposed to be something else
+            // because not all "speech" has a type
+            if (type != null) {
+                String strType = type.toString();
+
+                // this tells the game that we want this speech to be a HealthEvent speech
+                if (strType.equals("health"))
+                    state = new HealthEvent(eventArea);
+            }
+
+            // add it into the game
+            eventStates.add(state);
         }
     }
     private void extractNPC() {

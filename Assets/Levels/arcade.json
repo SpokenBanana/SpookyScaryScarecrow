@@ -271,6 +271,30 @@
          "width":19,
          "x":0,
          "y":0
+        }, 
+        {
+         "height":19,
+         "name":"speech",
+         "objects":[
+                {
+                 "height":32,
+                 "name":"''",
+                 "properties":
+                    {
+
+                    },
+                 "type":"health",
+                 "visible":true,
+                 "width":32,
+                 "x":288,
+                 "y":288
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "width":19,
+         "x":0,
+         "y":0
         }],
  "orientation":"orthogonal",
  "properties":
