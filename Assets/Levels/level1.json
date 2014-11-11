@@ -1,313 +1,45 @@
-{ "height":19,
- "layers":[
-        {
-         "data":[65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 106, 65, 65, 65, 107, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 106, 65, 65, 65, 65, 65, 65, 65, 65, 107, 65, 65, 65, 108, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 108, 108, 108, 108, 65, 108, 108, 108, 65, 65, 65, 65, 65, 65, 65, 65, 65, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 65, 65, 65, 65, 65, 65, 65, 65, 65, 108, 108, 65, 65, 65, 65, 108, 108, 108, 108, 65, 65, 65, 65, 65, 65, 65, 65, 107, 107, 65, 65, 65, 65, 65, 65, 108, 108, 65, 65, 65, 65, 65, 65, 65, 65, 107, 108, 107, 65, 65, 65, 65, 65, 65, 108, 108, 65, 65, 65, 65, 65, 65, 65, 65, 108, 108, 65, 65, 65, 65, 65, 65, 65, 108, 108, 65, 65, 65, 65, 65, 65, 65, 108, 108, 108, 108, 65, 65, 65, 65, 65, 65, 106, 108, 65, 65, 65, 65, 65, 65, 65, 108, 107, 108, 108, 106, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65],
-         "height":19,
-         "name":"Tile Layer 1",
-         "opacity":1,
-         "type":"tilelayer",
-         "visible":true,
-         "width":19,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "data":[440, 440, 440, 440, 440, 440, 440, 440, 440, 440, 440, 440, 440, 440, 440, 440, 440, 440, 440, 440, 0, 0, 0, 440, 440, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 169, 440, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 190, 440, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 190, 440, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 61, 62, 63, 0, 0, 0, 0, 190, 440, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 82, 126, 84, 0, 0, 0, 0, 190, 440, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 103, 104, 105, 0, 0, 0, 0, 190, 440, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 190, 440, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 190, 440, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 190, 440, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 190, 440, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 190, 440, 0, 0, 0, 0, 0, 0, 0, 0, 61, 62, 63, 0, 0, 0, 0, 0, 0, 190, 440, 0, 0, 0, 0, 0, 0, 0, 0, 82, 125, 84, 0, 0, 0, 0, 0, 0, 190, 440, 440, 0, 0, 0, 0, 0, 0, 0, 103, 104, 105, 0, 0, 0, 0, 0, 0, 190, 440, 440, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 190, 440, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 190, 440, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 190, 440, 440, 61, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 63, 190],
-         "height":19,
-         "name":"Tile Layer 2",
-         "opacity":1,
-         "type":"tilelayer",
-         "visible":true,
-         "width":19,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-         "height":19,
-         "name":"Tile Layer 3",
-         "opacity":1,
-         "type":"tilelayer",
-         "visible":true,
-         "width":19,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "height":19,
-         "name":"walls",
-         "objects":[
-                {
-                 "height":64,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"",
-                 "visible":true,
-                 "width":96,
-                 "x":352,
-                 "y":128
-                }, 
-                {
-                 "height":64,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"",
-                 "visible":true,
-                 "width":96,
-                 "x":288,
-                 "y":384
-                }, 
-                {
-                 "height":96,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"",
-                 "visible":true,
-                 "width":544,
-                 "x":64,
-                 "y":576
-                }, 
-                {
-                 "height":608,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":0,
-                 "y":0
-                }, 
-                {
-                 "height":32,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"",
-                 "visible":true,
-                 "width":576,
-                 "x":32,
-                 "y":0
-                }, 
-                {
-                 "height":32,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"",
-                 "visible":true,
-                 "width":64,
-                 "x":128,
-                 "y":32
-                }, 
-                {
-                 "height":64,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":32,
-                 "y":448
-                }, 
-                {
-                 "height":32,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":32,
-                 "y":576
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "width":19,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "height":19,
-         "name":"npc",
-         "objects":[
-                {
-                 "height":64,
-                 "name":"The next area is dangerous, be careful!",
-                 "properties":
-                    {
-
-                    },
-                 "type":"talk",
-                 "visible":true,
-                 "width":32,
-                 "x":512,
-                 "y":128
-                }, 
-                {
-                 "height":64,
-                 "name":"Ever wonder what's behind those rocks?`There's a whole world out there I don't know about!",
-                 "properties":
-                    {
-
-                    },
-                 "type":"talk",
-                 "visible":true,
-                 "width":32,
-                 "x":448,
-                 "y":384
-                }, 
-                {
-                 "height":64,
-                 "name":"Oh cool! You know how to talk to me!`You can stand in front of things and press F to get something to happen!`Like talking to me!`Talk to other people to learn more about our world!",
-                 "properties":
-                    {
-
-                    },
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":160,
-                 "y":128
-                }, 
-                {
-                 "height":64,
-                 "name":"I love punching things!`You can punch too! Just press [SPACE]!",
-                 "properties":
-                    {
-
-                    },
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":256,
-                 "y":224
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "width":19,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "height":19,
-         "name":"speech",
-         "objects":[
-                {
-                 "height":64,
-                 "name":"Its a body of water...",
-                 "properties":
-                    {
-
-                    },
-                 "type":"",
-                 "visible":true,
-                 "width":96,
-                 "x":352,
-                 "y":128
-                }, 
-                {
-                 "height":64,
-                 "name":"Its a body of water...",
-                 "properties":
-                    {
-
-                    },
-                 "type":"",
-                 "visible":true,
-                 "width":96,
-                 "x":288,
-                 "y":384
-                }, 
-                {
-                 "height":32,
-                 "name":"An ocean! But I can't swim...",
-                 "properties":
-                    {
-
-                    },
-                 "type":"",
-                 "visible":true,
-                 "width":512,
-                 "x":64,
-                 "y":576
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "width":19,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "height":19,
-         "name":"warps",
-         "objects":[
-                {
-                 "height":576,
-                 "name":"level2.json",
-                 "properties":
-                    {
-
-                    },
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":608,
-                 "y":32
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "width":19,
-         "x":0,
-         "y":0
-        }],
- "orientation":"orthogonal",
- "properties":
-    {
-
-    },
- "tileheight":32,
- "tilesets":[
-        {
-         "firstgid":1,
-         "image":"..\/terrain.png",
-         "imageheight":736,
-         "imagewidth":672,
-         "margin":0,
-         "name":"terrain",
-         "properties":
-            {
-
-            },
-         "spacing":0,
-         "tileheight":32,
-         "tilewidth":32
-        }],
- "tilewidth":32,
- "version":1,
- "width":19
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="19" height="19" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="terrain" tilewidth="32" tileheight="32">
+  <image source="../terrain.png" width="672" height="736"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="19" height="19">
+  <data encoding="base64" compression="zlib">
+   eJxzZGBgcBzFgwpnofGzB4GbyHU7Nozunxwq2Z2DhtHFyDEDFybFLGLcSSi88KUBUszJoZJZxKgjRQ0htVlEmpWNZBYxaXEoYAA142RX
+  </data>
+ </layer>
+ <layer name="Tile Layer 2" width="19" height="19">
+  <data encoding="base64" compression="zlib">
+   eJzbwcjAsIOKGBlgEyMGrGQgTx82sG8AzbIFYjsgtqeCWUFAXAfEIVQwKx2IM4A4kwpm4QOjZtHGLHzpilSzQOmqlgF7ukI3i5B5+NIVqWYRAwZ7PIIwLK7IwfZQswAKNTWt
+  </data>
+ </layer>
+ <layer name="Tile Layer 3" width="19" height="19">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMFgBAAWkAAE=
+  </data>
+ </layer>
+ <objectgroup name="walls" width="19" height="19">
+  <object x="352" y="128" width="96" height="64"/>
+  <object x="288" y="384" width="96" height="64"/>
+  <object x="64" y="576" width="544" height="96"/>
+  <object x="0" y="0" width="32" height="608"/>
+  <object x="32" y="0" width="576" height="32"/>
+  <object x="128" y="32" width="64" height="32"/>
+  <object x="32" y="448" width="32" height="64"/>
+  <object x="32" y="576" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="npc" width="19" height="19">
+  <object name="The next area is dangerous, be careful!" type="talk" x="512" y="128" width="32" height="64"/>
+  <object name="Ever wonder what's behind those rocks?`There's a whole world out there I don't know about!" type="talk" x="448" y="384" width="32" height="64"/>
+  <object name="Oh cool! You know how to talk to me!`You can stand in front of things and press F to get something to happen!`Like talking to me!`Talk to other people to learn more about our world!" x="160" y="128" width="32" height="64"/>
+  <object name="I love punching things!`You can punch too! Just press [SPACE]!" x="256" y="224" width="32" height="64"/>
+ </objectgroup>
+ <objectgroup name="speech" width="19" height="19">
+  <object name="Its a body of water..." x="352" y="128" width="96" height="64"/>
+  <object name="Its a body of water..." x="288" y="384" width="96" height="64"/>
+  <object name="An ocean! But I can't swim..." x="64" y="576" width="512" height="32"/>
+ </objectgroup>
+ <objectgroup name="warps" width="19" height="19">
+  <object name="level2.json" x="608" y="32" width="32" height="576"/>
+ </objectgroup>
+</map>

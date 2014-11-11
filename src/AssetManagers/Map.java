@@ -1,14 +1,15 @@
 package AssetManagers;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
 
 import javax.imageio.ImageIO;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileReader;
 import java.util.ArrayList;
 
 /**
@@ -18,7 +19,7 @@ import java.util.ArrayList;
  */
 public class Map {
     private ArrayList<int[][]> layers;
-    private JSONObject mapData;
+    private Element mapData;
     private final int TILE_SIZE = 32, SOURCE_TILE_SIZE = 32, TILE_COLUMNS = 21;
 
 
@@ -31,15 +32,16 @@ public class Map {
 
     public Map(String filename) {
         layers = new ArrayList<int[][]>();
-        String notFound = "";
+        File file = new File("Assets/Levels/" + filename + ".tmx");
         try {
-            notFound = filename;
-            FileReader reader = new FileReader("Assets/Levels/" + filename);
-            mapData = (JSONObject) new JSONParser().parse(reader);
-            notFound = "terrain.png";
+            DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+
+            mapData = (Element) builder.parse(file).getDocumentElement();
+
             tileSheet = ImageIO.read(new File("Assets/terrain.png"));
         } catch (Exception e) {
-            System.out.println("File was not found: " + notFound);
+            e.printStackTrace();
+            System.out.println("!!!!PROBLEM!!!!!");
         }
         extractLayers();
     }
@@ -78,12 +80,15 @@ public class Map {
         retrieves an object from the JSON file. Objects in the JSON are meant to represent many things and
         helps make levels easier to lay out.
      */
-    public JSONObject getObject(String key) {
-        JSONArray objectArray = (JSONArray) mapData.get("layers");
-        for (Object object : objectArray) {
-            JSONObject objectAsJSON = (JSONObject) object;
-            if (objectAsJSON.get("name").equals(key))
-                return objectAsJSON;
+    public NodeList getObject(String key) {
+        NodeList objectArray = mapData.getElementsByTagName("objectgroup");
+        for (int i = 0; i < objectArray.getLength(); i++) {
+            Element holder = (Element) objectArray.item(i);
+            NodeList item = holder.getElementsByTagName("object");
+            //Element element = (Element) holder.item(i);
+            if (holder.getAttribute("name").equals(key)) {
+                return item;
+            }
         }
         return null;
     }
@@ -93,37 +98,39 @@ public class Map {
      * @param key they key to the object
      * @return the object that corresponds to key
      */
-    public Object get(String key) {
-        return mapData.get(key);
+    public NodeList get(String key) {
+        return mapData.getElementsByTagName(key);
     }
     /**
         This will read the Map object and take all the data from each tile layer and
         parse it so that we get the information we need (the tile id's) in the format we want (ArrayList<int[][]>).
      */
     private void extractLayers() {
-        JSONArray objects = (JSONArray) mapData.get("layers");
+        NodeList objects = mapData.getElementsByTagName("data");
 
         // an iterator is sort of a helper that helps us iterate through a collection
-        for (Object object1 : objects) {
-            JSONObject object = (JSONObject) object1;
+        for (int  k = 0; k < objects.getLength(); k++) {
+
+            Element layer = (Element) objects.item(k);
 
             // from the attribute "type" we check if it is a tile layer, if so we add it to layers
-            if (object.get("type").equals("tilelayer")) {
-                // data contains the tile numbers of the map as they are placed
-                JSONArray tileData = (JSONArray) object.get("data");
+            // data contains the tile numbers of the map as they are placed
+            NodeList tileData = layer.getElementsByTagName("tile");
 
-                // the attributes height and width contain the amount of tiles on each dimension
-                int mapHeight = Integer.parseInt(mapData.get("height").toString());
-                int mapWidth = Integer.parseInt(mapData.get("width").toString());
+            // the attributes height and width contain the amount of tiles on each dimension
+            int mapHeight = Integer.parseInt(mapData.getAttribute("height"));
+            int mapWidth = Integer.parseInt(mapData.getAttribute("width"));
 
-                // we will save the data in a 2 dimensional array to simplify rendering
-                // because now we can say tiles[0][1] and understand the indexes as coordinates
-                int[][] tiles = new int[mapWidth][mapHeight];
-                for (int i = 0; i < mapHeight; i++)
-                    for (int j = 0; j < mapWidth; j++)
-                        tiles[i][j] = Integer.parseInt(tileData.get((i * mapWidth) + j).toString()) - 1;
-                layers.add(tiles);
+            // we will save the data in a 2 dimensional array to simplify rendering
+            // because now we can say tiles[0][1] and understand the indexes as coordinates
+            int[][] tiles = new int[mapWidth][mapHeight];
+            for (int i = 0; i < mapHeight; i++){
+                for (int j = 0; j < mapWidth; j++){
+                    Element tile = (Element) tileData.item((i * mapWidth) + j);
+                    tiles[i][j] = Integer.parseInt(tile.getAttribute("gid")) - 1;
+                }
             }
+            layers.add(tiles);
         }
     }
 }

@@ -14,8 +14,8 @@ import Entity.Player.PlayerHUD;
 import Entity.Warp;
 import Handlers.KeyInput;
 import Handlers.MouseInput;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -55,7 +55,7 @@ public class MapLevel extends GameState {
         soundManager.addSound("confirm", "confirm.wav");
 
         player = new Player(keys, mouseInput);
-        setLevel("level1.json");
+        setLevel("level1");
         playerHUD = new PlayerHUD(player);
         playerEnteredLocation = player.getPosition().getLocation();
     }
@@ -167,34 +167,39 @@ public class MapLevel extends GameState {
      * This will load the game from the contents of the currentGame file.
      */
     public void loadGameFromFile() {
-        JSONObject saveData = currentGame.getSavedGame();
+        Element saveData = currentGame.getSavedGame();
 
         // get saved player properties
-        JSONObject playerProperties = (JSONObject) saveData.get("player");
-        int x = Integer.parseInt(playerProperties.get("x").toString());
-        int y = Integer.parseInt(playerProperties.get("y").toString());
-        int health = Integer.parseInt(playerProperties.get("health").toString());
+        Element playerProperties = (Element) saveData.getElementsByTagName("player").item(0);
+        Element xProp = (Element) saveData.getElementsByTagName("x").item(0);
+        Element yProp = (Element) saveData.getElementsByTagName("y").item(0);
+        Element healthProp = (Element) saveData.getElementsByTagName("health").item(0);
+
+        int x = Integer.parseInt(xProp.getTextContent());
+        int y = Integer.parseInt(yProp.getTextContent());
+        int health = Integer.parseInt(healthProp.getTextContent());
 
         // move player to saved location
         player.moveTo(x, y);
         player.setHealth(health);
 
         // give player his items
-        JSONArray itemArray = (JSONArray) playerProperties.get("items");
-        for (int i = 0; i < itemArray.size(); i++) {
-            if (!itemArray.get(i).toString().equals("-1")) {
-                JSONObject itemObject = (JSONObject) itemArray.get(i);
-                int amount = Integer.parseInt(itemObject.get("amount").toString());
+        NodeList itemArray =  saveData.getElementsByTagName("item");
+        for (int i = 0; i < itemArray.getLength(); i++) {
+            Element item = (Element) itemArray.item(i);
+            if (!item.getAttribute("amount").equals("-1")) {
+                int amount = Integer.parseInt(item.getAttribute("amount"));
                 if (amount != -1){
                     player.addItem(i, amount);
-                    int depreciation = Integer.parseInt(itemObject.get("depreciation").toString());
+                    int depreciation = Integer.parseInt(item.getAttribute("depreciation"));
                     player.getItem(i).setDepreciation(depreciation);
                 }
             }
         }
 
         // set level to where it was last saved
-        setLevel(saveData.get("level").toString());
+        Element levelElement = (Element) saveData.getElementsByTagName("level").item(0);
+        setLevel(levelElement.getTextContent());
     }
 
     public void saveGame() {
@@ -255,8 +260,10 @@ public class MapLevel extends GameState {
         removeItemsToIgnore(level);
 
         // only the arcade map wants the arcade machines
-        if (level.equals("arcade.json"))
+        if (level.equals("arcade")) {
+            System.out.println("wut");
             extractArcadeMachines();
+        }
 
 
         // let the player know about the collision blocks
@@ -296,11 +303,13 @@ public class MapLevel extends GameState {
      */
     private String getMusic() {
         String file = null;
-        try {
-            JSONObject properties = (JSONObject) map.get("properties");
-            file = properties.get("music").toString();
-        } catch (Exception e) {}
-        return file;
+        NodeList props = map.get("property");
+        for (int i = 0; i < props.getLength(); i++) {
+            Element property = (Element) props.item(i);
+            if (property.getAttribute("name").equals("music"))
+                return property.getAttribute("value");
+        }
+        return null;
     }
 
     /**
@@ -308,68 +317,75 @@ public class MapLevel extends GameState {
      * the property [x], if so, it loads it into the game as its respective object so it now becomes meaningful.
      */
     private void extractItems() {
-        JSONObject itemObject = map.getObject("items");
+        NodeList itemObject = map.getObject("items");
         // not all maps have items, if they do not, then stop here
         if (itemObject == null)
             return;
         // get all the objects as an array
-        JSONArray itemArray = (JSONArray) itemObject.get("objects");
 
         // go through each one and convert it into an ItemSpawner
-        for (Object item: itemArray) {
-            JSONObject itemAsJSON = (JSONObject) item;
-            int id = Integer.parseInt(itemAsJSON.get("name").toString());
-            Rectangle bounds = convertJSONToRectangle(itemAsJSON);
+        for (int i = 0; i < itemObject.getLength(); i++) {
+            Element item = (Element) itemObject.item(i);
+            int id = Integer.parseInt(item.getAttribute("name"));
+            Rectangle bounds = convertJSONToRectangle(item);
             itemSpawners.add(new ItemSpawner(id, bounds));
         }
     }
     private void extractWarps() {
-        JSONObject warpObject = map.getObject("warps");
+        NodeList warpObject = map.getObject("warps");
         if (warpObject == null)
             return;
-        JSONArray warpArray = (JSONArray) warpObject.get("objects");
-        for (Object warp : warpArray) {
-            JSONObject warpAsJSON = (JSONObject) warp;
-            eventStates.add(new Warp(warpAsJSON.get("name").toString(), convertJSONToRectangle(warpAsJSON)));
+        for (int i = 0; i < warpObject.getLength(); i++) {
+            Element warp = (Element) warpObject.item(i);
+            eventStates.add(new Warp(warp.getAttribute("name"), convertJSONToRectangle(warp)));
         }
     }
     private void extractBlocks() {
         // I named the objects I want as walls "walls" in the JSON files.
-        JSONObject wallObjects = map.getObject("walls");
+        NodeList wallObjects = map.getObject("walls");
 
         // this map has no walls, no need to continue
         if (wallObjects == null)
             return;
 
         // objects contain an array of objects defined under the "objects" property.
-        JSONArray wallArray = (JSONArray) wallObjects.get("objects");
 
-        for (Object wall : wallArray) {
+        for (int i = 0; i < wallObjects.getLength(); i++) {
+            Element wall = (Element) wallObjects.item(i);
+
             // we convert the object to a JSONObject to retrieve the properties we want.
-            JSONObject wallAsJson = (JSONObject) wall;
-            Block block = new Block(convertJSONToRectangle(wallAsJson));
+            Block block = new Block(convertJSONToRectangle(wall));
 
             // if this property even exists, we know it was meant to be a door
-            JSONObject properties = (JSONObject) wallAsJson.get("properties");
-            if (properties.get("isDoor") != null)
-                block.setAsDoor();
+            NodeList properties = wall.getElementsByTagName("properties");
+            if (properties != null) {
+                Element property = (Element) properties.item(0);
+                if (property != null){
+                    Element prop = (Element) property.getElementsByTagName("property").item(0);
+                    String isDoor = prop.getAttribute("name");
+                    if (isDoor!= null && isDoor.equals("isDoor"))
+                        block.setAsDoor();
+                }
+            }
 
             blocks.add(block);
         }
     }
     private void extractArcadeMachines() {
-        JSONObject arcadeObject = map.getObject("arcades");
-        if (arcadeObject == null)
+
+        NodeList arcades = map.getObject("arcades");
+        if (arcades == null){
+            System.out.println("none found..");
             return;
-        JSONArray arcadeArray = (JSONArray) arcadeObject.get("objects");
-        for (Object arcade : arcadeArray) {
-            JSONObject arcadeAsJSON = (JSONObject) arcade;
+        }
 
-            int gameId = Integer.parseInt(arcadeAsJSON.get("name").toString());
-            char direction = arcadeAsJSON.get("type").toString().charAt(0);
-
-            blocks.add(new Block(convertJSONToRectangle(arcadeAsJSON)));
-            eventStates.add(new ArcadeMachine(convertJSONToRectangle(arcadeAsJSON), gameId, direction));
+        for (int i = 0; i < arcades.getLength(); i++) {
+            Element arcade = (Element) arcades.item(i);
+            int gameId = Integer.parseInt(arcade.getAttribute("name"));
+            char direction = arcade.getAttribute("type").charAt(0);
+            Rectangle asBlock = convertJSONToRectangle(arcade);
+            blocks.add(new Block(asBlock));
+            eventStates.add(new ArcadeMachine(asBlock, gameId, direction));
         }
     }
 
@@ -381,36 +397,34 @@ public class MapLevel extends GameState {
      * @param toRectangle the object we want to transform as a rectangle
      * @return rectangle from the data given from the JSONObject
      */
-    private Rectangle convertJSONToRectangle(JSONObject toRectangle) {
+    private Rectangle convertJSONToRectangle(Element toRectangle) {
         // JSONObject's get() method returns the value in a generic Object-type. We expect the
         // property "x" to contain a numerical value, so to convert it to a numerical value we must
         // first convert it to a string with Object's toString() method and then we can convert it back
         // to an integer with Integer.parseInt(). We do this for all properties we expect a numerical value.
-        int x = Integer.parseInt(toRectangle.get("x").toString());
-        int y = Integer.parseInt(toRectangle.get("y").toString());
-        int width = Integer.parseInt(toRectangle.get("width").toString());
-        int height = Integer.parseInt(toRectangle.get("height").toString());
+        int x = Integer.parseInt(toRectangle.getAttribute("x"));
+        int y = Integer.parseInt(toRectangle.getAttribute("y"));
+        int width = Integer.parseInt(toRectangle.getAttribute("width"));
+        int height = Integer.parseInt(toRectangle.getAttribute("height"));
         return new Rectangle(x, y, width, height);
     }
     private void extractSpeech(){
-        JSONObject speechObject = map.getObject("speech");
+        NodeList speechObject = map.getObject("speech");
         if (speechObject == null)
             return;
 
-        JSONArray speechArray = (JSONArray) speechObject.get("objects");
-        for (Object speech : speechArray) {
-            JSONObject speechAsJSON = (JSONObject) speech;
-            String conversation = speechAsJSON.get("name").toString();
-            Object type = speechAsJSON.get("type");
+        for (int i = 0; i < speechObject.getLength(); i++) {
+            Element speech = (Element) speechObject.item(i);
+            String conversation = speech.getAttribute("name");
 
             // get the EventState ready
-            Rectangle eventArea = convertJSONToRectangle(speechAsJSON);
+            Rectangle eventArea = convertJSONToRectangle(speech);
             EventState state = new ConversationEvent(conversation, keyInput, eventArea);
 
             // now check if this was supposed to be something else
             // because not all "speech" has a type
-            if (type != null) {
-                String strType = type.toString();
+            if (speech.hasAttribute("type")) {
+                String strType = speech.getAttribute("type");
 
                 // this tells the game that we want this speech to be a HealthEvent speech
                 if (strType.equals("health"))
@@ -422,26 +436,25 @@ public class MapLevel extends GameState {
         }
     }
     private void extractNPC() {
-        JSONObject npcObject = map.getObject("npc");
+        NodeList npcObject = map.getObject("npc");
         if (npcObject == null) return;
-        JSONArray npcArray = (JSONArray) npcObject.get("objects");
-        for (Object npc : npcArray) {
-            JSONObject npcAsJSON = (JSONObject) npc;
-            String conversation = npcAsJSON.get("name").toString();
-            Rectangle bounds = convertJSONToRectangle(npcAsJSON);
+
+        for (int i = 0; i < npcObject.getLength(); i++) {
+            Element npc = (Element) npcObject.item(i);
+            String conversation = npc.getAttribute("name");
+            Rectangle bounds = convertJSONToRectangle(npc);
             blocks.add(new Block(bounds));
             eventStates.add(new NPC(bounds.getLocation(), conversation));
         }
     }
     private void extractEnemies() {
-        JSONObject enemyObject = map.getObject("enemies");
+        NodeList enemyObject = map.getObject("enemies");
         if (enemyObject == null)
             return;
-        JSONArray enemyArray = (JSONArray) enemyObject.get("objects");
-        for (Object enemy : enemyArray) {
-            JSONObject enemyAsJSON = (JSONObject) enemy;
-            int enemyID = Integer.parseInt(enemyAsJSON.get("name").toString());
-            Rectangle bounds = convertJSONToRectangle(enemyAsJSON);
+        for (int i = 0; i < enemyObject.getLength(); i++) {
+            Element enemy = (Element) enemyObject.item(i);
+            int enemyID = Integer.parseInt(enemy.getAttribute("name"));
+            Rectangle bounds = convertJSONToRectangle(enemy);
 
             // enemyID tells us which enemy we should add to the game
             switch (enemyID) {
@@ -459,7 +472,7 @@ public class MapLevel extends GameState {
                     break;
                 case Map.MINION_ID:
                     // type holds the id of the minion
-                    String id = enemyAsJSON.get("type").toString();
+                    String id = enemy.getAttribute("type");
 
                     // a flag to let us know whether or not the enemy with the id exists already
                     boolean found = false;

@@ -2,11 +2,16 @@ package DataManagers;
 
 import Entity.Items.Item;
 import Entity.Player.Player;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
@@ -27,7 +32,6 @@ public class SavedFile {
     // to restore when the player plays again
     private HashMap<String, ArrayList<Point>> temporaryFiles;
 
-    private JSONObject savedGame;
 
     public SavedFile(){
         // the default location of the directory we want to save these files to
@@ -47,10 +51,11 @@ public class SavedFile {
      * returns the "gameSave.json" as a JSONObject which holds the data from the previous save
      * @return the saved state of the game
      */
-    public JSONObject getSavedGame() {
+    public Element getSavedGame() {
         try {
-            return (JSONObject) new JSONParser().parse(new FileReader(rootPath + saveFile + "gameSave.json"));
-        } catch (IOException | ParseException e) {
+            DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+            return builder.parse(new File(rootPath + saveFile + "gameSave.xml")).getDocumentElement();
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
@@ -71,34 +76,42 @@ public class SavedFile {
             savedGames.mkdir();
         }
 
+        Document dom = null;
+        Element domFile;
+        try {
+            DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+            dom = builder.newDocument();
+        } catch (Exception e) {
+        }
 
-        JSONObject gameToSave = new JSONObject();
-
-        JSONArray itemArray = new JSONArray();
+        Element itemXmlArray = dom.createElement("items");
 
         // save all the items the player has as a JSONArray
         for (Item item : player.getItems()) {
-            JSONObject itemObject = new JSONObject();
+            Element itemXml = dom.createElement("item");
             if (item == null) {
-                itemObject.put("amount", "-1");
+                itemXml.setAttribute("amount", "-1");
             }
             else{
-                itemObject.put("amount", Integer.toString(item.amount));
-                itemObject.put("depreciation", item.getDepreciation());
+                itemXml.setAttribute("amount",Integer.toString(item.amount));
+
+                itemXml.setAttribute("depreciation", Integer.toString(item.getDepreciation()));
             }
-            itemArray.add(itemObject);
+            itemXmlArray.appendChild(itemXml);
         }
 
         // will contain the properties we care about the player
-        JSONObject playerObject = new JSONObject();
-        playerObject.put("x", Integer.toString(player.getPosition().x));
-        playerObject.put("y", Integer.toString(player.getPosition().y));
-        playerObject.put("health", Integer.toString(player.getHealth()));
-        playerObject.put("items", itemArray);
+        Element playerXml = dom.createElement("player");
+
+        playerXml.appendChild(createElement("x", Integer.toString(player.getPosition().x), dom));
+        playerXml.appendChild(createElement("y", Integer.toString(player.getPosition().y), dom));
+        playerXml.appendChild(createElement("health", Integer.toString(player.getHealth()), dom));
+        playerXml.appendChild(itemXmlArray);
 
         // add all the data to the file we want to save as
-        gameToSave.put("player", playerObject);
-        gameToSave.put("level", level);
+
+        playerXml.appendChild(createElement("level", level, dom));
+        dom.appendChild(playerXml);
 
         // save all data from temporaryFiles
         for (String key : temporaryFiles.keySet()) {
@@ -124,9 +137,15 @@ public class SavedFile {
 
         // now to save the game data
         try{
-            File file = new File(rootPath + saveFile + "gameSave.json");
+            Transformer converter = TransformerFactory.newInstance().newTransformer();
+            StreamResult xmlString = new StreamResult(new StringWriter());
+            DOMSource source = new DOMSource(dom);
+            converter.setOutputProperty(OutputKeys.INDENT, "yes");
+            converter.transform(source, xmlString);
+
+            File file = new File(rootPath + saveFile + "gameSave.xml");
             PrintWriter writer = new PrintWriter(file);
-            writer.write(gameToSave.toJSONString());
+            writer.write(xmlString.getWriter().toString());
             writer.close();
         } catch (Exception e) {
             System.out.println("failed to save");
@@ -156,15 +175,6 @@ public class SavedFile {
             points.add(new Point(x, y));
             temporaryFiles.put(filename, points);
         }
-
-        /*
-        File save = new File(rootPath + saveFile + filename);
-        try{
-            Writer write = new FileWriter(save);
-            write.append(x + " " +  y);
-            write.close();
-        }catch (Exception e) {}
-        */
     }
 
     /**
@@ -199,5 +209,11 @@ public class SavedFile {
         }
 
         return itemsToIgnore;
+    }
+
+    private Element createElement(String tagName, String content, Document doc) {
+        Element element = doc.createElement(tagName);
+        element.appendChild(doc.createTextNode(content));
+        return element;
     }
 }
