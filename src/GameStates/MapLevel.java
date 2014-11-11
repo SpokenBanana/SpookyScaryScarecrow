@@ -327,7 +327,7 @@ public class MapLevel extends GameState {
         for (int i = 0; i < itemObject.getLength(); i++) {
             Element item = (Element) itemObject.item(i);
             int id = Integer.parseInt(item.getAttribute("name"));
-            Rectangle bounds = convertJSONToRectangle(item);
+            Rectangle bounds = convertElementToRectangle(item);
             itemSpawners.add(new ItemSpawner(id, bounds));
         }
     }
@@ -337,7 +337,7 @@ public class MapLevel extends GameState {
             return;
         for (int i = 0; i < warpObject.getLength(); i++) {
             Element warp = (Element) warpObject.item(i);
-            eventStates.add(new Warp(warp.getAttribute("name"), convertJSONToRectangle(warp)));
+            eventStates.add(new Warp(warp.getAttribute("name"), convertElementToRectangle(warp)));
         }
     }
     private void extractBlocks() {
@@ -354,7 +354,7 @@ public class MapLevel extends GameState {
             Element wall = (Element) wallObjects.item(i);
 
             // we convert the object to a JSONObject to retrieve the properties we want.
-            Block block = new Block(convertJSONToRectangle(wall));
+            Block block = new Block(convertElementToRectangle(wall));
 
             // if this property even exists, we know it was meant to be a door
             NodeList properties = wall.getElementsByTagName("properties");
@@ -383,7 +383,7 @@ public class MapLevel extends GameState {
             Element arcade = (Element) arcades.item(i);
             int gameId = Integer.parseInt(arcade.getAttribute("name"));
             char direction = arcade.getAttribute("type").charAt(0);
-            Rectangle asBlock = convertJSONToRectangle(arcade);
+            Rectangle asBlock = convertElementToRectangle(arcade);
             blocks.add(new Block(asBlock));
             eventStates.add(new ArcadeMachine(asBlock, gameId, direction));
         }
@@ -397,7 +397,7 @@ public class MapLevel extends GameState {
      * @param toRectangle the object we want to transform as a rectangle
      * @return rectangle from the data given from the JSONObject
      */
-    private Rectangle convertJSONToRectangle(Element toRectangle) {
+    private Rectangle convertElementToRectangle(Element toRectangle) {
         // JSONObject's get() method returns the value in a generic Object-type. We expect the
         // property "x" to contain a numerical value, so to convert it to a numerical value we must
         // first convert it to a string with Object's toString() method and then we can convert it back
@@ -418,7 +418,7 @@ public class MapLevel extends GameState {
             String conversation = speech.getAttribute("name");
 
             // get the EventState ready
-            Rectangle eventArea = convertJSONToRectangle(speech);
+            Rectangle eventArea = convertElementToRectangle(speech);
             EventState state = new ConversationEvent(conversation, keyInput, eventArea);
 
             // now check if this was supposed to be something else
@@ -442,7 +442,7 @@ public class MapLevel extends GameState {
         for (int i = 0; i < npcObject.getLength(); i++) {
             Element npc = (Element) npcObject.item(i);
             String conversation = npc.getAttribute("name");
-            Rectangle bounds = convertJSONToRectangle(npc);
+            Rectangle bounds = convertElementToRectangle(npc);
             blocks.add(new Block(bounds));
             eventStates.add(new NPC(bounds.getLocation(), conversation));
         }
@@ -452,27 +452,28 @@ public class MapLevel extends GameState {
         if (enemyObject == null)
             return;
         for (int i = 0; i < enemyObject.getLength(); i++) {
-            Element enemy = (Element) enemyObject.item(i);
-            int enemyID = Integer.parseInt(enemy.getAttribute("name"));
-            Rectangle bounds = convertJSONToRectangle(enemy);
+            Element enemyElement = (Element) enemyObject.item(i);
+            int enemyID = Integer.parseInt(enemyElement.getAttribute("name"));
+            Rectangle bounds = convertElementToRectangle(enemyElement);
 
             // enemyID tells us which enemy we should add to the game
+            Enemy enemy = null;
             switch (enemyID) {
                 case Map.SHOOTER_ID:
-                    enemies.add(new Shooter(bounds.getLocation()));
+                    enemy = new Shooter(bounds.getLocation());
                     break;
                 case Map.GHOST_ID:
-                    enemies.add(new Ghost(bounds.getLocation()));
+                    enemy = new Ghost(bounds.getLocation());
                     break;
                 case Map.SKELETON_ID:
-                    enemies.add(new Skeleton(bounds.getLocation()));
+                    enemy = new Skeleton(bounds.getLocation());
                     break;
                 case Map.SLIDER_ID:
-                    enemies.add(new Slider(bounds.getLocation()));
+                    enemy = new Slider(bounds.getLocation());
                     break;
                 case Map.MINION_ID:
                     // type holds the id of the minion
-                    String id = enemy.getAttribute("type");
+                    String id = enemyElement.getAttribute("type");
 
                     // a flag to let us know whether or not the enemy with the id exists already
                     boolean found = false;
@@ -486,10 +487,17 @@ public class MapLevel extends GameState {
                     }
 
                     // if we did not find one in current list, then we just make a new Minion
-                    if (!found)
-                        enemies.add(new Minion(bounds.getLocation(), id));
-
+                    if (!found){
+                        Minion minion = new Minion(bounds.getLocation(), id);
+                        minion.setBlocks(blocks);
+                        enemies.add(minion);
+                    }
                     break;
+            }
+            // give them collision blocks
+            if (enemy != null){
+                enemy.setBlocks(blocks);
+                enemies.add(enemy);
             }
         }
     }

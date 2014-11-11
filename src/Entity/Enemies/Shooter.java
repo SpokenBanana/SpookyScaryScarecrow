@@ -52,7 +52,7 @@ public class Shooter extends Enemy {
         for (Bullet bullet : bullets)
             bullet.update();
 
-        filterFinishedBullets(player);
+        filterBullets(player);
         super.update();
     }
 
@@ -71,33 +71,5 @@ public class Shooter extends Enemy {
     @Override
     protected void attack(Player player) {
         bullets.add(new Pellet(new Rectangle(position.x, position.y, 16,16), player.getPosition().getLocation()));
-    }
-
-    /**
-     * Goes and deletes all bullets that we longer need to keep track of such as ones that went off the screen
-     * and ones that hit the player
-     * @param player the player in the game
-     */
-    protected void filterFinishedBullets(Player player) {
-        Rectangle playerPosition = player.getPosition();
-        // stores bullets we want to get rid of
-        ArrayList<Bullet> toRemove = new ArrayList<Bullet>();
-        for (Bullet bullet : bullets) {
-            Rectangle bulletPosition = bullet.getPosition();
-            // not on the screen? DELETE!
-            if (bulletPosition.x < 0 || bulletPosition.x > 608 || bulletPosition.y < 0 || bulletPosition.y > 608) {
-                toRemove.add(bullet);
-            }
-            // hit player? its done it's job, go now!
-            else if (bulletPosition.intersects(playerPosition))
-            {
-                toRemove.add(bullet);
-                player.hit(bullet.damage); // deal the damage
-            }
-        }
-        // go and remove the bullets we are done with.
-        // this line of code goes though each element in toRemove, and 'for each' element, it calls
-        // bullet's remove() function and passes in the element.
-        toRemove.forEach(bullets::remove);
     }
 }

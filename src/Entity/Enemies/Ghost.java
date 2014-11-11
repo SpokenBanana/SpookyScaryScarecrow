@@ -27,26 +27,6 @@ public class Ghost extends Enemy {
         bullets.add(new FireBall(new Rectangle(position.x, position.y, 16,16), player));
     }
 
-    /**
-        We'll go through the list finding bullets that have been maybe out of bounds of hit the target and remove
-        them.
-     */
-    protected void filterFinishedBullets(Player player) {
-        Rectangle playerPosition = player.getPosition();
-        ArrayList<Bullet> toRemove = new ArrayList<>();
-        for (Bullet bullet : bullets) {
-            Rectangle bulletPosition = bullet.getPosition();
-            if (bulletPosition.x < 0 || bulletPosition.x > 608 || bulletPosition.y < 0 || bulletPosition.y > 608) {
-                toRemove.add(bullet);
-            }
-            else if (bulletPosition.intersects(playerPosition))
-            {
-                toRemove.add(bullet);
-                player.hit(bullet.damage);
-            }
-        }
-        toRemove.forEach(bullets::remove);
-    }
 
     @Override
     public void update(Player player) {
@@ -71,7 +51,7 @@ public class Ghost extends Enemy {
         for(Bullet bullet : bullets)
             bullet.update();
 
-        filterFinishedBullets(player);
+        filterBullets(player);
         super.update();
     }
 

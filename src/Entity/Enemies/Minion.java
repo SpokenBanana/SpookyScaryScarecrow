@@ -3,7 +3,9 @@ package Entity.Enemies;
 import Entity.Player.Player;
 
 import java.awt.*;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
 
 /**
  * This is is an enemy that follows a path and deals a lot of damage to the player when he crosses it.
@@ -28,6 +30,7 @@ public class Minion extends Enemy {
     }
     @Override
     public void update(Player player) {
+
         // only do logic when he is not "paused"
         if (time <= 0){
             decideNextNearestStep(path.peek());
@@ -62,7 +65,8 @@ public class Minion extends Enemy {
         // take a step back
         undoWalking();
 
-        // they get knocked back 2 step
+        // they get knocked back 2 step, if knocking them back causes them to go out of the screen or in a wall, don't move
+        int oldx = targetPosition.x, oldy = targetPosition.y;
         switch (facingDirection) {
             case Down:
                 targetPosition.y -= MOVE_DISTANCE * 2;
@@ -76,6 +80,16 @@ public class Minion extends Enemy {
             case Right:
                 targetPosition.x -= MOVE_DISTANCE * 2;
                 break;
+        }
+
+        // little messy but basically if the new position would ram it into a wall or go off screen, restore its old location
+        Rectangle newPosition = new Rectangle(targetPosition.x, targetPosition.y, position.width, position.height);
+        if (blocks.stream().anyMatch(block -> block.intersects(newPosition)) ||
+                targetPosition.x < 0 || targetPosition.y < 0 ||
+                targetPosition.x + position.width> 608 ||
+                targetPosition.y + position.height> 608 ) {
+            targetPosition.x = oldx;
+            targetPosition.y = oldy;
         }
     }
 

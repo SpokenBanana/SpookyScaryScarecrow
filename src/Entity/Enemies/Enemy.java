@@ -2,6 +2,7 @@ package Entity.Enemies;
 
 import Entity.Bullets.Bullet;
 import Entity.Entity;
+import Entity.Block;
 import Entity.Player.Player;
 
 import java.awt.*;
@@ -52,10 +53,16 @@ public abstract class Enemy extends Entity {
         Point[] locations =  { new Point(position.x - MOVE_DISTANCE, position.y),   // left
                                new Point(position.x + MOVE_DISTANCE, position.y),   // right
                                new Point(position.x, position.y - MOVE_DISTANCE),   // up
-                               new Point(position.x, position.y + MOVE_DISTANCE) }; //down
+                               new Point(position.x, position.y + MOVE_DISTANCE) }; // down
 
         // iterate through locations and decide which one is the shortest path
         for (int i = 0; i < locations.length; i++) {
+
+            // don't want to consider this one if it will make us run into a wall
+            if (wouldCollide(locations[i])){
+                continue;
+            }
+
             double distance = locations[i].distance(targetLocation);
             // we found a shorter distance!
             if (distance < shortestDistance){
@@ -102,6 +109,11 @@ public abstract class Enemy extends Entity {
 
         // iterate through locations and decide which one is the longest path
         for (int i = 0; i < locations.length; i++) {
+
+            // don't want to consider this one if it will make us run into a wall
+            if (wouldCollide(locations[i]))
+                continue;
+
             double distance = locations[i].distance(targetLocation);
             // we found a longer distance!
             if (distance > longestDistance){
@@ -128,5 +140,44 @@ public abstract class Enemy extends Entity {
                 // we found nothing... so just stand there.
                 currentDirection = Direction.Standing;
         }
+    }
+
+    /**
+     * Checks if the bullet has hit either the player, walls, or has reached outside the screen boundaries, in which
+     * case we will remove the bullet from the array
+     * @param player the player bounds to see if the bullet has hit it and deal damage if so
+     */
+    protected void filterBullets(Player player) {
+        bullets.removeIf(bullet -> {
+            Rectangle position = bullet.getPosition();
+
+            // bullet did hit player
+            if (player.getPosition().intersects(position))  {
+                player.hit(bullet.damage);
+                return true;
+            }
+            // bullet hit a wall
+            else if (blocks.stream().anyMatch(blocks -> blocks.intersects(position)))
+                return true;
+
+            // bullet went out the screen
+            else if (position.x < 0 || position.y < 0 || position.x + position.width > 608 || position.y + position.height > 608)
+                return true;
+
+            return false;
+        });
+    }
+
+    /**
+     * Will tell us if moving to the given location would cause the enemy to collide with a wall
+     * @param location the location to move to
+     * @return whether or not moving there would cause a collision
+     */
+    private boolean wouldCollide(Point location) {
+        for (Block block : blocks)
+            if (block.intersects(new Rectangle(location.x, location.y, position.width, position.height)))
+                return true;
+
+        return false;
     }
 }

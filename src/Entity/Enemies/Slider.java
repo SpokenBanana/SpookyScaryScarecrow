@@ -55,12 +55,14 @@ public class Slider extends Enemy{
                 time--;
 
             // if the enemy gets a certain distance away from the it's spawn, it decides to go away
-            if (startingLocation.distance(position.getLocation()) >= 10 * MOVE_DISTANCE){
+            if (startingLocation.distance(position.getLocation()) >= 10 * MOVE_DISTANCE || timeUntilRespawn <= -500){
                 sprites.setCurrent("waiting");
                 timeUntilRespawn = random.nextInt(50) + 60;
                 currentDirection = Direction.Standing;
                 respawned = false;
             }
+            else // decrement this timer since we are now using it to control when the enemy will disappear again
+                timeUntilRespawn--;
         }
         else
             timeUntilRespawn--;
@@ -109,7 +111,12 @@ public class Slider extends Enemy{
      */
     protected void reSpawn() {
         // 19 is the amount of tiles in the word, MOVE_DISTANCE is multiplied to make sure it is moving tile-to-tile
-        startingLocation = new Point(random.nextInt(19) * MOVE_DISTANCE, random.nextInt(19) * MOVE_DISTANCE);
+        do {
+            startingLocation = new Point(random.nextInt(19) * MOVE_DISTANCE, random.nextInt(19) * MOVE_DISTANCE);
+
+            // keep looking for a random position until you find one that doesn't spawn him inside a block
+        } while (blocks.stream().anyMatch(block -> block.contains(startingLocation)));
+
         moveTo(startingLocation.x, startingLocation.y);
         respawned = true;
     }

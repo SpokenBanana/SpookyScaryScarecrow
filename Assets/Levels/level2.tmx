@@ -738,8 +738,6 @@
   <object x="0" y="576" width="608" height="32"/>
  </objectgroup>
  <objectgroup name="enemies" width="19" height="19">
-  <object name="0" x="512" y="96" width="32" height="32"/>
-  <object name="0" x="512" y="544" width="32" height="32"/>
   <object name="2" x="512" y="288" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="warps" width="19" height="19">

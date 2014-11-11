@@ -115,7 +115,7 @@ public class SavedFile {
 
         // save all data from temporaryFiles
         for (String key : temporaryFiles.keySet()) {
-            File file = new File(rootPath + saveFile + key);
+            File file = new File(rootPath + saveFile + key + ".txt");
             try {
                 Writer writer;
 
@@ -161,11 +161,7 @@ public class SavedFile {
      * @param y y position of the item
      */
     public void addToItemIgnore(String filename, int x, int y) {
-        // do not want that .json, we want it as a .txt
-        if (filename.endsWith(".json")){
-            filename = filename.substring(0, filename.indexOf(".json"));
-            filename += ".txt";
-        }
+
         // add the point to the collection associated with the file name.
         if (temporaryFiles.containsKey(filename)) {
             temporaryFiles.get(filename).add(new Point(x, y));
@@ -184,20 +180,17 @@ public class SavedFile {
      */
     public ArrayList<Point> getItemsToIgnore(String level) {
         // do not want that .json, we want it as a .txt
-        if (level.endsWith(".json")){
-            level = level.substring(0, level.indexOf(".json"));
-            level += ".txt";
-        }
+
         ArrayList<Point> itemsToIgnore = new ArrayList<>();
 
         // get all things from the temporary storage
-        for (String key : temporaryFiles.keySet())
-            for (Point point : temporaryFiles.get(key))
+        if (temporaryFiles.containsKey(level))
+            for (Point point : temporaryFiles.get(level))
                 itemsToIgnore.add(point);
 
         // if there is data saved from this level, load it up also
         try{
-            Scanner fileReader = new Scanner(new File("Assets/SavedGames/" + saveFile + level));
+            Scanner fileReader = new Scanner(new File("Assets/SavedGames/" + saveFile + level + ".txt"));
             while (fileReader.hasNext()){
                 String[] points = fileReader.nextLine().split(" ");
                 int x = Integer.parseInt(points[0]);
