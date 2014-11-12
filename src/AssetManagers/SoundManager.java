@@ -65,18 +65,22 @@ public class SoundManager {
         This method will play the desired sound.
      */
     public void playSound(String key) {
-        stopSound(key);
-        sounds.get(key).start();
+        if (sounds.containsKey(key)){
+            stopSound(key);
+            sounds.get(key).start();
+        }
     }
     /**
         This method will play the desired sound and loop it.
      */
     public void playSound(String key, boolean loop) {
-        stopSound(key);
-        if (loop)
-            sounds.get(key).loop(Clip.LOOP_CONTINUOUSLY);
-        else
-            sounds.get(key).start();
+        if (sounds.containsKey(key)) {
+            stopSound(key);
+            if (loop)
+                sounds.get(key).loop(Clip.LOOP_CONTINUOUSLY);
+            else
+                sounds.get(key).start();
+        }
     }
 
     /**
@@ -85,27 +89,31 @@ public class SoundManager {
      * @param amount
      */
     public void changeVolume(String key, float amount) {
-        FloatControl control = (FloatControl) sounds.get(key).getControl(FloatControl.Type.MASTER_GAIN);
-        control.setValue(amount);
+        if (sounds.containsKey(key)){
+            FloatControl control = (FloatControl) sounds.get(key).getControl(FloatControl.Type.MASTER_GAIN);
+            control.setValue(amount);
+        }
     }
     /**
         This stops the playing audio.
         If we accidentally order a clip to play when it is already playing, we simply just stop the clip.
      */
     public void stopSound(String key) {
-        if (sounds.get(key).isRunning()){
-            sounds.get(key).stop();
+        if (sounds.containsKey(key)){
+            if (sounds.get(key).isRunning()){
+                sounds.get(key).stop();
+            }
+            // like when reading a file, the cursor is left at the end, we have to move it to the front again
+            sounds.get(key).setFramePosition(0);
         }
-        // like when reading a file, the cursor is left at the end, we have to move it to the front again
-        sounds.get(key).setFramePosition(0);
-
     }
 
     /**
      * This resumes a paused sound
      */
     public void resumeSound(String key) {
-        sounds.get(key).start();
+        if (sounds.containsKey(key))
+            sounds.get(key).start();
     }
 
     /**
@@ -114,13 +122,15 @@ public class SoundManager {
      * @param loop
      */
     public void resumeSound(String key, boolean loop) {
-        // already playing, no need to resume
-        if (sounds.get(key).isRunning())
-            return;
-        if (loop)
-            sounds.get(key).loop(Clip.LOOP_CONTINUOUSLY);
-        else
-            resumeSound(key);
+        if (sounds.containsKey(key)) {
+            // already playing, no need to resume
+            if (sounds.get(key).isRunning())
+                return;
+            if (loop)
+                sounds.get(key).loop(Clip.LOOP_CONTINUOUSLY);
+            else
+                resumeSound(key);
+        }
     }
 
     /**
@@ -128,7 +138,7 @@ public class SoundManager {
      * it
      */
     public void pauseSound(String key) {
-        if (sounds.get(key).isRunning())
+        if (sounds.containsKey(key) && sounds.get(key).isRunning())
             sounds.get(key).stop();
     }
 

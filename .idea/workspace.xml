@@ -5,29 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="faf5a917-223b-46fa-9655-af7a7f59fab0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Levels/route10.tmx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Levels/route11.tmx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Levels/route3.tmx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Levels/route4.tmx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Levels/route5.tmx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Levels/route6.tmx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Levels/route7.tmx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Levels/route8.tmx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Levels/route9.tmx" />
-      <change type="DELETED" beforePath="C:\Users\David\IdeaProjects\AdventureMan\Assets\Levels\arcade.json" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\David\IdeaProjects\AdventureMan\Assets\Levels\cave_1.json" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\David\IdeaProjects\AdventureMan\Assets\Levels\cave_intro.json" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\David\IdeaProjects\AdventureMan\Assets\Levels\level1.json" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\David\IdeaProjects\AdventureMan\Assets\Levels\level2.json" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\David\IdeaProjects\AdventureMan\Assets\Levels\level3.json" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\David\IdeaProjects\AdventureMan\Assets\Levels\practice.json" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\David\IdeaProjects\AdventureMan\Assets\Levels\route2.json" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AdventureMan/Entity/Enemies/Enemy.class" afterPath="$PROJECT_DIR$/out/production/AdventureMan/Entity/Enemies/Enemy.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AdventureMan/Entity/Enemies/Ghost.class" afterPath="$PROJECT_DIR$/out/production/AdventureMan/Entity/Enemies/Ghost.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AdventureMan/GameStates/MapLevel.class" afterPath="$PROJECT_DIR$/out/production/AdventureMan/GameStates/MapLevel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AdventureMan/DataManagers/SavedFile.class" afterPath="$PROJECT_DIR$/out/production/AdventureMan/DataManagers/SavedFile.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AdventureMan/Entity/Enemies/Skeleton.class" afterPath="$PROJECT_DIR$/out/production/AdventureMan/Entity/Enemies/Skeleton.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AdventureMan/Entity/Enemies/Slider.class" afterPath="$PROJECT_DIR$/out/production/AdventureMan/Entity/Enemies/Slider.class" />
+      <change type="DELETED" beforePath="C:\Users\David\IdeaProjects\AdventureMan\Assets\Levels\start.json" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DataManagers/FileManager.java" afterPath="$PROJECT_DIR$/src/DataManagers/FileManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DataManagers/SavedFile.java" afterPath="$PROJECT_DIR$/src/DataManagers/SavedFile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AssetManagers/SoundManager.java" afterPath="$PROJECT_DIR$/src/AssetManagers/SoundManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AssetManagers/SpriteManager.java" afterPath="$PROJECT_DIR$/src/AssetManagers/SpriteManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Levels/route11.tmx" afterPath="$PROJECT_DIR$/Assets/Levels/route11.tmx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Levels/route7.tmx" afterPath="$PROJECT_DIR$/Assets/Levels/route7.tmx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Levels/route8.tmx" afterPath="$PROJECT_DIR$/Assets/Levels/route8.tmx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="9dfa36a2-f707-4266-aa47-91a220be5e9d" name="Rejected commit: Default" comment="adding in game created so far!" />
@@ -92,30 +77,28 @@
       <file leaf-file-name="LoadGame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameStates/LoadGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="641" max-vertical-offset="1152">
-              <caret line="45" column="48" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="19" max-vertical-offset="1152">
+              <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SavedFile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DataManagers/SavedFile.java">
+      <file leaf-file-name="SpriteManager.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/AssetManagers/SpriteManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3142" max-vertical-offset="3888">
-              <caret line="188" column="16" selection-start-line="188" selection-start-column="16" selection-end-line="188" selection-end-column="16" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.41731066" vertical-offset="0" max-vertical-offset="1638">
+              <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Skeleton.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Skeleton.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Entity/Enemies/Skeleton.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8590998" vertical-offset="1235" max-vertical-offset="1980">
-              <caret line="96" column="36" selection-start-line="96" selection-start-column="36" selection-end-line="96" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1235" max-vertical-offset="1980">
+              <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -126,16 +109,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="1104" max-vertical-offset="2322">
               <caret line="85" column="8" selection-start-line="85" selection-start-column="8" selection-end-line="86" selection-end-column="79" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="arcade.tmx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Levels/arcade.tmx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="20160" max-vertical-offset="20448">
-              <caret line="1120" column="9" selection-start-line="1120" selection-start-column="3" selection-end-line="1120" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -215,9 +188,12 @@
         <option value="$PROJECT_DIR$/Assets/Levels/route6.tmx" />
         <option value="$PROJECT_DIR$/src/Entity/Enemies/Slider.java" />
         <option value="$PROJECT_DIR$/src/GameStates/MapLevel.java" />
-        <option value="$PROJECT_DIR$/src/DataManagers/SavedFile.java" />
         <option value="$PROJECT_DIR$/src/Entity/Enemies/Minion.java" />
         <option value="$PROJECT_DIR$/src/Entity/Enemies/Skeleton.java" />
+        <option value="$PROJECT_DIR$/src/DataManagers/FileManager.java" />
+        <option value="$PROJECT_DIR$/src/DataManagers/SavedFile.java" />
+        <option value="$PROJECT_DIR$/src/AssetManagers/SoundManager.java" />
+        <option value="$PROJECT_DIR$/src/AssetManagers/SpriteManager.java" />
       </list>
     </option>
   </component>
@@ -280,6 +256,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -464,45 +441,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AdventureMan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AdventureMan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SavedGames" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AdventureMan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AdventureMan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Levels" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -952,7 +892,8 @@
       <workItem from="1415647952506" duration="9445000" />
       <workItem from="1415663978321" duration="1866000" />
       <workItem from="1415677520793" duration="4433000" />
-      <workItem from="1415730229501" duration="10947000" />
+      <workItem from="1415730229501" duration="12145000" />
+      <workItem from="1415812160722" duration="1741000" />
     </task>
     <task id="LOCAL-00001" summary="Added Java documentation to the code">
       <created>1414450453811</created>
@@ -1068,15 +1009,21 @@
       <option name="project" value="LOCAL" />
       <updated>1415743452504</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="remove json files and actually add new levels">
+      <created>1415752366478</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1415752366478</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="338846000" />
+    <option name="totallyTimeSpent" value="341785000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1089,10 +1036,10 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20148148" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20148148" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1749634" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1749634" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1172,7 +1119,8 @@
     <MESSAGE value="Added npcs to look different directions and face the player when talking to him" />
     <MESSAGE value="Remove dependency on org.json and use xml files instead" />
     <MESSAGE value="Add more levels, fix knockback on enemies, and fix bug on getting items to ignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add more levels, fix knockback on enemies, and fix bug on getting items to ignore" />
+    <MESSAGE value="remove json files and actually add new levels" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove json files and actually add new levels" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1337,13 +1285,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AssetManagers/SpriteManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="1440">
-          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GameStates/EventState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="396">
@@ -1403,7 +1344,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="32" max-vertical-offset="666">
           <caret line="61" column="16" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1425,15 +1365,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="20376">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataManagers/FileManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="317" max-vertical-offset="828">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1449,7 +1380,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.22504893" vertical-offset="713" max-vertical-offset="1224">
           <caret line="53" column="22" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1457,7 +1387,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="13032" max-vertical-offset="14112">
           <caret line="739" column="37" selection-start-line="739" selection-start-column="37" selection-end-line="739" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1465,7 +1394,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="1350">
           <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1473,7 +1401,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.56626505" vertical-offset="13092" max-vertical-offset="13734">
           <caret line="743" column="49" selection-start-line="743" selection-start-column="49" selection-end-line="743" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1501,7 +1428,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33268103" vertical-offset="280" max-vertical-offset="4068">
           <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1509,14 +1435,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.40117416" vertical-offset="1055" max-vertical-offset="2250">
           <caret line="74" column="11" selection-start-line="74" selection-start-column="11" selection-end-line="74" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameStates/LoadGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1152">
-          <caret line="45" column="48" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
           <folding />
         </state>
       </provider>
@@ -1539,16 +1457,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataManagers/SavedFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3142" max-vertical-offset="3888">
-          <caret line="188" column="16" selection-start-line="188" selection-start-column="16" selection-end-line="188" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Enemies/Minion.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1104" max-vertical-offset="2322">
@@ -1559,8 +1467,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Enemies/Skeleton.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8590998" vertical-offset="1235" max-vertical-offset="1980">
-          <caret line="96" column="36" selection-start-line="96" selection-start-column="36" selection-end-line="96" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1235" max-vertical-offset="1980">
+          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataManagers/FileManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.42270058" vertical-offset="306" max-vertical-offset="900">
+          <caret line="5" column="100" selection-start-line="5" selection-start-column="100" selection-end-line="5" selection-end-column="100" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataManagers/SavedFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.23091976" vertical-offset="2854" max-vertical-offset="3996">
+          <caret line="154" column="12" selection-start-line="154" selection-start-column="12" selection-end-line="154" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AssetManagers/SoundManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.939759" vertical-offset="684" max-vertical-offset="2736">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameStates/LoadGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="19" max-vertical-offset="1152">
+          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AssetManagers/SpriteManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41731066" vertical-offset="0" max-vertical-offset="1638">
+          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
           <folding />
         </state>
       </provider>

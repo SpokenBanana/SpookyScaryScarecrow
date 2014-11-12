@@ -67,8 +67,8 @@ public class SavedFile {
      * @param level the name of the level we want to save
      */
     public void saveFile(Player player, String level) {
-        // if saveFile == "tmp" then the player just started a new file, and since he wants to save, we have to save
-        // all these files to a different location since "tmp" gets deleted after the session is over
+        // tmp is used when the player starts a new file, once he decides to save, we place all data we want to save
+        // inside another directory because the contents of tmp gets deleted every time we start a game.
         if (saveFile.equals("tmp")) {
             File savedGames = new File(rootPath);
             saveFile = "Saved_Game_" + savedGames.list().length + "/";
@@ -76,25 +76,27 @@ public class SavedFile {
             savedGames.mkdir();
         }
 
-        Document dom = null;
-        Element domFile;
+        Document dom;
         try {
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
             dom = builder.newDocument();
         } catch (Exception e) {
+            // save failed, stop here
+            System.out.println("Save failed!");
+            return;
         }
 
         Element itemXmlArray = dom.createElement("items");
 
-        // save all the items the player has as a JSONArray
+        // save all the items the player
         for (Item item : player.getItems()) {
             Element itemXml = dom.createElement("item");
+
             if (item == null) {
                 itemXml.setAttribute("amount", "-1");
             }
             else{
                 itemXml.setAttribute("amount",Integer.toString(item.amount));
-
                 itemXml.setAttribute("depreciation", Integer.toString(item.getDepreciation()));
             }
             itemXmlArray.appendChild(itemXml);
@@ -122,14 +124,15 @@ public class SavedFile {
                 // it exists, so we want to append it
                 if (file.exists())
                     writer = new FileWriter(file, true);
-                // doesn't exists, create it
-                else
+                else // doesn't exists, create it
                     writer = new PrintWriter(file);
 
                 for (Point point : temporaryFiles.get(key))
                     writer.append(point.x + " " + point.y + "\n");
                 writer.close();
-            } catch (Exception e) {}
+            } catch (Exception e) {
+                System.out.println("Temporary files not saved");
+            }
         }
 
         // they were saved, no longer temporary
@@ -137,16 +140,19 @@ public class SavedFile {
 
         // now to save the game data
         try{
+            // get the xml document as a writable String
             Transformer converter = TransformerFactory.newInstance().newTransformer();
             StreamResult xmlString = new StreamResult(new StringWriter());
             DOMSource source = new DOMSource(dom);
             converter.setOutputProperty(OutputKeys.INDENT, "yes");
             converter.transform(source, xmlString);
 
+            // save the data
             File file = new File(rootPath + saveFile + "gameSave.xml");
             PrintWriter writer = new PrintWriter(file);
             writer.write(xmlString.getWriter().toString());
             writer.close();
+            
         } catch (Exception e) {
             System.out.println("failed to save");
         }

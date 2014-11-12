@@ -41,8 +41,17 @@ public class SpriteManager {
         else if (animations.containsKey(current))
             animations.get(current).draw(g, bounds, color);
     }
+
+    /**
+     * Sets the current sprite to draw on the draw() method. Does not change the current sprite if the key given
+     * does not associate with anything
+     * @param key the key to the sprite desired
+     */
     public void setCurrent(String key) {
-        current = key;
+        if (sprites.containsKey(key) || animations.containsKey(key))
+            current = key;
+        else
+            System.out.println("No sprite with that name found");
     }
     /**
         Adds the sprite to the HashMap where it can later be accessed as long as the
