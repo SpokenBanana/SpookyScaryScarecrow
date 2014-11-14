@@ -141,11 +141,12 @@ public class MapLevel extends GameState {
         map.draw(g, 0);
         map.draw(g, 1);
 
+        itemSpawners.forEach(item -> item.draw(g));
+
         enemies.forEach(enemy -> enemy.draw(g));
         eventStates.forEach(event -> event.draw(g));
 
         player.draw(g);
-        itemSpawners.forEach(item -> item.draw(g));
 
         // goes through collection and gets all which isDoor() returns true, then for each one, invokes .draw() to draw it
         blocks.stream().filter(Block::isDoor).forEach(block -> block.draw(g));
@@ -261,7 +262,6 @@ public class MapLevel extends GameState {
 
         // only the arcade map wants the arcade machines
         if (level.equals("arcade")) {
-            System.out.println("wut");
             extractArcadeMachines();
         }
 
