@@ -4,23 +4,11 @@
     <bookmark url="file://$PROJECT_DIR$/src/GameStates/MapLevel.java" line="253" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="faf5a917-223b-46fa-9655-af7a7f59fab0" name="Default" comment="Add more levels to game">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Sprites/items/health.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Levels/cave_2.tmx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Levels/cave_3.tmx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Levels/cave_4.tmx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Levels/cave_5.tmx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Levels/cave_6.tmx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Levels/cave_7.tmx" />
+    <list default="true" id="faf5a917-223b-46fa-9655-af7a7f59fab0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AdventureMan/GameStates/MapLevel.class" afterPath="$PROJECT_DIR$/out/production/AdventureMan/GameStates/MapLevel.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AdventureMan/DataManagers/SavedFile.class" afterPath="$PROJECT_DIR$/out/production/AdventureMan/DataManagers/SavedFile.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AdventureMan/AssetManagers/SoundManager.class" afterPath="$PROJECT_DIR$/out/production/AdventureMan/AssetManagers/SoundManager.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AdventureMan/AssetManagers/SpriteManager.class" afterPath="$PROJECT_DIR$/out/production/AdventureMan/AssetManagers/SpriteManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Thumbs.db" afterPath="$PROJECT_DIR$/Assets/Thumbs.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/UI/Thumbs.db" afterPath="$PROJECT_DIR$/Assets/UI/Thumbs.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameStates/MapLevel.java" afterPath="$PROJECT_DIR$/src/GameStates/MapLevel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Levels/cave_1.tmx" afterPath="$PROJECT_DIR$/Assets/Levels/cave_1.tmx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Levels/cave_intro.tmx" afterPath="$PROJECT_DIR$/Assets/Levels/cave_intro.tmx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="9dfa36a2-f707-4266-aa47-91a220be5e9d" name="Rejected commit: Default" comment="adding in game created so far!" />
@@ -63,8 +51,8 @@
       <file leaf-file-name="Item.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Entity/Items/Item.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.58423495" vertical-offset="18" max-vertical-offset="1512">
-              <caret line="23" column="47" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.7233385" vertical-offset="18" max-vertical-offset="1512">
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -505,7 +493,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
@@ -940,7 +928,7 @@
       <workItem from="1415812160722" duration="2360000" />
       <workItem from="1415917935457" duration="2345000" />
       <workItem from="1415932084129" duration="6052000" />
-      <workItem from="1415987478435" duration="738000" />
+      <workItem from="1415987478435" duration="873000" />
     </task>
     <task id="LOCAL-00001" summary="Added Java documentation to the code">
       <created>1414450453811</created>
@@ -1068,19 +1056,26 @@
       <option name="project" value="LOCAL" />
       <updated>1415818180517</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Add more levels to game">
+      <created>1415990399881</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1415990399881</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="351539000" />
+    <option name="totallyTimeSpent" value="351674000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1090,7 +1085,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1749634" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1749634" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1101,7 +1096,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4162963" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20148148" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1382,6 +1376,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33280757" vertical-offset="2489" max-vertical-offset="7830">
           <caret line="189" column="20" selection-start-line="189" selection-start-column="20" selection-end-line="189" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1466,6 +1461,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.40117416" vertical-offset="1055" max-vertical-offset="2250">
           <caret line="74" column="11" selection-start-line="74" selection-start-column="11" selection-end-line="74" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1496,6 +1492,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.23091976" vertical-offset="2854" max-vertical-offset="3996">
           <caret line="154" column="12" selection-start-line="154" selection-start-column="12" selection-end-line="154" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1503,6 +1502,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.939759" vertical-offset="684" max-vertical-offset="2736">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1554,8 +1554,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Items/Item.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58423495" vertical-offset="18" max-vertical-offset="1512">
-          <caret line="23" column="47" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
+        <state vertical-scroll-proportion="0.7233385" vertical-offset="18" max-vertical-offset="1512">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1617,6 +1617,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
