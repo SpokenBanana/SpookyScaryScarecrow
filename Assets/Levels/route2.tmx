@@ -1111,8 +1111,8 @@
   <object name="route9" x="0" y="608" width="608" height="32"/>
  </objectgroup>
  <objectgroup name="npc" width="19" height="19">
-  <object name="I hope you know what you're doing`From this moment, you'll be out of place and in danger!" x="512" y="96" width="32" height="64"/>
-  <object name="Once you get some items, you can make more with them!`Press [C] to get started on crafting up some new items!" x="64" y="64" width="32" height="64"/>
+  <object name="I hope you know what you're doing`From this moment, you'll be out of place and in danger!" x="512" y="128" width="32" height="64"/>
+  <object name="Once you get some items, you can make more with them!`Press [C] to get started on crafting up some new items!" x="64" y="128" width="32" height="64"/>
  </objectgroup>
  <objectgroup name="items" width="19" height="19">
   <object name="4" x="352" y="512" width="32" height="32"/>

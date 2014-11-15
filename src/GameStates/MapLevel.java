@@ -234,7 +234,7 @@ public class MapLevel extends GameState {
         itemSpawners.clear();
 
         // some maps specify a song they want to play in the background, we load that song here
-        String music = getMusic();
+        String music = getMusicFromFile();
 
         // when maps do not use it, we don't change anything, same thing when it wants to play a song that is already playings
         if (music != null && !music.equals(currentMusic)) {
@@ -301,7 +301,7 @@ public class MapLevel extends GameState {
      * we return the song it wants to play
      * @return the path of the song desired to play
      */
-    private String getMusic() {
+    private String getMusicFromFile() {
         String file = null;
         NodeList props = map.get("property");
         for (int i = 0; i < props.getLength(); i++) {
@@ -312,6 +312,25 @@ public class MapLevel extends GameState {
         return null;
     }
 
+    /**
+     * Most of these objects can be used as a rectangle, like blocks, NPC, arcade machines etc. and these things
+     * contain data that can be used to construct a rectangle object. (x, y, width, height) so we just get that
+     * data and use it to create a rectangle object.
+     *
+     * @param toRectangle the object we want to transform as a rectangle
+     * @return rectangle from the data given from the JSONObject
+     */
+    private Rectangle convertElementToRectangle(Element toRectangle) {
+        // JSONObject's get() method returns the value in a generic Object-type. We expect the
+        // property "x" to contain a numerical value, so to convert it to a numerical value we must
+        // first convert it to a string with Object's toString() method and then we can convert it back
+        // to an integer with Integer.parseInt(). We do this for all properties we expect a numerical value.
+        int x = Integer.parseInt(toRectangle.getAttribute("x"));
+        int y = Integer.parseInt(toRectangle.getAttribute("y"));
+        int width = Integer.parseInt(toRectangle.getAttribute("width"));
+        int height = Integer.parseInt(toRectangle.getAttribute("height"));
+        return new Rectangle(x, y, width, height);
+    }
     /**
      * All of these "extract[x]" do relatively the same thing, they go through the map object and check if the map has
      * the property [x], if so, it loads it into the game as its respective object so it now becomes meaningful.
@@ -371,6 +390,7 @@ public class MapLevel extends GameState {
             blocks.add(block);
         }
     }
+
     private void extractArcadeMachines() {
 
         NodeList arcades = map.getObject("arcades");
@@ -387,26 +407,6 @@ public class MapLevel extends GameState {
             blocks.add(new Block(asBlock));
             eventStates.add(new ArcadeMachine(asBlock, gameId, direction));
         }
-    }
-
-    /**
-     * Most of these objects can be used as a rectangle, like blocks, NPC, arcade machines etc. and these things
-     * contain data that can be used to construct a rectangle object. (x, y, width, height) so we just get that
-     * data and use it to create a rectangle object.
-     *
-     * @param toRectangle the object we want to transform as a rectangle
-     * @return rectangle from the data given from the JSONObject
-     */
-    private Rectangle convertElementToRectangle(Element toRectangle) {
-        // JSONObject's get() method returns the value in a generic Object-type. We expect the
-        // property "x" to contain a numerical value, so to convert it to a numerical value we must
-        // first convert it to a string with Object's toString() method and then we can convert it back
-        // to an integer with Integer.parseInt(). We do this for all properties we expect a numerical value.
-        int x = Integer.parseInt(toRectangle.getAttribute("x"));
-        int y = Integer.parseInt(toRectangle.getAttribute("y"));
-        int width = Integer.parseInt(toRectangle.getAttribute("width"));
-        int height = Integer.parseInt(toRectangle.getAttribute("height"));
-        return new Rectangle(x, y, width, height);
     }
     private void extractSpeech(){
         NodeList speechObject = map.getObject("speech");

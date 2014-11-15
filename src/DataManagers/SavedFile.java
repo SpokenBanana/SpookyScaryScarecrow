@@ -43,10 +43,6 @@ public class SavedFile {
         temporaryFiles = new HashMap<>();
     }
 
-    public void setSaveFile(String path) {
-        saveFile = path;
-    }
-
     /**
      * returns the "gameSave.json" as a JSONObject which holds the data from the previous save
      * @return the saved state of the game
