@@ -44,9 +44,9 @@ public class Animation {
 
     /**
      * This draws the animation with some color in the background
-     * @param g
-     * @param bounds
-     * @param color
+     * @param g the brush to color with
+     * @param bounds the location to draw the animation
+     * @param color the color to fill all the empty color at
      */
     public void draw(Graphics2D g, Rectangle bounds, Color color) {
         moveFrame();

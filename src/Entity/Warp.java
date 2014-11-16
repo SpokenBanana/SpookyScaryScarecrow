@@ -41,8 +41,8 @@ public class Warp extends EventState{
 
     /**
      * This moves the player to the position that makes sense when transitioning to a new screen
-     * @param playerObject
-     * @param gameState
+     * @param playerObject the player in the game, we will need this to move him in a correct position
+     * @param gameState the game state we are in.
      */
     public void movePlayer(Player playerObject, GameState gameState) {
         Rectangle player = playerObject.getPosition();

@@ -14,13 +14,13 @@ import java.io.File;
     on performance and memory. Even though I've already used a lot of slow algorithms, this is where I draw the line!
  */
 public class Button extends Rectangle {
-    protected BufferedImage backgroundSprite;
-    protected String buttonText;
-    protected final int CHARACTER_WIDTH = 7;
+    private final Font buttonFont = new Font("Pericles", Font.PLAIN, 15);
+    private final Color hoveredColor = new Color(20,100,185), regularColor = Color.black;
+
     private boolean isHovered;
-    protected final Font buttonFont = new Font("Pericles", Font.PLAIN, 15);
+    private BufferedImage backgroundSprite;
+    private String buttonText;
     private SoundManager sounds;
-    protected final Color hoveredColor = new Color(20,100,185), regularColor = Color.black;
 
     public Button(Rectangle position, String text) {
         super(position);
@@ -52,6 +52,8 @@ public class Button extends Rectangle {
 
 
     public void draw(Graphics2D g) {
+        final int CHARACTER_WIDTH = 7;
+
         g.setFont(buttonFont);
         if (isHovered)
             g.drawImage(backgroundSprite, x, y, width, height, hoveredColor, null);

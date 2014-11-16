@@ -26,11 +26,12 @@ public abstract class Enemy extends Entity {
 
     @Override
     public void hit(int damage) {
-        if (!hurt)
+        if (!hurt) {
             health -= damage;
-        hurt = true;
-        // reduce the time to recover for enemies to make the game a little easier
-        hurtTime = 20;
+            hurt = true;
+            // reduce the time to recover for enemies to make the game a little easier
+            hurtTime = 20;
+        }
     }
     /**
         Every enemy will also have some way of attacking the player so we want to enforce that.
@@ -72,23 +73,7 @@ public abstract class Enemy extends Entity {
         }
 
         // now face the direction we want to move to.
-        switch (distanceBlockID) {
-            case 0:
-                facingDirection = currentDirection = Direction.Left;
-                break;
-            case 1:
-                facingDirection = currentDirection = Direction.Right;
-                break;
-            case 2:
-                facingDirection = currentDirection = Direction.Up;
-                break;
-            case 3:
-                facingDirection = currentDirection = Direction.Down;
-                break;
-            default:
-                // we found nothing... so just stand there.
-                currentDirection = Direction.Standing;
-        }
+        decideDirection(distanceBlockID);
     }
     /**
         Sometimes we want the AI to move away from something, this does exactly that. It finds the next step that
@@ -123,23 +108,7 @@ public abstract class Enemy extends Entity {
         }
 
         // now face the direction we want to move to.
-        switch (distanceBlockID) {
-            case 0:
-                facingDirection = currentDirection = Direction.Left;
-                break;
-            case 1:
-                facingDirection = currentDirection = Direction.Right;
-                break;
-            case 2:
-                facingDirection = currentDirection = Direction.Up;
-                break;
-            case 3:
-                facingDirection = currentDirection = Direction.Down;
-                break;
-            default:
-                // we found nothing... so just stand there.
-                currentDirection = Direction.Standing;
-        }
+        decideDirection(distanceBlockID);
     }
 
     /**
@@ -179,5 +148,29 @@ public abstract class Enemy extends Entity {
                 return true;
 
         return false;
+    }
+
+    /**
+     * Will decide what direction to face the entity and face the entity in that direction
+     * @param direction
+     */
+    private void decideDirection(int direction) {
+        switch (direction) {
+            case 0:
+                facingDirection = currentDirection = Direction.Left;
+                break;
+            case 1:
+                facingDirection = currentDirection = Direction.Right;
+                break;
+            case 2:
+                facingDirection = currentDirection = Direction.Up;
+                break;
+            case 3:
+                facingDirection = currentDirection = Direction.Down;
+                break;
+            default:
+                // we found nothing... so just stand there.
+                currentDirection = Direction.Standing;
+        }
     }
 }

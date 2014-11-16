@@ -116,9 +116,6 @@ public abstract class Entity {
     public Direction getFacingDirection() {
         return facingDirection;
     }
-    public Direction getCurrentDirection() {
-        return currentDirection;
-    }
     public Rectangle getPosition() {
         return position;
     }

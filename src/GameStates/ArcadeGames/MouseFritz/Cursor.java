@@ -25,4 +25,14 @@ public class Cursor extends Rectangle {
         sprite.draw(g, this);
     }
 
+    public boolean isMatchingBalls() {
+        return ballChosen == null;
+    }
+    public boolean doesMatchCurrentBall(Ball ball) {
+        return ball.color == ballChosen.color && ball != ballChosen;
+    }
+    public void resetSelectedBall() {
+        ballChosen.selected = false;
+        ballChosen = null;
+    }
 }

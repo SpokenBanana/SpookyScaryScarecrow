@@ -13,28 +13,30 @@ import java.io.File;
  * to load up
  */
 public class LoadGame extends GameState {
-    private Button[] buttons;
+    private Button[] fileButtons;
     private Button back;
-    private File[] savedFiles;
 
     public LoadGame(GameStateManager manager, KeyInput keys, MouseInput mouse) {
         super(manager, keys, mouse);
+
         FileManager files = new FileManager();
-        savedFiles = files.getSavedFiles();
-        buttons = new Button[savedFiles.length];
+        File[] savedFiles = files.getSavedFiles();
+
+        fileButtons = new Button[savedFiles.length];
         back = new Button(new Rectangle(250, 100, 200, 40), "Back");
+
         int x = 250, y = 200;
         for (int i = 0; i < savedFiles.length; i++){
             if (savedFiles[i].getName().equals("tmp"))
                 continue;
-            buttons[i] = new Handlers.Button(new Rectangle(x, y, 200, 40), savedFiles[i].getName());
+            fileButtons[i] = new Handlers.Button(new Rectangle(x, y, 200, 40), savedFiles[i].getName());
             y += 60;
         }
     }
 
     @Override
     public void update() {
-        for (Button button : buttons) {
+        for (Button button : fileButtons) {
             if (button == null)
                 continue;
             button.setHovered(mouseInput.isMouseOver(button));
@@ -55,7 +57,7 @@ public class LoadGame extends GameState {
         g.setColor(Color.white);
         g.setFont(new Font("Pericles", Font.BOLD, 27));
         g.drawString("Saved Games", 250, 50);
-        for (Button button : buttons)
+        for (Button button : fileButtons)
             if (button != null)
                 button.draw(g);
         back.draw(g);

@@ -6,7 +6,8 @@ import Handlers.KeyInput;
 import java.awt.*;
 
 /**
-    Once this event is triggered, it will change the screen to the "Talking" game state.
+    This event triggers a conversation to happen. Useful for when the player wants to inspect an object in the game,
+    a little conversation will pop up explaining the object
  */
 public class ConversationEvent extends EventState{
     protected String conversation;

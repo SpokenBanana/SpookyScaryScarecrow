@@ -10,12 +10,8 @@ import java.io.File;
  * differently
  */
 public class Block extends Rectangle {
-    private boolean isDestroyable;
     private boolean isDoor;
     private BufferedImage sprite;
-    public Block(int x, int y, int width, int height){
-        super(x, y, width, height);
-    }
     public Block(Rectangle rectangle) {
         super(rectangle);
     }

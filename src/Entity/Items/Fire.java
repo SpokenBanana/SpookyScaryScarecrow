@@ -54,7 +54,8 @@ public class Fire extends Item {
         if (mouseInput.didMouseClickOn(screen)) {
             action();
             // decrease depreciation, is it lower than 0, then remove an amount, if the amount then after is 0, un-equip
-            if ((depreciation -= 5) <= 0){
+            changeDepreciation(-5);
+            if (depreciation <= 0){
                 if (--amount == 0)
                     player.setCurrentItem((short)-1);
 

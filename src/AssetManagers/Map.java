@@ -20,10 +20,9 @@ import java.util.ArrayList;
 public class Map {
     private ArrayList<int[][]> layers;
     private Element mapData;
-    private final int TILE_SIZE = 32, SOURCE_TILE_SIZE = 32, TILE_COLUMNS = 21;
 
 
-    // to simply things, we will use only one tilesheet (21x23)
+    // to simply things, we will use only one tiles-sheet (21x23)
     private BufferedImage tileSheet;
 
     // the maps have an object group names "enemies" that are named by a number, the number represents an enemy and each
@@ -36,12 +35,12 @@ public class Map {
         try {
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 
-            mapData = (Element) builder.parse(file).getDocumentElement();
+            mapData = builder.parse(file).getDocumentElement();
 
             tileSheet = ImageIO.read(new File("Assets/terrain.png"));
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("!!!!PROBLEM!!!!!");
+            System.out.println("could not load the file.");
         }
         extractLayers();
     }
@@ -53,11 +52,14 @@ public class Map {
             drawLayer(g, layers.get(layer));
     }
     private void drawLayer(Graphics2D g, int[][] layer) {
+        final int SOURCE_TILE_SIZE = 32, TILE_COLUMNS = 21, TILE_SIZE = 32;
+
         for (int i = 0; i < layer.length; i++) {
             for (int j = 0; j < layer[0].length; j++) {
                 if (layer[i][j] == -1) continue;
 
                 // j represents how far along we are in a row, which is our x
+
                 int x = j * TILE_SIZE;
 
                 // i represents how far along we are in a columns, which is our y
@@ -69,6 +71,7 @@ public class Map {
                 // top to bottom. So that means if we take the width of each tile (which are squares) multiply it by
                 // the mod of the the id by the amount of tiles in a rows is how far along it is on the x-axis,
                 // and the id divided by the amount of rows is how far along it is on the y-axis.
+
                 int sourceX = SOURCE_TILE_SIZE * (layer[i][j] % TILE_COLUMNS);
                 int sourceY = SOURCE_TILE_SIZE * (layer[i][j] / TILE_COLUMNS);
                 g.drawImage(tileSheet, x, y, x + TILE_SIZE, y + TILE_SIZE,
@@ -85,7 +88,6 @@ public class Map {
         for (int i = 0; i < objectArray.getLength(); i++) {
             Element holder = (Element) objectArray.item(i);
             NodeList item = holder.getElementsByTagName("object");
-            //Element element = (Element) holder.item(i);
             if (holder.getAttribute("name").equals(key)) {
                 return item;
             }

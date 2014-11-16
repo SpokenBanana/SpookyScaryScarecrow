@@ -45,11 +45,10 @@ public class Bow extends Fire {
         if (mouseInput.didMouseClickOn(screen) && player.hasItem(Item.ARROW_ID)) {
             action();
             // decrease depreciation, is it lower than 0, then remove an amount, if the amount then after is 0, un-equip
-            if ((depreciation -= 3) <= 0){
-                if (--amount == 0){
+            changeDepreciation(-3);
+            if (depreciation <= 0){
+                if (--amount == 0)
                     player.setCurrentItem((short)-1);
-                    // reset depreciation
-                }
                 depreciation = 100;
             }
         }

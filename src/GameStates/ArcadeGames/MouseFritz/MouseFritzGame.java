@@ -79,7 +79,7 @@ public class MouseFritzGame extends ArcadeGame{
                 // BALLS ARE ON THE FRITZ!! (player cannot touch them)
                 if (--timeUntilFritz <= 0) {
 
-                    // the balls "go on the fritz" when timeUntilFritz is negative
+                    // Set balls on the fritz
                     if (timeUntilFritz == 0)
                         balls.forEach(ball -> ball.onTheFritz = true);
 
@@ -95,7 +95,7 @@ public class MouseFritzGame extends ArcadeGame{
                     else
                         delay--;
 
-                    // after a certain amount of time in this state, the balls go back to normal
+                    // after a certain amount of time, the balls go back to normal
                     if (timeUntilFritz <= -400){
                         balls.forEach(ball -> ball.onTheFritz = false);
                         rounds--;
@@ -177,7 +177,7 @@ public class MouseFritzGame extends ArcadeGame{
     /**
      * This sets up the balls in the game
      */
-    protected void initializeBalls() {
+    private void initializeBalls() {
         Color[] colors = {Color.red, Color.blue, Color.yellow, Color.green, Color.orange, Color.MAGENTA, Color.pink};
         Random random = new Random();
         balls = new ArrayList<>();
@@ -192,39 +192,36 @@ public class MouseFritzGame extends ArcadeGame{
      * Checks if the player has hit any balls. If it has, it checks if the player is following the rules of the game,
      * that is, matching the balls with the same color.
      */
-    protected void checkCursorAndBallCollision() {
+    private void checkCursorAndBallCollision() {
         for (Ball ball : balls) {
             // player hit a ball
             if (ball.intersects(player)) {
-
-                // check if he is trying to match a ball or not, is matching one if ballChosen is null
-                if (player.ballChosen == null) {
-                    // first ball hit, it's the color he has to match now
-                    player.ballChosen = ball;
-                    ball.selected = true;
-                }
-                else {
+                // check if he is trying to match a ball or not
+                if (!player.isMatchingBalls()) {
                     // already has a ball he has to match, see if he matched the right ball
-                    if (player.ballChosen.color == ball.color && player.ballChosen != ball) {
+                    if (player.doesMatchCurrentBall(ball)) {
                         // he did! reward with some points
                         score += 10;
 
                         // reset the chosen balls
-                        player.ballChosen.selected = false;
-                        player.ballChosen = null;
+                        player.resetSelectedBall();
 
                         delay = 40;
                     }
                     else if (player.ballChosen.color != ball.color && player.ballChosen != ball){
                         // he failed, penalize score and reset his choices
                         score--;
-                        player.ballChosen.selected = false;
-                        player.ballChosen = null;
+                        player.resetSelectedBall();
 
                         // without this delay, the ball he last touch immediately becomes his chosen ball, which
                         // would be annoying.
                         delay = 40;
                     }
+                }
+                else {
+                    // first ball hit, it's the color he has to match now
+                    player.ballChosen = ball;
+                    ball.selected = true;
                 }
             }
         }

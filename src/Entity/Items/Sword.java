@@ -21,7 +21,7 @@ public class Sword extends Item {
         try {
             icon = ImageIO.read(new File("Assets/Sprites/items/sword.png"));
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
     }
     public Sword(Player player) {
@@ -36,7 +36,8 @@ public class Sword extends Item {
     @Override
     public void action() {
         // decrease depreciation on every use, if it goes lower than or equal to 0, we broke it
-        if ((depreciation -= 5) <= 0) {
+        changeDepreciation(-5);
+        if (depreciation <= 0) {
             // reduce amount
             amount--;
 

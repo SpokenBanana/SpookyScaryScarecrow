@@ -22,13 +22,13 @@ import java.io.File;
 public class ArcadeMachine extends EventState {
 
     // id of game
-    protected int id;
+    private final int id;
     BufferedImage sprite;
-    private String path = "Assets/Sprites/misc/arcade";
 
     public ArcadeMachine(Rectangle bounds, int gameId, char direction) {
         eventArea = bounds;
         id = gameId;
+        final String path = "Assets/Sprites/misc/arcade";
         try{
             switch (direction) {
                 case 'd': // down

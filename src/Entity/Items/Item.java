@@ -39,8 +39,13 @@ public abstract class Item {
         return depreciation;
     }
     public void setDepreciation(int amount) {
-        // depreciation cannot be lower than 0
-        depreciation = amount < 0 ? 0 : (short) amount;
+        // depreciation cannot be lower than 0 or higher than 100
+        if (amount < 0)
+            depreciation = 0;
+        else if (amount > 100)
+            depreciation = 100;
+        else
+            depreciation = (short) amount;
     }
     public String getDescription() { return description; }
 

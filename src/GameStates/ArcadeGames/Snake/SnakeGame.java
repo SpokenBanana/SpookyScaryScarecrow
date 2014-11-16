@@ -21,10 +21,12 @@ public class SnakeGame extends ArcadeGame {
     private Point food;
 
     // width and height of the snake game screen
-    protected final int WIDTH = 400, HEIGHT = 400;
+    private final int WIDTH = 400, HEIGHT = 400;
+
     // cell_size = size of each "node",
-    final int CELL_SIZE = 10;
-    Random random = new Random();
+    private final int CELL_SIZE = 10;
+
+    private Random random = new Random();
 
     public SnakeGame(GameStateManager manager, KeyInput keys, MouseInput mouse) {
         super(manager, keys, mouse);
@@ -78,6 +80,7 @@ public class SnakeGame extends ArcadeGame {
                     soundManager.playSound("menu_music");
                     state = State.GameOver;
                 }
+                checkSnakeEating();
                 break;
             case GameOver:
                 if (keyInput.isPressed(KeyEvent.VK_SPACE)) {
@@ -118,6 +121,7 @@ public class SnakeGame extends ArcadeGame {
                 break;
             case Playing:
                 snake.draw(g);
+                g.setColor(Color.white);
                 g.fillRect(food.x, food.y, CELL_SIZE, CELL_SIZE);
                 break;
             case GameOver:
@@ -128,6 +132,15 @@ public class SnakeGame extends ArcadeGame {
                 g.drawString("Press [Q] to quit", 120, 250);
                 g.drawString("| |", 160, 200);
                 break;
+        }
+    }
+
+    private void checkSnakeEating() {
+        if (snake.intersects(new Rectangle(food.x, food.y, CELL_SIZE, CELL_SIZE))) {
+            food.x = random.nextInt(WIDTH - CELL_SIZE);
+            food.y = random.nextInt(HEIGHT - CELL_SIZE);
+            score += 10;
+            snake.addNode();
         }
     }
 }

@@ -44,50 +44,49 @@ public class CraftingState extends GameState {
 
         // check if the player is trying to pick an item
         for (Item item : player.getItems()) {
+            // cannot choose an item that he has ran out of
             if (item != null && item.amount > 0) {
                 if (mouseInput.didMouseClickOn(item.bounds)) {
+                    // deselect if he is clicking on an item he already has selected
                     if (cursorItem == item.id)
                         cursorItem = -1;
-                    else
+                    else // set the selected item to the item he clicked
                         cursorItem = item.id;
                 }
             }
         }
 
         // check if the player is trying to use the slots
-        for (int i = 0; i < slots.length; i++) {
-            // if the player clicked on a slot, he trying to place something there
-            if (mouseInput.didMouseClickOn(slotBounds[i])) {
-
+        for (int i = 0; i < 2; i++) {
+            if (mouseInput.didMouseClickOn(slotBounds[i]) && cursorItem != -1 && isValidAddition(i, cursorItem))  {
                 // the player cannot place items on slot[2] and can only place an item if he has selected one
-                if (i != 2 && cursorItem != -1 && isValidAddition(i, cursorItem)) {
-                    slots[i] = player.createItem(cursorItem);
-                    slots[i].add(1); // to show how much of the item will be taken from the player's inventory when he crafts this
+                slots[i] = player.createItem(cursorItem);
+                slots[i].add(1); // to show how much of the item will be taken from the player's inventory when he crafts this
 
-                    // if they changed something, then we need to clear the output slot since a new item should appear
-                    slots[2] = null;
-                }
-                // he is trying to collect the item crafted, let him get if there is an item there
-                else if (i == 2 && slots[i] != null) {
-                    player.addItem(slots[i].id);
-
-                    // crafting takes one of each item
-                    player.removeItem(slots[0].id);
-                    player.removeItem(slots[1].id);
-
-                    // ran out of items in that slot, so empty it out
-                    if (player.getItem(slots[0].id).amount == 0)
-                        slots[0] = null;
-                    if (player.getItem(slots[1].id).amount == 0)
-                        slots[1] = null;
-
-                    // empty the slot either way
-                    slots[2] = null;
-
-                    // reset the current item
-                    cursorItem = -1;
-                }
+                // if they changed something, then we need to clear the output slot since a new item should appear
+                slots[2] = null;
             }
+        }
+
+        // he is trying to collect the item crafted, let him get if there is an item there
+        if (mouseInput.didMouseClickOn(slotBounds[2]) && slots[2] != null) {
+            player.addItem(slots[2].id);
+
+            // crafting takes one of each item
+            player.removeItem(slots[0].id);
+            player.removeItem(slots[1].id);
+
+            // if the player ran out of items in that slot, so empty it out
+            if (player.getItem(slots[0].id).amount == 0)
+                slots[0] = null;
+            if (player.getItem(slots[1].id).amount == 0)
+                slots[1] = null;
+
+            // empty the slot either way
+            slots[2] = null;
+
+            // reset the current item
+            cursorItem = -1;
         }
 
         // if the player has selected two items selected for crafting then we should mix them and show the item they could get
@@ -148,7 +147,6 @@ public class CraftingState extends GameState {
                 // border
                 g.setColor(Color.black);
                 g.drawRect(x, y, 32, 32);
-                y += 32;
             }
             else {
                 if (item.amount == 0)
@@ -160,8 +158,8 @@ public class CraftingState extends GameState {
                 item.draw(g);
                 g.setColor(Color.white);
                 g.drawString(Integer.toString(item.amount), x + 20, y + 27);
-                y += item.bounds.width;
             }
+            y += 32;
         }
         back.draw(g);
     }
@@ -175,22 +173,23 @@ public class CraftingState extends GameState {
     private Item mix(Item first, Item second) {
 
         // stone and wood make a sword, doesn't matter which order
-        if ((first instanceof Wood && second instanceof Stone) || (first instanceof Stone && second instanceof Wood)) {
+        if (isDesiredMixture(first, second, Item.STONE_ID, Item.WOOD_ID)) {
             return new Sword();
         }
 
         // stone and stone make fire!
-        if (first instanceof Stone && second instanceof Stone)
+        if (isDesiredMixture(first, second, Item.STONE_ID, Item.STONE_ID))
             return new Fire();
 
         // wood and grass make a bow
-        if ((first instanceof Wood && second instanceof Grass) || (first instanceof Grass && second instanceof Wood))
+        if (isDesiredMixture(first, second, Item.WOOD_ID, Item.GRASS_ID))
             return new Bow();
 
         // grass and stone make an arrow
-        if ((first instanceof Grass && second instanceof Stone) || (first instanceof Stone && second instanceof Grass))
+        if (isDesiredMixture(first, second, Item.GRASS_ID, Item.STONE_ID))
             return new ArrowItem();
-        if (first instanceof Grass && second instanceof Grass)
+
+        if (isDesiredMixture(first, second, Item.GRASS_ID, Item.GRASS_ID))
             return new Health();
 
         return null;
@@ -217,4 +216,18 @@ public class CraftingState extends GameState {
         return slots[otherSlot].id != itemId || player.getItem(itemId).amount > 1;
 
     }
+
+    /**
+     * Will tell us if the two items mixing are items we want to mix. The user will give the two items to mix, and the
+     * ids of what they want to items to be
+     * @param first the first item to mix
+     * @param second the second item to mix
+     * @param firstIdDesired the id of the item they want one of the items to be
+     * @param secondIdDesired the id of the item they want the other items to be
+     * @return whether or not the two items are the items the user wants to mix
+     */
+    private boolean isDesiredMixture(Item first, Item second, int firstIdDesired, int secondIdDesired) {
+        return (first.id == firstIdDesired && second.id == secondIdDesired) || (first.id == secondIdDesired && second.id == firstIdDesired);
+    }
+
 }

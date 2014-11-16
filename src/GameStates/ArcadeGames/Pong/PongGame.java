@@ -125,7 +125,7 @@ public class PongGame extends ArcadeGame {
     /**
         pretty much just moves the ball
      */
-    protected void updateBall() {
+    private void updateBall() {
         ball.x += ballxVel;
         ball.y += ballyVel;
     }
@@ -133,7 +133,7 @@ public class PongGame extends ArcadeGame {
     /**
         Checks if the ball has collided with anything in the game
      */
-    protected void checkBallCollision() {
+    private void checkBallCollision() {
         // make him bounce around the edges on top and bottom of screen
         if (ball.y < 0 || ball.y > GAME_HEIGHT - ball.height) {
             ballyVel *= - 1;
@@ -145,7 +145,7 @@ public class PongGame extends ArcadeGame {
         Check if the ball collided with the rectangle area provided. If it has, it moves the ball in
          the other direction, and the AI will have to react to that, giving a delay in it's AI.
      */
-    protected void checkIfBallHit(Rectangle entity) {
+    private void checkIfBallHit(Rectangle entity) {
         if (entity.intersects(ball)){
             ballxVel *= -1;
 
@@ -171,7 +171,7 @@ public class PongGame extends ArcadeGame {
         checks if the ball reached outside the screen in the x-position. If so that means someone scored and we
         have to move the ball to the center
     */
-    protected void checkIfBallOutOfBounds() {
+    private void checkIfBallOutOfBounds() {
         if (ball.x < 0) {
             computerScore++;
             resetGame();
@@ -185,15 +185,13 @@ public class PongGame extends ArcadeGame {
         The computer's logic will handled her. Basically, if the ball is higher than the middle of the paddle,
         it moves up, if it is lower, then it moves down.
      */
-    protected void updateComputerAI() {
+    private void updateComputerAI() {
         if (computerAIDelay <= 0) {
             // adding half the paddle's height to its y value gives us it's center
-            if (ball.y < computerPaddle.y + (computerPaddle.height / 2)) {
+            if (ball.y < computerPaddle.y + (computerPaddle.height / 2))
                 computerPaddle.y += (computerPaddle.y > 0) ? -5 : 5;
-            }
-            else if (ball.y > computerPaddle.y + (computerPaddle.height / 2)) {
+            else if (ball.y > computerPaddle.y + (computerPaddle.height / 2))
                 computerPaddle.y += (computerPaddle.y <  GAME_HEIGHT - computerPaddle.height) ? 5 : -5;
-            }
         }
         else
             computerAIDelay--;
@@ -202,7 +200,7 @@ public class PongGame extends ArcadeGame {
         We don't want the player to be able to predict which way the ball will move at the beginning of the
         round, so we use this to sort of randomize where it will go
      */
-    protected void randomizeBallMovement() {
+    private void randomizeBallMovement() {
         if (random.nextInt(100) % 2 == 0)
             ballxVel *= -1;
         if (random.nextInt(100) % 2 == 0)
@@ -212,7 +210,7 @@ public class PongGame extends ArcadeGame {
         sets up the game for a fair start. Paddles are centered vertically and the ball is completely
         centered.
      */
-    protected void resetGame() {
+    private void resetGame() {
         playerPaddle.x = 50;
         computerPaddle.x = 508;
         computerPaddle.y = playerPaddle.y = 250;

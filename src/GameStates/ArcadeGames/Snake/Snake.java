@@ -30,36 +30,36 @@ public class Snake {
 
     // the random colors the snake "nodes" can be
     private final Color[] colors = {Color.red, Color.pink, Color.yellow, Color.cyan, Color.green, Color.ORANGE, Color.blue};
-
+    private Random random;
     public Entity.Direction direction;
 
     // the snake will initially has 5 "nodes"
     public Snake() {
+        random = new Random();
         resetSnake();
     }
 
     public void update() {
         switch (direction) {
             case Right:
-                move(10, 0);
+                move(NODE_SIZE, 0);
                 break;
             case Left:
-                move(-10, 0);
+                move(-NODE_SIZE, 0);
                 break;
             case Down:
-                move(0, 10);
+                move(0, NODE_SIZE);
                 break;
             case Up:
-                move(0, -10);
+                move(0, -NODE_SIZE);
                 break;
         }
     }
     public void resetSnake() {
         direction = Entity.Direction.Right;
-        Random random = new Random();
         head = new Node(200,200, Color.blue);
         for (int i = 0; i < 4; i++)
-            addNode(colors[random.nextInt(colors.length)]);
+            addNode();
     }
     public void move(int diffX, int diffY) {
         int oldx = head.x, oldy = head.y;
@@ -92,7 +92,7 @@ public class Snake {
     public boolean intersects(Rectangle rectangle) {
         return head.intersects(rectangle);
     }
-    public void addNode(Color color) {
+    public void addNode() {
         // we don't actually want to change snake, just travel through him
         Node copy = head;
 
@@ -109,6 +109,8 @@ public class Snake {
         // the difference in the positions can tell us where to place the next node!
         int diffx = copy.x - oldx;
         int diffy = copy.y - oldy;
+
+        Color color = colors[random.nextInt(colors.length)];
 
         // now append the node to add at the end of the snake!
         copy.next = new Node(copy.x + diffx, copy.y + diffy, color);

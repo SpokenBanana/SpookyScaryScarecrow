@@ -447,8 +447,8 @@
    <tile gid="0"/>
    <tile gid="440"/>
    <tile gid="0"/>
+   <tile gid="0"/>
    <tile gid="223"/>
-   <tile gid="224"/>
    <tile gid="224"/>
    <tile gid="224"/>
    <tile gid="224"/>
@@ -774,8 +774,8 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="0"/>
    <tile gid="181"/>
-   <tile gid="182"/>
    <tile gid="182"/>
    <tile gid="182"/>
    <tile gid="182"/>
@@ -793,8 +793,8 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="0"/>
    <tile gid="202"/>
-   <tile gid="203"/>
    <tile gid="203"/>
    <tile gid="203"/>
    <tile gid="203"/>
@@ -1099,7 +1099,7 @@
   </data>
  </layer>
  <objectgroup name="walls" width="19" height="19">
-  <object x="32" y="128" width="512" height="6"/>
+  <object x="64" y="128" width="480" height="6"/>
   <object x="64" y="480" width="384" height="6"/>
   <object x="0" y="576" width="576" height="32"/>
   <object x="448" y="288" width="128" height="6"/>
