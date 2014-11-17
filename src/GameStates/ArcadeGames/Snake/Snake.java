@@ -60,6 +60,7 @@ public class Snake {
         head = new Node(200,200, Color.blue);
         for (int i = 0; i < 4; i++)
             addNode();
+        move(NODE_SIZE, 0);
     }
     public void move(int diffX, int diffY) {
         int oldx = head.x, oldy = head.y;

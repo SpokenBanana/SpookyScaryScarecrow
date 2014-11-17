@@ -727,9 +727,9 @@
    <tile gid="347"/>
    <tile gid="347"/>
    <tile gid="348"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="420"/>
+   <tile gid="420"/>
+   <tile gid="420"/>
    <tile gid="420"/>
   </data>
  </layer>
@@ -740,7 +740,7 @@
   <object x="304" y="96" width="128" height="320"/>
   <object x="432" y="0" width="32" height="448"/>
   <object x="0" y="0" width="32" height="96"/>
-  <object x="576" y="576" width="32" height="32"/>
+  <object x="480" y="576" width="128" height="32"/>
   <object x="0" y="96" width="240" height="224"/>
  </objectgroup>
  <objectgroup name="enemies" width="19" height="19">

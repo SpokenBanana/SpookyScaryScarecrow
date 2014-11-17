@@ -76,11 +76,17 @@ public class CraftingState extends GameState {
             player.removeItem(slots[0].id);
             player.removeItem(slots[1].id);
 
-            // if the player ran out of items in that slot, so empty it out
-            if (player.getItem(slots[0].id).amount == 0)
-                slots[0] = null;
-            if (player.getItem(slots[1].id).amount == 0)
+            // if he was two of the same item in each slots and doesn't have 2 of them anymore, then he can't use both
+            if (slots[0].id == slots[1].id && player.getItem(slots[0].id).amount < 2) {
                 slots[1] = null;
+            }
+            else {
+                // if the player ran out of items in that slot, so empty it out
+                if (player.getItem(slots[0].id).amount == 0)
+                    slots[0] = null;
+                if (player.getItem(slots[1].id).amount == 0)
+                    slots[1] = null;
+            }
 
             // empty the slot either way
             slots[2] = null;

@@ -34,7 +34,7 @@ public class Bow extends Fire {
 
     @Override
     public void action() {
-        player.bullets.add(new Arrow(new Rectangle(player.getPosition().x, player.getPosition().y, 16, 16), mouseInput.getMouseLocation()));
+        player.bullets.add(new Arrow(new Rectangle(player.getPosition().x, player.getPosition().y + 16, 16, 16), mouseInput.getMouseLocation()));
         player.removeItem(Item.ARROW_ID);
     }
 

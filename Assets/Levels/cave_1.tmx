@@ -735,6 +735,7 @@
  </layer>
  <objectgroup name="warps" width="19" height="19">
   <object name="cave_intro" x="608" y="32" width="32" height="544"/>
+  <object name="cave_10" x="224" y="-32" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="walls" width="19" height="19">
   <object x="0" y="0" width="224" height="32"/>

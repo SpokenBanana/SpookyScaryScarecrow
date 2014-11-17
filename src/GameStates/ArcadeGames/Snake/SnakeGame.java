@@ -105,7 +105,7 @@ public class SnakeGame extends ArcadeGame {
     public void draw(Graphics2D g) {
         g.setColor(new Color(9));
         g.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
-        g.setColor(new Color(50, 70, 160));
+        g.setColor(new Color(101, 120, 140));
         g.fillRect(0, 0, WIDTH, HEIGHT);
 
         g.setFont(new Font(ARCADE_FONT, Font.BOLD, 15));
@@ -126,7 +126,7 @@ public class SnakeGame extends ArcadeGame {
                 break;
             case GameOver:
                 g.drawString("GAME OVER", 200, 200);
-                g.drawString("Press [SPACE] to play again! Press [Q] to quit :(", 10, 300);
+                g.drawString("Press [SPACE] to play again! Press [Q] to quit :(", 5, 300);
                 break;
             case Pause:
                 g.drawString("Press [Q] to quit", 120, 250);

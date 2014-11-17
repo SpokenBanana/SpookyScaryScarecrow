@@ -46,7 +46,7 @@ public class Fire extends Item {
     @Override
     public void action() {
         // throws fire ball at the direction of the mouse
-        player.bullets.add(new FireBall(new Rectangle(player.getPosition().x, player.getPosition().y, 16,16), mouseInput.getMouseLocation()));
+        player.bullets.add(new FireBall(new Rectangle(player.getPosition().x, player.getPosition().y + 16, 16,16), mouseInput.getMouseLocation()));
     }
 
     @Override
