@@ -171,7 +171,6 @@ public class MapLevel extends GameState {
         Element saveData = currentGame.getSavedGame();
 
         // get saved player properties
-        Element playerProperties = (Element) saveData.getElementsByTagName("player").item(0);
         Element xProp = (Element) saveData.getElementsByTagName("x").item(0);
         Element yProp = (Element) saveData.getElementsByTagName("y").item(0);
         Element healthProp = (Element) saveData.getElementsByTagName("health").item(0);
@@ -218,6 +217,19 @@ public class MapLevel extends GameState {
         setLevel(currentLevel);
     }
 
+    /**
+     * This will let go of all the content loaded in the game.
+     */
+    public void unloadContent() {
+        soundManager.clearAllSounds();
+        blocks = null;
+        enemies = null;
+        player = null;
+        map = null;
+        soundManager = null;
+
+    }
+
     /**w
      * Changes the current level to the level given. It loads all the things the file specifies it wants in that map
      * @param level the name of the .json file inside Assets/Levels/ to load
@@ -237,7 +249,8 @@ public class MapLevel extends GameState {
         String music = getMusicFromFile();
 
         // when maps do not use it, we don't change anything, same thing when it wants to play a song that is already playings
-        if (music != null && !music.equals(currentMusic)) {
+        if (!music.equals(currentMusic)) {
+            soundManager.stopCurrentSound();
             if (currentMusic != null)
                 soundManager.deleteSound(currentMusic);
             currentMusic = music;
@@ -302,14 +315,16 @@ public class MapLevel extends GameState {
      * @return the path of the song desired to play
      */
     private String getMusicFromFile() {
-        String file = null;
         NodeList props = map.get("property");
         for (int i = 0; i < props.getLength(); i++) {
             Element property = (Element) props.item(i);
             if (property.getAttribute("name").equals("music"))
                 return property.getAttribute("value");
         }
-        return null;
+        // if no music file is found then we can assume what music is to be played depending on the level name
+        if (currentLevel.startsWith("cave"))
+            return "Music/cave_theme.wav";
+        return "Music/town_theme.wav";
     }
 
     /**
@@ -380,8 +395,12 @@ public class MapLevel extends GameState {
             if (properties != null) {
                 Element property = (Element) properties.item(0);
                 if (property != null){
+                    // get first property
                     Element prop = (Element) property.getElementsByTagName("property").item(0);
+
+                    //should be door
                     String isDoor = prop.getAttribute("name");
+
                     if (isDoor!= null && isDoor.equals("isDoor"))
                         block.setAsDoor();
                 }

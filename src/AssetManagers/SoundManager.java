@@ -1,10 +1,5 @@
 package AssetManagers;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.FloatControl;
-import java.io.File;
 import java.util.HashMap;
 
 /**
@@ -14,45 +9,34 @@ import java.util.HashMap;
 public class SoundManager {
 
     // we store each sound with a key, so we can do things like soundManager.get("steps").start(); Very simple and easy to manage
-    private HashMap<String, Clip> sounds;
+    private HashMap<String, Sound> sounds;
 
     public SoundManager() {
-        sounds = new HashMap<String, Clip>();
+        sounds = new HashMap<>();
     }
 
     /**
      * This will allow the player to store a sound file with a key they can use to later play the stored sound.
      */
     public void addSound(String key, String fileName) {
-        try {
-            AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File("Assets/Sounds/" + fileName));
-            Clip clip = AudioSystem.getClip();
-            clip.open(inputStream);
-            sounds.put(key, clip);
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println(fileName + " failed to load.");
-        }
+        // if we have already got this sound, then we don't want to open another clip or we will use too much memory.
+        if (sounds.containsKey(key))
+            return;
+            sounds.put(key, new Sound(fileName));
     }
 
     /**
      * Will go through our collection of soundManager and stop all soundManager that are playing
      */
     public void stopCurrentSound() {
-        for (String key : sounds.keySet()) {
-            if (sounds.get(key).isRunning())
-                stopSound(key);
-        }
+        sounds.keySet().forEach(this::stopSound);
     }
 
     /**
      * Will go through the collection and pause all currently playing sounds
      */
     public void pauseCurrentSound() {
-        for (String key : sounds.keySet()) {
-            if (sounds.get(key).isRunning())
-                pauseSound(key);
-        }
+        sounds.keySet().forEach(this::pauseSound);
     }
     /**
      * Acts the same as the other add sound but initializes a set volume
@@ -67,7 +51,7 @@ public class SoundManager {
     public void playSound(String key) {
         if (sounds.containsKey(key)){
             stopSound(key);
-            sounds.get(key).start();
+            sounds.get(key).play();
         }
     }
     /**
@@ -77,21 +61,20 @@ public class SoundManager {
         if (sounds.containsKey(key)) {
             stopSound(key);
             if (loop)
-                sounds.get(key).loop(Clip.LOOP_CONTINUOUSLY);
+                sounds.get(key).loop();
             else
-                sounds.get(key).start();
+                sounds.get(key).play();
         }
     }
 
     /**
      * Will change the volume of the soundManager specified
-     * @param key
-     * @param amount
+     * @param key the key of the sound to change
+     * @param amount the amount to change the volume
      */
     public void changeVolume(String key, float amount) {
         if (sounds.containsKey(key)){
-            FloatControl control = (FloatControl) sounds.get(key).getControl(FloatControl.Type.MASTER_GAIN);
-            control.setValue(amount);
+            sounds.get(key).changeVolume(amount);
         }
     }
     /**
@@ -100,11 +83,7 @@ public class SoundManager {
      */
     public void stopSound(String key) {
         if (sounds.containsKey(key)){
-            if (sounds.get(key).isRunning()){
-                sounds.get(key).stop();
-            }
-            // like when reading a file, the cursor is left at the end, we have to move it to the front again
-            sounds.get(key).setFramePosition(0);
+            sounds.get(key).stop();
         }
     }
 
@@ -113,13 +92,13 @@ public class SoundManager {
      */
     public void resumeSound(String key) {
         if (sounds.containsKey(key))
-            sounds.get(key).start();
+            sounds.get(key).play();
     }
 
     /**
      * This will resume a sound and loop it
-     * @param key
-     * @param loop
+     * @param key the key of the sound to play
+     * @param loop whether or not to loop the sound
      */
     public void resumeSound(String key, boolean loop) {
         if (sounds.containsKey(key)) {
@@ -127,9 +106,9 @@ public class SoundManager {
             if (sounds.get(key).isRunning())
                 return;
             if (loop)
-                sounds.get(key).loop(Clip.LOOP_CONTINUOUSLY);
+                sounds.get(key).loop();
             else
-                resumeSound(key);
+                sounds.get(key).resume();
         }
     }
 
@@ -139,7 +118,7 @@ public class SoundManager {
      */
     public void pauseSound(String key) {
         if (sounds.containsKey(key) && sounds.get(key).isRunning())
-            sounds.get(key).stop();
+            sounds.get(key).pause();
     }
 
     /**
@@ -147,7 +126,16 @@ public class SoundManager {
      * @param key the key to sound to delete
      */
     public void deleteSound(String key) {
-        stopSound(key);
-        sounds.remove(key);
+        if (sounds.containsKey(key)) {
+            stopSound(key);
+            sounds.get(key).delete();
+            sounds.remove(key);
+        }
+    }
+    public void clearAllSounds() {
+        for (String clip : sounds.keySet()) {
+            sounds.get(clip).delete();
+        }
+        sounds.clear();
     }
 }

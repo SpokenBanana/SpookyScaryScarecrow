@@ -32,7 +32,7 @@ public class PauseState extends GameState {
             parentManager.deleteCurrentGame();
         else if (mouseInput.didMouseClickOn(exit)) {
             parentManager.deleteCurrentGame();
-            prevState.soundManager.stopCurrentSound();
+            prevState.unloadContent();
             parentManager.deleteCurrentGame();
             parentManager.setGame(new Menu(parentManager, mouseInput, keyInput));
         }

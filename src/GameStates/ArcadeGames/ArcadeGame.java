@@ -21,6 +21,8 @@ public abstract class ArcadeGame extends GameState {
     @Override
     public void leave() {
         soundManager.stopCurrentSound();
+        soundManager.clearAllSounds();
+        soundManager = null;
     }
 
 }

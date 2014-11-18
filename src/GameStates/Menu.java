@@ -25,11 +25,14 @@ public class Menu extends GameState {
         parentManager = manager;
         soundManager = new SoundManager();
         soundManager.addSound("confirm", "confirm.wav");
-        soundManager.addSound("hover", "hover.wav");
         soundManager.addSound("music", "Music/menu.wav");
         soundManager.playSound("music", true);
         start = new Button(new Rectangle(250,200,200,40), "Start Game!");
         load = new Button(new Rectangle(250, 300,200,40), "Load Game!");
+    }
+    @Override
+    public void leave() {
+        soundManager.clearAllSounds();
     }
 
     @Override
@@ -40,7 +43,6 @@ public class Menu extends GameState {
         if (mouseInput.didMouseClickOn(start)){
             soundManager.playSound("confirm");
             soundManager.deleteSound("music");
-            soundManager.deleteSound("hover");
             fileManager.createSaveDirectory("tmp/");
             parentManager.setGame(new MapLevel(parentManager, keyInput, mouseInput));
         }
