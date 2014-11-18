@@ -8,8 +8,8 @@ import java.io.File;
  * so we handle all of those cases here.
  */
 public class Sound {
-    AudioInputStream inputStream;
-    Clip clip;
+    private AudioInputStream inputStream;
+    private Clip clip;
     public Sound(String sound) {
        try{
             inputStream = AudioSystem.getAudioInputStream(new File("Assets/Sounds/" + sound));
@@ -19,26 +19,51 @@ public class Sound {
                 if (event.getType() == LineEvent.Type.CLOSE)
                     event.getLine().close();
             });
-       }catch (Exception e){}
+       }catch (Exception e){
+           e.printStackTrace();
+       }
     }
+
+    /**
+     * Plays the desired sound from the start
+      */
     public void play() {
         stop();
         clip.start();
     }
+
+    /**
+     * Will resume the sound from where the cursor leaves off.
+     */
     public void resume(){
         clip.start();
     }
+
+    /**
+     * Will play the sound and have it loop continuously
+      */
     public void loop(){
         clip.loop(Clip.LOOP_CONTINUOUSLY);
     }
+
+    /**
+     * Will pause the sound right where it is at
+      */
     public void pause() {
         clip.stop();
     }
+
+    /**
+     * Will stop the sound and reset it's cursor back to the beginning of the clip. Just like we would with file.
+     */
     public void stop() {
         clip.stop();
         clip.setFramePosition(0);
     }
 
+    /**
+     * Will close all streams and allow the garbage collector do its work on them
+     */
     public void delete() {
         stop();
         clip.close();
@@ -50,9 +75,19 @@ public class Sound {
         inputStream = null;
         clip = null;
     }
+
+    /**
+     * Tells whether or not the clip is playing
+      * @return whether or not the clip is playing
+     */
     public boolean isRunning(){
         return clip.isRunning();
     }
+
+    /**
+     * Changes the volume of the sound
+      * @param amount the amount to change the volume by
+     */
     public void changeVolume(float amount) {
         FloatControl control = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
         control.setValue(amount);

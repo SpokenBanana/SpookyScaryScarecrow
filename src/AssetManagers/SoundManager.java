@@ -105,6 +105,7 @@ public class SoundManager {
             // already playing, no need to resume
             if (sounds.get(key).isRunning())
                 return;
+            // check if the user wants to loop or not
             if (loop)
                 sounds.get(key).loop();
             else
@@ -132,6 +133,10 @@ public class SoundManager {
             sounds.remove(key);
         }
     }
+
+    /**
+     * Will make sure no sound remains in memory
+     */
     public void clearAllSounds() {
         for (String clip : sounds.keySet()) {
             sounds.get(clip).delete();
