@@ -20,6 +20,7 @@ public abstract class ArcadeGame extends GameState {
     }
     @Override
     public void leave() {
+        // make sure no sounds get left in memory
         soundManager.stopCurrentSound();
         soundManager.clearAllSounds();
         soundManager = null;

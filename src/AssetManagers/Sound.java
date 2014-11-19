@@ -15,12 +15,15 @@ public class Sound {
             inputStream = AudioSystem.getAudioInputStream(new File("Assets/Sounds/" + sound));
             clip = AudioSystem.getClip();
             clip.open(inputStream);
+            // keep having the clip listen if it is trying to be closed, if so, close the audio line.
             clip.addLineListener(event -> {
                 if (event.getType() == LineEvent.Type.CLOSE)
                     event.getLine().close();
             });
        }catch (Exception e){
            e.printStackTrace();
+           clip = null;
+           inputStream = null;
        }
     }
 

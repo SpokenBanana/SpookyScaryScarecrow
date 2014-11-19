@@ -3,8 +3,8 @@ package AssetManagers;
 import java.util.HashMap;
 
 /**
-    This will control the soundManager played in the game. We can store soundManager we want and play them using the
-    methods defined here.
+  *  This will control the soundManager played in the game. We can store soundManager we want and play them using the
+  *  methods defined here.
  */
 public class SoundManager {
 
@@ -22,7 +22,7 @@ public class SoundManager {
         // if we have already got this sound, then we don't want to open another clip or we will use too much memory.
         if (sounds.containsKey(key))
             return;
-            sounds.put(key, new Sound(fileName));
+        sounds.put(key, new Sound(fileName));
     }
 
     /**
@@ -46,7 +46,7 @@ public class SoundManager {
         changeVolume(key, volumeChange);
     }
     /**
-        This method will play the desired sound.
+      *  This method will play the desired sound.
      */
     public void playSound(String key) {
         if (sounds.containsKey(key)){
@@ -55,7 +55,7 @@ public class SoundManager {
         }
     }
     /**
-        This method will play the desired sound and loop it.
+       * This method will play the desired sound and loop it.
      */
     public void playSound(String key, boolean loop) {
         if (sounds.containsKey(key)) {
@@ -78,8 +78,8 @@ public class SoundManager {
         }
     }
     /**
-        This stops the playing audio.
-        If we accidentally order a clip to play when it is already playing, we simply just stop the clip.
+      *  This stops the playing audio.
+      * If we accidentally order a clip to play when it is already playing, we simply just stop the clip.
      */
     public void stopSound(String key) {
         if (sounds.containsKey(key)){
@@ -88,7 +88,8 @@ public class SoundManager {
     }
 
     /**
-     * This resumes a paused sound
+     * This resumes a paused sound. The difference between this and playSound() is that playSound() will attempt to
+     * reset the sound to the beginning of the clip.
      */
     public void resumeSound(String key) {
         if (sounds.containsKey(key))
@@ -128,7 +129,6 @@ public class SoundManager {
      */
     public void deleteSound(String key) {
         if (sounds.containsKey(key)) {
-            stopSound(key);
             sounds.get(key).delete();
             sounds.remove(key);
         }

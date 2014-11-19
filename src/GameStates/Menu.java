@@ -40,16 +40,17 @@ public class Menu extends GameState {
         start.setHovered(mouseInput.isMouseOver(start));
         load.setHovered(mouseInput.isMouseOver(load));
 
+        // start the player off in a new game
         if (mouseInput.didMouseClickOn(start)){
             soundManager.playSound("confirm");
-            soundManager.deleteSound("music");
+
+            // he isn't in a saved game yet, so put all game files in this directory instead until he decides to save
             fileManager.createSaveDirectory("tmp/");
             parentManager.setGame(new MapLevel(parentManager, keyInput, mouseInput));
         }
-        if (mouseInput.didMouseClickOn(load)) {
+        // he clicked this, then he trying to load a game so go to the load game screen
+        else if (mouseInput.didMouseClickOn(load)) {
             soundManager.playSound("confirm");
-            soundManager.deleteSound("music");
-            soundManager.deleteSound("hover");
             parentManager.setGame(new LoadGame(parentManager, keyInput, mouseInput));
         }
     }

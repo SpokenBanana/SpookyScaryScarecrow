@@ -27,6 +27,7 @@ public class LoadGame extends GameState {
 
         int x = 250, y = 200;
         for (int i = 0; i < savedFiles.length; i++){
+            // cannot load "tmp/" directory, it is not a saved game
             if (savedFiles[i].getName().equals("tmp"))
                 continue;
             fileButtons[i] = new Handlers.Button(new Rectangle(x, y, 200, 40), savedFiles[i].getName());
