@@ -63,6 +63,8 @@ public class Menu extends GameState {
         g.setFont(new Font("Pericles", Font.PLAIN, 20));
         g.drawString("Use the arrow keys or WASD to move!", 50, 500);
         g.drawString("You can talk and interact with people or things by pressing F!", 5, 550);
+        g.drawString("Click Start Game to begin playing", 5, 600);
+        g.drawString("Click Load Game to load a saved game!", 5, 650);
         start.draw(g);
         load.draw(g);
     }

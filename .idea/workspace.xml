@@ -5,16 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="faf5a917-223b-46fa-9655-af7a7f59fab0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AdventureMan/GameStates/ArcadeGames/ArcadeGame.class" afterPath="$PROJECT_DIR$/out/production/AdventureMan/GameStates/ArcadeGames/ArcadeGame.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AdventureMan/GameStates/Menu.class" afterPath="$PROJECT_DIR$/out/production/AdventureMan/GameStates/Menu.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AdventureMan/Entity/Player/Player.class" afterPath="$PROJECT_DIR$/out/production/AdventureMan/Entity/Player/Player.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AdventureMan/AssetManagers/SoundManager.class" afterPath="$PROJECT_DIR$/out/production/AdventureMan/AssetManagers/SoundManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Sprites/misc/Thumbs.db" afterPath="$PROJECT_DIR$/Assets/Sprites/misc/Thumbs.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameStates/Menu.java" afterPath="$PROJECT_DIR$/src/GameStates/Menu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Levels/level1.tmx" afterPath="$PROJECT_DIR$/Assets/Levels/level1.tmx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Levels/level2.tmx" afterPath="$PROJECT_DIR$/Assets/Levels/level2.tmx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Levels/level3.tmx" afterPath="$PROJECT_DIR$/Assets/Levels/level3.tmx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Levels/route2.tmx" afterPath="$PROJECT_DIR$/Assets/Levels/route2.tmx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Levels/arcade.tmx" afterPath="$PROJECT_DIR$/Assets/Levels/arcade.tmx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Levels/cave_2.tmx" afterPath="$PROJECT_DIR$/Assets/Levels/cave_2.tmx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="9dfa36a2-f707-4266-aa47-91a220be5e9d" name="Rejected commit: Default" comment="adding in game created so far!" />
@@ -58,8 +52,8 @@
       <file leaf-file-name="Menu.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GameStates/Menu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36594912" vertical-offset="659" max-vertical-offset="1224">
-              <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.43639922" vertical-offset="659" max-vertical-offset="1260">
+              <caret line="57" column="13" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -951,7 +945,7 @@
       <workItem from="1416259793579" duration="2550000" />
       <workItem from="1416273079696" duration="11669000" />
       <workItem from="1416405440429" duration="844000" />
-      <workItem from="1416410891545" duration="2612000" />
+      <workItem from="1416410891545" duration="3253000" />
     </task>
     <task id="LOCAL-00001" summary="Added Java documentation to the code">
       <created>1414450453811</created>
@@ -1139,11 +1133,17 @@
       <option name="project" value="LOCAL" />
       <updated>1416420930314</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Add some more instruction for player">
+      <created>1416423134562</created>
+      <option name="number" value="00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1416423134562</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="396304000" />
+    <option name="totallyTimeSpent" value="396945000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -1222,7 +1222,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Added a new enemy, new level, and fixed problem with sound files being too large" />
     <MESSAGE value="Added an item system and a pause menu" />
     <MESSAGE value="Added saved games and menu to load saved games" />
     <MESSAGE value="Fixed a bug where unsaved changes to levels were left saved" />
@@ -1247,7 +1246,8 @@
     <MESSAGE value="Add some more meaningfull comments" />
     <MESSAGE value="Add a few more comments and remove redundancy in SoundManager." />
     <MESSAGE value="Fix bug where slots in crafting doesn't really clear when player runs out of item" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix bug where slots in crafting doesn't really clear when player runs out of item" />
+    <MESSAGE value="Add some more instruction for player" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add some more instruction for player" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1647,8 +1647,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GameStates/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36594912" vertical-offset="659" max-vertical-offset="1224">
-          <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.43639922" vertical-offset="659" max-vertical-offset="1260">
+          <caret line="57" column="13" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="13" />
           <folding />
         </state>
       </provider>

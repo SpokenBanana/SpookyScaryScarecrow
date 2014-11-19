@@ -1143,6 +1143,7 @@
  </layer>
  <objectgroup name="npc" width="19" height="19">
   <object name="I came in here because some guy said he lost his ball`But now I'm starting to think there is no ball!" x="144" y="384" width="32" height="64"/>
+  <object name="Locked doors have a lock symbol on them`You'll need a key equipped to open them" x="352" y="416" width="32" height="64"/>
  </objectgroup>
  <objectgroup name="warps" width="19" height="19">
   <object name="cave_intro" x="-32" y="32" width="32" height="544"/>
