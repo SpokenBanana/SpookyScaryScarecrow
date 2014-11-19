@@ -4,13 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/src/GameStates/MapLevel.java" line="266" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="faf5a917-223b-46fa-9655-af7a7f59fab0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AdventureMan/AssetManagers/SoundManager.class" afterPath="$PROJECT_DIR$/out/production/AdventureMan/AssetManagers/SoundManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameStates/ArcadeGames/ArcadeGame.java" afterPath="$PROJECT_DIR$/src/GameStates/ArcadeGames/ArcadeGame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameStates/LoadGame.java" afterPath="$PROJECT_DIR$/src/GameStates/LoadGame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameStates/Menu.java" afterPath="$PROJECT_DIR$/src/GameStates/Menu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AssetManagers/Sound.java" afterPath="$PROJECT_DIR$/src/AssetManagers/Sound.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AssetManagers/SoundManager.java" afterPath="$PROJECT_DIR$/src/AssetManagers/SoundManager.java" />
+    <list default="true" id="faf5a917-223b-46fa-9655-af7a7f59fab0" name="Default" comment="Add a few more comments and remove redundancy in SoundManager.">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameStates/CraftingState.java" afterPath="$PROJECT_DIR$/src/GameStates/CraftingState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Player/Player.java" afterPath="$PROJECT_DIR$/src/Entity/Player/Player.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="9dfa36a2-f707-4266-aa47-91a220be5e9d" name="Rejected commit: Default" comment="adding in game created so far!" />
@@ -50,11 +46,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Menu.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Menu.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameStates/Menu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.3288591" vertical-offset="432" max-vertical-offset="1170">
-              <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="432" max-vertical-offset="1170">
+              <caret line="51" column="51" selection-start-line="51" selection-start-column="51" selection-end-line="51" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CraftingState.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/GameStates/CraftingState.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5060241" vertical-offset="1098" max-vertical-offset="4302">
+              <caret line="80" column="42" selection-start-line="80" selection-start-column="42" selection-end-line="80" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/Player/Player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2647" max-vertical-offset="5562">
+              <caret line="179" column="36" selection-start-line="179" selection-start-column="36" selection-end-line="179" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -147,7 +163,6 @@
         <option value="$PROJECT_DIR$/src/Entity/Bullets/Arrow.java" />
         <option value="$PROJECT_DIR$/src/GameStates/GameOverState.java" />
         <option value="$PROJECT_DIR$/src/Entity/Items/ItemSpawner.java" />
-        <option value="$PROJECT_DIR$/src/Entity/Player/Player.java" />
         <option value="$PROJECT_DIR$/src/Entity/Items/Health.java" />
         <option value="$PROJECT_DIR$/src/GameStates/HealthEvent.java" />
         <option value="$PROJECT_DIR$/Assets/Levels/cave_1.tmx" />
@@ -180,7 +195,6 @@
         <option value="$PROJECT_DIR$/src/Entity/Entity.java" />
         <option value="$PROJECT_DIR$/src/GameStates/ArcadeGames/Snake/Snake.java" />
         <option value="$PROJECT_DIR$/src/GameStates/ArcadeGames/Snake/SnakeGame.java" />
-        <option value="$PROJECT_DIR$/src/GameStates/CraftingState.java" />
         <option value="$PROJECT_DIR$/src/Entity/Items/Bow.java" />
         <option value="$PROJECT_DIR$/src/Entity/Items/Fire.java" />
         <option value="$PROJECT_DIR$/src/GameStates/GameStateManager.java" />
@@ -192,6 +206,8 @@
         <option value="$PROJECT_DIR$/src/GameStates/ArcadeGames/ArcadeGame.java" />
         <option value="$PROJECT_DIR$/src/GameStates/LoadGame.java" />
         <option value="$PROJECT_DIR$/src/Entity/Player/PlayerHUD.java" />
+        <option value="$PROJECT_DIR$/src/Entity/Player/Player.java" />
+        <option value="$PROJECT_DIR$/src/GameStates/CraftingState.java" />
       </list>
     </option>
   </component>
@@ -931,7 +947,7 @@
       <workItem from="1416259793579" duration="2550000" />
       <workItem from="1416273079696" duration="11669000" />
       <workItem from="1416405440429" duration="844000" />
-      <workItem from="1416410891545" duration="672000" />
+      <workItem from="1416410891545" duration="1522000" />
     </task>
     <task id="LOCAL-00001" summary="Added Java documentation to the code">
       <created>1414450453811</created>
@@ -1107,11 +1123,17 @@
       <option name="project" value="LOCAL" />
       <updated>1416284845626</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Add a few more comments and remove redundancy in SoundManager.">
+      <created>1416415042517</created>
+      <option name="number" value="00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1416415042517</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="394364000" />
+    <option name="totallyTimeSpent" value="395214000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -1120,13 +1142,15 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2962963" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2962963" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20148148" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1749634" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1136,13 +1160,11 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4162963" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4162963" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20148148" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1190,7 +1212,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Added a Black Jack mini game in the arcade!" />
     <MESSAGE value="Added some background music to the game! Also enabled maps to play music though the &quot;music&quot; map property." />
     <MESSAGE value="Added a new enemy, new level, and fixed problem with sound files being too large" />
     <MESSAGE value="Added an item system and a pause menu" />
@@ -1215,7 +1236,8 @@
     <MESSAGE value="Add the final levels, fix crafting bug, adjust bullet firing" />
     <MESSAGE value="Fix memory leak with sounds" />
     <MESSAGE value="Add some more meaningfull comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add some more meaningfull comments" />
+    <MESSAGE value="Add a few more comments and remove redundancy in SoundManager." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add a few more comments and remove redundancy in SoundManager." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1400,21 +1422,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="1458">
           <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameStates/CraftingState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1008" max-vertical-offset="4302">
-          <caret line="90" column="40" selection-start-line="90" selection-start-column="40" selection-end-line="90" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Player/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2214" max-vertical-offset="5562">
-          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
-          <folding />
+          <folding>
+            <element signature="method#setDepreciation#0;class#Item#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1533,6 +1543,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.30602783" vertical-offset="0" max-vertical-offset="647">
           <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1606,8 +1617,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GameStates/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.3288591" vertical-offset="432" max-vertical-offset="1170">
-          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="432" max-vertical-offset="1170">
+          <caret line="51" column="51" selection-start-line="51" selection-start-column="51" selection-end-line="51" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Player/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2647" max-vertical-offset="5562">
+          <caret line="179" column="36" selection-start-line="179" selection-start-column="36" selection-end-line="179" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameStates/CraftingState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5060241" vertical-offset="1098" max-vertical-offset="4302">
+          <caret line="80" column="42" selection-start-line="80" selection-start-column="42" selection-end-line="80" selection-end-column="42" />
           <folding />
         </state>
       </provider>

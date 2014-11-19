@@ -178,7 +178,7 @@ public class Player extends Entity {
      * @param id the id of the item to reduce
      */
     public void removeItem(int id) {
-        if (items[id] != null)
+        if (items[id] != null || items[id].amount > 0)
             items[id].amount--;
     }
 

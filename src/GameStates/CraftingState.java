@@ -78,7 +78,7 @@ public class CraftingState extends GameState {
 
             // if he was two of the same item in each slots and doesn't have 2 of them anymore, then he can't use both
             if (slots[0].id == slots[1].id && player.getItem(slots[0].id).amount < 2) {
-                slots[1] = null;
+                slots[0] = slots[1] = null;
             }
             else {
                 // if the player ran out of items in that slot, so empty it out
