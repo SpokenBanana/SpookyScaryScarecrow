@@ -24,8 +24,8 @@ public class PlayerHUD {
     // bar will be that green bar we will manipulate with.
     protected BufferedImage bar;
 
-    public PlayerHUD(Player player) {
-        startingHealth = player.getHealth();
+    public PlayerHUD() {
+        startingHealth = 100;
         itemDesc = "";
         try {
             healthBar = ImageIO.read(new File("Assets/Sprites/Player/healthbar.png"));

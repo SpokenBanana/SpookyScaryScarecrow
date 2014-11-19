@@ -15,6 +15,7 @@ public class Sound {
             inputStream = AudioSystem.getAudioInputStream(new File("Assets/Sounds/" + sound));
             clip = AudioSystem.getClip();
             clip.open(inputStream);
+
             // keep having the clip listen if it is trying to be closed, if so, close the audio line.
             clip.addLineListener(event -> {
                 if (event.getType() == LineEvent.Type.CLOSE)
@@ -69,6 +70,7 @@ public class Sound {
      */
     public void delete() {
         stop();
+        // close all streams and then set them to null for garbage collection to eat up
         clip.close();
         try{
             inputStream.close();

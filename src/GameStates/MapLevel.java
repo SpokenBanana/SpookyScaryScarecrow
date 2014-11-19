@@ -56,7 +56,7 @@ public class MapLevel extends GameState {
 
         player = new Player(keys, mouseInput);
         setLevel("level1");
-        playerHUD = new PlayerHUD(player);
+        playerHUD = new PlayerHUD();
         playerEnteredLocation = player.getPosition().getLocation();
     }
 

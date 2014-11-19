@@ -23,7 +23,7 @@ public class ArcadeMachine extends EventState {
 
     // id of game
     private final int id;
-    BufferedImage sprite;
+    private BufferedImage sprite;
 
     public ArcadeMachine(Rectangle bounds, int gameId, char direction) {
         eventArea = bounds;
@@ -58,6 +58,8 @@ public class ArcadeMachine extends EventState {
     @Override
     public void activate(GameStateManager manager, GameState gameState, Player player) {
         gameState.soundManager.pauseCurrentSound();
+
+        // id corresponds to the type of game we want to load.
         switch (id) {
             case 0:
                 manager.addGame(new SnakeGame(manager, gameState.keyInput, gameState.mouseInput));

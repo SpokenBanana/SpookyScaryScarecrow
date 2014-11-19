@@ -6,6 +6,10 @@ import GameStates.GameStateManager;
 import Handlers.KeyInput;
 import Handlers.MouseInput;
 
+/**
+ * This will represent an arcade game in the game. Each arcade game will inherit this one to and then do their own
+ * logic with themselves
+ */
 public abstract class ArcadeGame extends GameState {
     public enum State {
         Playing, Menu, GameOver, Pause

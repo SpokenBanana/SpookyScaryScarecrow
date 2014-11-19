@@ -7,15 +7,17 @@ import java.util.ArrayList;
 
 /**
  * Entity represents any sort of component in the game that you would think would "live" and move in the world
+ * They all have the same sort of things we want them to do (move, be drawn, be updated, has health, etc) so we deal
+ * with all that here so we don't have to re-write it for each class.
  */
 public abstract class Entity {
     public enum Direction {
         Left, Right, Down, Up, Standing
     }
+    protected final int MOVE_DISTANCE = 16;
     protected Rectangle position;
     protected Point oldPosition, targetPosition;
     protected int velocity, health;
-    protected final int MOVE_DISTANCE = 16;
     protected int hurtTime = 0;
 
     // every entity needs to know where he can and cannot move across, blocks represents places they collide with.
@@ -35,6 +37,7 @@ public abstract class Entity {
     // keeps track of how far we are in moving to a tile
     protected float completed;
 
+    // keep track of sprites and switch to different ones easier
     public SpriteManager sprites;
 
     // the class will just initialize values to prevent null pointer exceptions
@@ -74,6 +77,7 @@ public abstract class Entity {
 
             return;
         }
+        // has finished moving, look for next place to move
         if (completed == 0)
             getNextPosition();
         moveEntity();
@@ -85,7 +89,8 @@ public abstract class Entity {
         Invoke a "hit" on the player and lowers his health
      */
     public void hit(int damage) {
-        // this allows the entity time to recover or run away without being barraged by attacks
+        // this allows the entity time to recover or run away without being barraged by attacks because he cannot be
+        // hurt again once he is already hurt
         if (!hurt) {
             health -= damage;
             hurtTime = 150;
@@ -184,10 +189,11 @@ public abstract class Entity {
         }
     }
     /**
-        Sometimes a bug comes a long where the player isn't in a coordinate where x and y is
-        a multiple of 32, which can be trouble some in the movement and collision detection. This
-        method is called to make sure that there is no doubt the player fully made it to the target
-        position
+     * This games movement is tiled base, meaning he moves from tile to tile.
+     * Sometimes a bug comes a long where the player isn't in a coordinate where x and y is
+     * a multiple of 32, which can be trouble some in the movement and collision detection. This
+     * method is called to make sure that there is no doubt the player fully made it to the target
+     * position
      */
     protected void finishWalking() {
         completed = 0;
@@ -217,7 +223,7 @@ public abstract class Entity {
         return old + soFarCompleted * (target - old);
     }
     /**
-        This uses lerp() to smoothly move the player. The velocity gives us the amount of time it will
+        This uses lerp() to smoothly move the player from tile to tile. The velocity gives us the amount of time it will
          take to move fully, to the next coordinate. Lerp takes how far we are in the movement (completed) and
          gives us back to coordinates to smoothly move the player.
      */

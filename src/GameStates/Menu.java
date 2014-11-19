@@ -13,20 +13,25 @@ import java.awt.*;
  */
 public class Menu extends GameState {
 
-    Handlers.Button start, load;
-    FileManager fileManager;
+    private Handlers.Button start, load;
+    private FileManager fileManager;
     boolean hovered;
 
     public Menu(GameStateManager manager, MouseInput mouse, KeyInput keys) {
         super(manager, keys, mouse);
         mouseInput = mouse;
         hovered = false;
+
+        // used to clear data from "tmp/" directory for player to use
         fileManager = new FileManager();
         parentManager = manager;
+
         soundManager = new SoundManager();
         soundManager.addSound("confirm", "confirm.wav");
         soundManager.addSound("music", "Music/menu.wav");
         soundManager.playSound("music", true);
+
+        // buttons to trigger what to do next (like start a game or load a previous one
         start = new Button(new Rectangle(250,200,200,40), "Start Game!");
         load = new Button(new Rectangle(250, 300,200,40), "Load Game!");
     }
@@ -57,14 +62,19 @@ public class Menu extends GameState {
 
     @Override
     public void draw(Graphics2D g) {
+        // title screen
         g.setColor(Color.white);
         g.setFont(new Font("Chiller", Font.PLAIN, 78));
         g.drawString("Spooky Scary Scarecrow", 100,100);
+
+        // instructions
         g.setFont(new Font("Pericles", Font.PLAIN, 20));
         g.drawString("Use the arrow keys or WASD to move!", 50, 500);
         g.drawString("You can talk and interact with people or things by pressing F!", 5, 550);
         g.drawString("Click Start Game to begin playing", 5, 600);
         g.drawString("Click Load Game to load a saved game!", 5, 650);
+
+        // draw buttons
         start.draw(g);
         load.draw(g);
     }

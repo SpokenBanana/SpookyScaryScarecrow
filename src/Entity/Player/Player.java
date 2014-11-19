@@ -18,12 +18,15 @@ import java.util.Random;
  * The player is the main character the player will play as. He is the spooky scarecrow!
  */
 public class Player extends Entity {
-    protected KeyInput keyInput;
-    protected MouseInput mouseInput;
-    protected SoundManager soundManager;
+    private KeyInput keyInput;
+    private  MouseInput mouseInput;
+    private SoundManager soundManager;
 
     private Item[] items;
+
+    // since sound files are pretty big, I should be a little frugal with memory usage
     private short currentItem;
+
     public ArrayList<Bullet> bullets;
 
     // we want to wait before we play another sound
@@ -76,6 +79,7 @@ public class Player extends Entity {
      * The player interacts the most with the enemies so we need a reference to the enemies currently on the screen
      */
     public void update(ArrayList<Enemy> enemies) {
+        // depending on the button the player pressed, move the player in that direction
         if (keyInput.isHeld(KeyEvent.VK_RIGHT) || keyInput.isHeld(KeyEvent.VK_D)) {
             playFootStepSound();
             facingDirection = currentDirection = Direction.Right;
@@ -96,10 +100,11 @@ public class Player extends Entity {
             facingDirection = currentDirection = Direction.Up;
             sprites.setCurrent("upWalking");
         }
-        else if (keyInput.isHeld(KeyEvent.VK_SPACE))
-        {
+        // he is now trying to punch, show punch sprite
+        else if (keyInput.isHeld(KeyEvent.VK_SPACE)) {
             setPunchingSprites();
         }
+        // player isn't pressing anything, just stand there
         else {
             currentDirection = Direction.Standing;
             switch (facingDirection) {
@@ -123,7 +128,9 @@ public class Player extends Entity {
             items[currentItem].update();
 
         bullets.forEach(Bullet::update);
+        // delete all bullets we do not need to keep track of anymore
         filterBullets(enemies);
+
         super.update();
     }
 
@@ -132,19 +139,27 @@ public class Player extends Entity {
         // call Entity's draw()
         super.draw(g);
 
+        // if the item equipped wants to draw anything, let it
         if (currentItem != -1)
             items[currentItem].actionDraw(g);
+
+        // draw bullets
         bullets.forEach(bullet -> bullet.draw(g));
     }
 
     public void setHealth(int amount) {
         health = amount;
     }
+
+    /**
+     * Turns all the player stats back to normal.
+     */
     public void resetStats() {
         health = 100;
         hurt = false;
         hurtTime = 0;
     }
+
     public void setCurrentItem(short id) {
         // make sure we are setting a valid id, then if we have any of that item left, only then can we equip it
         if (id < Item.ITEM_AMOUNT && id >= 0 && items[id].amount > 0)
@@ -153,12 +168,15 @@ public class Player extends Entity {
         else if (id == -1)
             currentItem = id;
     }
+
     public Item getItem(int id) {
         return items[id];
     }
+
     public Item[] getItems() {
         return items;
     }
+
     public short getCurrentItem() {
         return currentItem;
     }
@@ -182,6 +200,9 @@ public class Player extends Entity {
             items[id].amount--;
     }
 
+    /**
+     * Whatever item the player has equipped we will now use it for whatever purpose it has if any.
+     */
     public void useCurrentItem() {
         // no item equipped
         if (currentItem == -1)
@@ -233,41 +254,6 @@ public class Player extends Entity {
     }
 
     /**
-     * Sets the punching sprites for the player
-     */
-    protected void setPunchingSprites() {
-        switch (facingDirection) {
-            case Left:
-                sprites.setCurrent("leftPunching");
-                break;
-            case Right:
-                sprites.setCurrent("rightPunching");
-                break;
-            case Up:
-                sprites.setCurrent("upPunching");
-                break;
-            case Down:
-                sprites.setCurrent("downPunching");
-                break;
-        }
-    }
-
-    /**
-     * This plays the sound as the player moves, it makes the sound we play random to create more of a
-     * realistic movement sound
-     */
-    protected void playFootStepSound(){
-        // sound delay is necessary because otherwise the soundManager will just over lap
-        if (soundDelay <= 0){
-            // we want to play a random one because then it will make a realistic sounding movement.
-            soundManager.playSound("footStep" + (new Random().nextInt(3) + 1));
-            soundDelay = 30;
-        }
-        else
-            soundDelay--;
-    }
-
-    /**
      * Created the item associated with the id and returns it
      * @param id id of the item
      * @return the item associated with the id
@@ -297,8 +283,50 @@ public class Player extends Entity {
         }
     }
 
+    /**
+     * Sets the punching sprites for the player depending on where he is facing
+     */
+    private void setPunchingSprites() {
+        switch (facingDirection) {
+            case Left:
+                sprites.setCurrent("leftPunching");
+                break;
+            case Right:
+                sprites.setCurrent("rightPunching");
+                break;
+            case Up:
+                sprites.setCurrent("upPunching");
+                break;
+            case Down:
+                sprites.setCurrent("downPunching");
+                break;
+        }
+    }
+
+    /**
+     * This plays the sound as the player moves, it makes the sound we play random to create more of a
+     * realistic movement sound
+     */
+    private void playFootStepSound(){
+        // sound delay is necessary because otherwise the soundManager will just over lap
+        if (soundDelay <= 0){
+            // we want to play a random one because then it will make a realistic sounding movement.
+            soundManager.playSound("footStep" + (new Random().nextInt(3) + 1));
+            soundDelay = 30;
+        }
+        else
+            soundDelay--;
+    }
+
+    /**
+     * Will loop through the bullets and check which ones need to be removed from the game. (ones that collided with
+     * something or went out of the screen
+     * @param enemies the enemies in that game, we need this to know if the bullets has hit any enemies
+     */
     private void filterBullets(ArrayList<Enemy> enemies) {
+        // we will place any bullets we need to remove here
         ArrayList<Bullet> toRemove = new ArrayList<>();
+
         for (Bullet bullet : bullets) {
             Rectangle bounds = bullet.getPosition();
 
@@ -310,6 +338,7 @@ public class Player extends Entity {
                 // check if the player hit any enemies, if so, deal damage and remove it.
                 enemies.forEach(enemy -> {
                     if (enemy.getPosition().intersects(bounds)) {
+                        // but has hit enemy, deal damage and then remove
                         enemy.hit(bullet.damage);
                         toRemove.add(bullet);
                     }
@@ -317,10 +346,8 @@ public class Player extends Entity {
             }
         }
 
-        // remove from bullets anything in the toRemove collection
+        // remove from bullets anything in the toRemove list
         toRemove.forEach(bullets::remove);
     }
-
-
 
 }

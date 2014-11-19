@@ -50,7 +50,8 @@ public abstract class Item {
     public String getDescription() { return description; }
 
     /**
-     * Add the amount given to depreciation and returns new value. Depreciation cannot be lower than 0
+     * Add the amount given to depreciation and returns new value. Depreciation cannot be lower than 0 or higher than
+     * 100
      * @param diff the amount to change depreciation by
      * @return the new depreciation value
      */
@@ -58,6 +59,8 @@ public abstract class Item {
         depreciation += diff;
         if (depreciation < 0)
             depreciation = 0;
+        else if (depreciation > 100)
+            depreciation = 100;
         return depreciation;
     }
 
