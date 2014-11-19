@@ -1109,4 +1109,7 @@
    <tile gid="440"/>
   </data>
  </layer>
+ <objectgroup name="npc" width="19" height="19">
+  <object name="Becareful! That skeleton will hit you if you get close!` You can hit it too can't you?" x="160" y="160" width="32" height="64"/>
+ </objectgroup>
 </map>

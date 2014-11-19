@@ -740,7 +740,7 @@
   <object name="This is the arcade room!`You can play all sorts of games here!`I'm out here because I just ran out of money..." x="512" y="384" width="32" height="64"/>
   <object name="Oh no man, you don't want to go in here.`This cave is filled with all sorts of monsters.`No one comes back from there!`I suggest exploring our town forest a little`Maybe find yourself some tools to defend yourself" x="256" y="32" width="32" height="64"/>
   <object name="Haha, I made some kid go in that cave!`I told him I lost my ball, I never had one!`Hahaha, jeez he's sure been in there for a while..." x="512" y="96" width="32" height="64"/>
-  <object name="Why do we all look the same?`Well...uh... why are you different!" x="160" y="416" width="32" height="64"/>
+  <object name="The goal of everything in our world is to get through that cave`So far no one has does it, can you do it?" x="160" y="224" width="32" height="64"/>
  </objectgroup>
  <objectgroup name="walls" width="19" height="19">
   <object x="0" y="0" width="288" height="32"/>

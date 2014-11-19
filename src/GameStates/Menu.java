@@ -60,6 +60,9 @@ public class Menu extends GameState {
         g.setColor(Color.white);
         g.setFont(new Font("Chiller", Font.PLAIN, 78));
         g.drawString("Spooky Scary Scarecrow", 100,100);
+        g.setFont(new Font("Pericles", Font.PLAIN, 20));
+        g.drawString("Use the arrow keys or WASD to move!", 50, 500);
+        g.drawString("You can talk and interact with people or things by pressing F!", 5, 550);
         start.draw(g);
         load.draw(g);
     }
