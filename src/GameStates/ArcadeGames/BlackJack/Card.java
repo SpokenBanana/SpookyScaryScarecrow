@@ -10,14 +10,17 @@ import java.io.File;
  * It inherits from Rectangle just to make it easier to draw and keep track of its bounds
  */
 public class Card extends Rectangle {
+    private String representation;
+    private BufferedImage spriteSuit;
 
-    String representation;
-    BufferedImage spriteSuit;
     public Card(Rectangle bounds, String value) {
         super(bounds);
         representation = value;
+
         try{
             String relativePath = "Assets/Sprites/ArcadeGames/BlackJack/";
+
+            // the last letter represents the suit with a char
             switch (value.charAt(value.length()-1)) {
                 case 'h':
                     spriteSuit = ImageIO.read(new File(relativePath + "heart.png"));
@@ -38,7 +41,7 @@ public class Card extends Rectangle {
     }
 
     public int getValue() {
-//                                                  the last char represents it's suit so exclude that
+//                                                 only the first letter represents the value
         return Integer.parseInt(representation.substring(0, representation.length()-1));
     }
 
@@ -46,6 +49,7 @@ public class Card extends Rectangle {
         g.drawImage(cardSprite, x, y, null);
         g.setColor(Color.black);
         g.setFont(new Font("Droid Sans", Font.BOLD, 15));
+
         String value = representation.substring(0, representation.length()-1);
         if (value.equals("11"))
             g.drawString("A", x + 20, y + 20);

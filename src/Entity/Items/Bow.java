@@ -48,7 +48,7 @@ public class Bow extends Fire {
             changeDepreciation(-3);
             if (depreciation <= 0){
                 if (--amount == 0)
-                    player.setCurrentItem((short)-1);
+                    player.setCurrentItem((short)Item.NO_ITEM);
                 depreciation = 100;
             }
         }

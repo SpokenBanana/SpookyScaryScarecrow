@@ -1,7 +1,5 @@
 package Entity.Items;
 
-import Entity.Player.Player;
-
 import javax.imageio.ImageIO;
 import java.io.File;
 
@@ -9,12 +7,8 @@ import java.io.File;
  * This item is a weapon the player can use to defeat enemies easier. It deals more damage than his hands
  */
 public class Sword extends Item {
-    private int damage;
-    private Player player;
-
     public Sword() {
         description = "SWORD | Pressing [SPACE] deals more damage with this equipped!";
-        damage = 15;
         depreciation = 100;
         id = Item.SWORD_ID;
         setBounds();
@@ -23,10 +17,6 @@ public class Sword extends Item {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-    public Sword(Player player) {
-        this();
-        this.player = player;
     }
 
     @Override

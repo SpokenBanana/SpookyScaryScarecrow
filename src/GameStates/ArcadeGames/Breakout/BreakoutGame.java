@@ -31,7 +31,7 @@ public class BreakoutGame extends ArcadeGame {
     private Color[] rowColors = {Color.red, Color.white, Color.orange, Color.cyan, Color.green, Color.pink,
                                  Color.yellow};
 
-    private final short BRICK_WIDTH = 55, BRICK_HEIGHT = 25, BRICK_SPACING = 5;
+    private final short BRICK_WIDTH = 55;
     private boolean gameRestart;
     private Rectangle player, ball;
     private int ballxVel, ballyVel, score, lives;
@@ -63,6 +63,7 @@ public class BreakoutGame extends ArcadeGame {
                 else if (keyInput.isPressed(KeyEvent.VK_Q))
                     parentManager.deleteCurrentGame();
                 break;
+
             case Playing:
                 if (keyInput.isPressed(KeyEvent.VK_ENTER))
                     state = State.Pause;
@@ -90,6 +91,7 @@ public class BreakoutGame extends ArcadeGame {
                     state = State.GameOver;
                 }
                 break;
+
             case Pause:
                 if (keyInput.isPressed(KeyEvent.VK_ENTER))
                     state = State.Playing;
@@ -144,8 +146,10 @@ public class BreakoutGame extends ArcadeGame {
     private void initializeBricks() {
         // the amount of colors we have will be amount of rows we have
         bricks = new ArrayList<Brick>();
+        int BRICK_SPACING = 5;
         int x = BRICK_SPACING, y = BRICK_SPACING;
         for (Color rowColor : rowColors) {
+            int BRICK_HEIGHT = 25;
             for (int j = 0; j < 10; j++) {
                 bricks.add(new Brick(new Rectangle(x, y, BRICK_WIDTH, BRICK_HEIGHT), rowColor));
                 x += BRICK_SPACING + BRICK_WIDTH;
@@ -176,6 +180,7 @@ public class BreakoutGame extends ArcadeGame {
         // ball hit left or right edge
         else if (ball.x < 0 || ball.x > GAME_WIDTH - ball.width) {
             ballxVel *= -1;
+            // do this twice so we know it is really back in the screen
             moveBall();
             moveBall();
         }

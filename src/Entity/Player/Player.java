@@ -38,7 +38,7 @@ public class Player extends Entity {
         bullets = new ArrayList<>();
 
         // -1 means no item currently equipped
-        currentItem = -1;
+        currentItem = Item.NO_ITEM;
 
         // we want the player to have his own input handler,
         // to not use too much memory, we will reference the one the game has created
@@ -124,7 +124,7 @@ public class Player extends Entity {
         }
 
         // update current item
-        if (currentItem != -1)
+        if (currentItem != Item.NO_ITEM)
             items[currentItem].update();
 
         bullets.forEach(Bullet::update);
@@ -140,7 +140,7 @@ public class Player extends Entity {
         super.draw(g);
 
         // if the item equipped wants to draw anything, let it
-        if (currentItem != -1)
+        if (currentItem != Item.NO_ITEM)
             items[currentItem].actionDraw(g);
 
         // draw bullets
@@ -165,7 +165,7 @@ public class Player extends Entity {
         if (id < Item.ITEM_AMOUNT && id >= 0 && items[id].amount > 0)
             currentItem = id;
         // if we are trying to un-equip an item
-        else if (id == -1)
+        else if (id == Item.NO_ITEM)
             currentItem = id;
     }
 
@@ -205,14 +205,14 @@ public class Player extends Entity {
      */
     public void useCurrentItem() {
         // no item equipped
-        if (currentItem == -1)
+        if (currentItem == Item.NO_ITEM)
             return;
 
         items[currentItem].action();
 
         // last of item used, cannot be equipped
         if (items[currentItem].amount == 0)
-            currentItem = -1;
+            currentItem = Item.NO_ITEM;
     }
 
 
@@ -261,7 +261,7 @@ public class Player extends Entity {
     public Item createItem(int id) {
         switch (id) {
             case Item.SWORD_ID:
-                return new Sword(this);
+                return new Sword();
             case Item.KEY_ID:
                 return new Key();
             case Item.WOOD_ID:

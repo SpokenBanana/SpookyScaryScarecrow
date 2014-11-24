@@ -23,6 +23,7 @@ public class BlackJackGame extends ArcadeGame {
 
     // the result of the game
     private enum EndDecision {
+        StillPlaying,
         Win,
         Lost,
         Tie
@@ -38,7 +39,7 @@ public class BlackJackGame extends ArcadeGame {
         super(manager, keys, mouse);
         playerHand = new ArrayList<>();
         computerHand = new ArrayList<>();
-        endDecision = null;
+        endDecision = EndDecision.StillPlaying;
         try {
             bkg = ImageIO.read(new File("Assets/Sprites/ArcadeGames/BlackJack/blackjackbkg.png"));
             cardSprite = ImageIO.read(new File("Assets/Sprites/ArcadeGames/BlackJack/card.png"));
@@ -69,37 +70,37 @@ public class BlackJackGame extends ArcadeGame {
                 turnIn.setHovered(mouseInput.isMouseOver(turnIn));
                 hit.setHovered(mouseInput.isMouseOver(hit));
 
+                // player wants another card
                 if (mouseInput.didMouseClickOn(hit)) {
                     // deal cards
                     addRandomCardTo(playerHand);
                     makeComputerDecision();
 
-                    // check if the player has won or lost already
-                    if (getTotalValue(playerHand) > 21) {
-                        endDecision = EndDecision.Lost;
-                        state = State.GameOver;
-                        repositionComputerHand();
-                    }
-                    // if the player gets 21, he wins right there, unless the computer also has 21, then it's a tie
-                    else if (getTotalValue(playerHand) == 21 && getTotalValue(computerHand) != 21) {
-                        endDecision = EndDecision.Win;
-                        state = State.GameOver;
-                        repositionComputerHand();
-                    }
-
                     // update scores
                     playerScore = getTotalValue(playerHand);
                     computerScore = getTotalValue(computerHand);
+
+                    // check if the player has won or lost already
+                    if (playerScore == 21)
+                        endDecision = EndDecision.Win;
+                    else if (playerScore > 21)
+                        endDecision = EndDecision.Lost;
+
+                    if (endDecision != EndDecision.StillPlaying){
+                        state = State.GameOver;
+                        repositionComputerHand();
+                    }
                 }
                 // game is done, check winner and update scores!
                 if (mouseInput.didMouseClickOn(turnIn)) {
                     state = State.GameOver;
 
+                    playerScore = getTotalValue(playerHand);
+                    computerScore = getTotalValue(computerHand);
+
                     determineWinner();
                     repositionComputerHand();
 
-                    playerScore = getTotalValue(playerHand);
-                    computerScore = getTotalValue(computerHand);
                 }
                 break;
             case Pause:
@@ -160,12 +161,12 @@ public class BlackJackGame extends ArcadeGame {
                 switch (endDecision) {
                     case Win:
                         g.drawString("YOU WON!!!", 300, 330);
-                        if (playerScore == 21)
+                        if (playerScore == 21) // getting 21 is great so a little extra here too
                             g.drawString("Perfect 21!", 300, 380);
                         break;
                     case Lost:
                         g.drawString("YOU LOST!!!", 300, 330);
-                        if (playerScore > 21)
+                        if (playerScore > 21) // a little special message for this case
                             g.drawString("Awww! Busted!", 300, 380);
                         break;
                     case Tie:
@@ -192,13 +193,13 @@ public class BlackJackGame extends ArcadeGame {
         }
     }
     /**
-     * Gets the score of both players and decides who wins
+     * Gets the score of both players and decides who wins at the end of the game
      */
     private void determineWinner() {
         int playerScore = getTotalValue(playerHand);
         int computerScore = getTotalValue(computerHand);
 
-        if (playerScore == computerScore) {
+        if (playerScore == computerScore || (playerScore > 21 && computerScore > 21)) {
             endDecision = EndDecision.Tie;
         }
         else if (playerScore == 21 || computerScore > 21) {
@@ -237,6 +238,8 @@ public class BlackJackGame extends ArcadeGame {
         addRandomCardTo(computerHand);
 
         playerScore = getTotalValue(playerHand);
+
+        endDecision = EndDecision.StillPlaying;
     }
 
     /**

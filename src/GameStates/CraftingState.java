@@ -17,7 +17,7 @@ public class CraftingState extends GameState {
     private Player player;
 
     // players can place an item in slot1 and slot2 and whatever they produce goes into slot3
-    private Item[] slots;
+    private Item[] craftingSlots;
     private Rectangle[] slotBounds;
 
     private int cursorItem;
@@ -26,8 +26,8 @@ public class CraftingState extends GameState {
     public CraftingState(GameStateManager manager, KeyInput keys, MouseInput mouse, Player player) {
         super(manager, keys, mouse);
         this.player = player;
-        slots = new Item[3];
-        slotBounds = new Rectangle[slots.length];
+        craftingSlots = new Item[3];
+        slotBounds = new Rectangle[craftingSlots.length];
         int x= 150, y = 100;
         for (int i = 0; i < slotBounds.length; i++) {
             slotBounds[i] = new Rectangle(x, y, 32, 32);
@@ -36,77 +36,63 @@ public class CraftingState extends GameState {
 
         back = new Handlers.Button(new Rectangle(250, 500, 200, 40), "Resume");
         // no item
-        cursorItem = -1;
+        cursorItem = Item.NO_ITEM;
     }
 
+    /**
+     * In this update method, we need to constantly check if the player is interacting with the slots. We check if he
+     * is trying to select an item, we check if he trying to put the selected item in any slots, and check if he is
+     * trying to pick up a crafted item. All of this and we will also be verifying if he has sufficient amount of items
+     * and that the two items actually create an item.
+     */
     @Override
     public void update() {
-
         // check if the player is trying to pick an item
         for (Item item : player.getItems()) {
+            if (item == null)
+                continue;
             // cannot choose an item that he has ran out of
-            if (item != null && item.amount > 0) {
+            if (player.hasItem(item.id)) {
                 if (mouseInput.didMouseClickOn(item.bounds)) {
                     // deselect if he is clicking on an item he already has selected
                     if (cursorItem == item.id)
-                        cursorItem = -1;
+                        cursorItem = Item.NO_ITEM;
                     else // set the selected item to the item he clicked
                         cursorItem = item.id;
                 }
             }
         }
 
-        // check if the player is trying to use the slots
+        // check if the player is trying to use the craftingSlots
         for (int i = 0; i < 2; i++) {
-            if (mouseInput.didMouseClickOn(slotBounds[i]) && cursorItem != -1 && isValidAddition(i, cursorItem))  {
+            //placing an item in a slot
+            if (mouseInput.didMouseClickOn(slotBounds[i]) && cursorItem != Item.NO_ITEM && isValidAddition(i, cursorItem))  {
                 // the player cannot place items on slot[2] and can only place an item if he has selected one
-                slots[i] = player.createItem(cursorItem);
-                slots[i].add(1); // to show how much of the item will be taken from the player's inventory when he crafts this
+                craftingSlots[i] = player.createItem(cursorItem);
+                craftingSlots[i].add(1); // to show how much of the item will be taken from the player's inventory when he crafts this
 
                 // if they changed something, then we need to clear the output slot since a new item should appear
-                slots[2] = null;
+                craftingSlots[2] = null;
             }
         }
 
-        // he is trying to collect the item crafted, let him get if there is an item there
-        if (mouseInput.didMouseClickOn(slotBounds[2]) && slots[2] != null) {
-            player.addItem(slots[2].id);
-
-            // crafting takes one of each item
-            player.removeItem(slots[0].id);
-            player.removeItem(slots[1].id);
-
-            // if he was two of the same item in each slots and doesn't have 2 of them anymore, then he can't use both
-            if (slots[0].id == slots[1].id && player.getItem(slots[0].id).amount < 2) {
-                slots[0] = slots[1] = null;
-            }
-            else {
-                // if the player ran out of items in that slot, so empty it out
-                if (player.getItem(slots[0].id).amount == 0)
-                    slots[0] = null;
-                if (player.getItem(slots[1].id).amount == 0)
-                    slots[1] = null;
-            }
-
-            // empty the slot either way
-            slots[2] = null;
-
-            // reset the current item
-            cursorItem = -1;
+        // trying to collect the item crafted, let him get if there is an item there
+        if (mouseInput.didMouseClickOn(slotBounds[2]) && craftingSlots[2] != null) {
+            collectCraftedItem();
         }
 
-        // if the player has selected two items selected for crafting then we should mix them and show the item they could get
-        if (slots[2] == null && slots[1] != null && slots[0] != null) {
-            slots[2] = mix(slots[0], slots[1]);
-            if (slots[2] != null)
-                slots[2].add(1);
+        if (craftingSlots[2] == null && craftingSlots[1] != null && craftingSlots[0] != null) {
+            // if the player has selected two items selected for crafting then we should mix them and show the item they could get
+            craftingSlots[2] = mix(craftingSlots[0], craftingSlots[1]);
+            if (craftingSlots[2] != null)
+                craftingSlots[2].add(1);
         }
 
         back.setHovered(mouseInput.isMouseOver(back));
         if (mouseInput.didMouseClickOn(back)) {
             // if the crafting has made the player's current item to be emptied, than we un-assign it
-            if (player.getCurrentItem() != -1 && player.getItem(player.getCurrentItem()).amount <= 0)
-                player.setCurrentItem((short)-1);
+            if (player.getCurrentItem() != Item.NO_ITEM && player.getItem(player.getCurrentItem()).amount <= 0)
+                player.setCurrentItem((short)Item.NO_ITEM);
             parentManager.deleteCurrentGame();
         }
     }
@@ -128,14 +114,14 @@ public class CraftingState extends GameState {
 
         g.setFont(new Font("Droid Sans", Font.PLAIN, 15));
 
-        // draw all the slots
-        for (int i = 0; i < slots.length; i++) {
-            g.setColor(slots[i] == null ? new Color(30,30,30) : Color.gray);
+        // draw all the craftingSlots
+        for (int i = 0; i < craftingSlots.length; i++) {
+            g.setColor(craftingSlots[i] == null ? new Color(30,30,30) : Color.gray);
             g.fill(slotBounds[i]);
-            if (slots[i] != null) {
-                slots[i].draw(g, slotBounds[i].x, slotBounds[i].y);
+            if (craftingSlots[i] != null) {
+                craftingSlots[i].draw(g, slotBounds[i].x, slotBounds[i].y);
                 g.setColor(Color.white);
-                g.drawString(Integer.toString(slots[i].amount), slotBounds[i].x + 25, slotBounds[i].y + 25);
+                g.drawString(Integer.toString(craftingSlots[i].amount), slotBounds[i].x + 25, slotBounds[i].y + 25);
             }
         }
 
@@ -214,12 +200,12 @@ public class CraftingState extends GameState {
         int otherSlot = (((slotId - 1) % 2) + 2) % 2;
 
         // other slot is closed, so it is valid
-        if (slots[otherSlot] == null)
+        if (craftingSlots[otherSlot] == null)
             return true;
 
         // if the item  is different that the other selected item, then it is valid, if they are the same, then the
         // player better have more than one of that item, otherwise it is not valid.
-        return slots[otherSlot].id != itemId || player.getItem(itemId).amount > 1;
+        return craftingSlots[otherSlot].id != itemId || player.getItem(itemId).amount > 1;
 
     }
 
@@ -236,4 +222,33 @@ public class CraftingState extends GameState {
         return (first.id == firstIdDesired && second.id == secondIdDesired) || (first.id == secondIdDesired && second.id == firstIdDesired);
     }
 
+    /**
+     * When the player has crafted an item out of two items, there will be an item on the third slot where he can pick it
+     * before he can, we have to verify some things.
+     */
+    private void collectCraftedItem() {
+        player.addItem(craftingSlots[2].id);
+
+        // crafting takes one of each item
+        player.removeItem(craftingSlots[0].id);
+        player.removeItem(craftingSlots[1].id);
+
+        if (craftingSlots[0].id == craftingSlots[1].id && player.getItem(craftingSlots[0].id).amount < 2) {
+            // if he was two of the same item in each craftingSlots and doesn't have 2 of them anymore, then he can't use both
+            craftingSlots[0] = craftingSlots[1] = null;
+        }
+        else {
+            // if the player ran out of items in that slot, so empty it out
+            if (player.getItem(craftingSlots[0].id).amount == 0)
+                craftingSlots[0] = null;
+            if (player.getItem(craftingSlots[1].id).amount == 0)
+                craftingSlots[1] = null;
+        }
+
+        // empty the slot either way
+        craftingSlots[2] = null;
+
+        // reset the current item
+        cursorItem = Item.NO_ITEM;
+    }
 }

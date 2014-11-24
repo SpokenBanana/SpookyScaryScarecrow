@@ -57,7 +57,7 @@ public class Fire extends Item {
             changeDepreciation(-5);
             if (depreciation <= 0){
                 if (--amount == 0)
-                    player.setCurrentItem((short)-1);
+                    player.setCurrentItem((short)Item.NO_ITEM);
 
                 // reset depreciation
                 depreciation = 100;

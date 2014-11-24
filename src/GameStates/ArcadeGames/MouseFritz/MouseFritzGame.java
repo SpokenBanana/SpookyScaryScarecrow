@@ -27,8 +27,8 @@ public class MouseFritzGame extends ArcadeGame{
     public MouseFritzGame(GameStateManager manager, KeyInput keys, MouseInput mouse) {
         super(manager, keys, mouse);
         delay = score = 0;
-        // there will be 10 rounds and then the game ends
-        rounds = 10;
+        // there will be 5 rounds and then the game ends
+        rounds = 5;
         player = new Cursor(new Rectangle(300,300,20,20));
 
         soundManager.addSound("menu_music", "Music/arcade_menu.wav");
@@ -38,7 +38,6 @@ public class MouseFritzGame extends ArcadeGame{
         initializeBalls();
         timeUntilFritz = 200;
         scorePenaltyDelay = 100;
-        // there are two states, when the balls are on the fritz, and when they are not. We keep track of that with this
     }
 
     @Override
@@ -48,7 +47,7 @@ public class MouseFritzGame extends ArcadeGame{
             case Menu:
                 if (mouseInput.didMouseClickOn(new Rectangle(0,0, GAME_WIDTH, GAME_HEIGHT))){
                     score = 0;
-                    rounds = 10;
+                    rounds = 5;
                     state = State.Playing;
                     soundManager.stopCurrentSound();
                     soundManager.playSound("music", true);
@@ -84,23 +83,23 @@ public class MouseFritzGame extends ArcadeGame{
                         balls.forEach(ball -> ball.onTheFritz = true);
 
 
-                    // have a delay so the player's score does not fall every 60th of a second
                     if (delay <= 0) {
                         // player hit a ball when he wasn't supposed to
                         if (balls.stream().anyMatch(brick -> brick.intersects(player))) {
                             score--;
+                            // have a delay so the player's score does not fall every 60th of a second
                             delay = 20;
                         }
                     }
                     else
                         delay--;
 
-                    // after a certain amount of time, the balls go back to normal
                     if (timeUntilFritz <= -400){
+                        // after a certain amount of time has passed, the balls go back to normal
                         balls.forEach(ball -> ball.onTheFritz = false);
                         rounds--;
 
-                        // after the rounds end, the game ends
+                        // after the rounds reaches zero, the game ends
                         if (rounds == 0){
                             state = State.GameOver;
                             soundManager.stopCurrentSound();
@@ -111,8 +110,8 @@ public class MouseFritzGame extends ArcadeGame{
                         timeUntilFritz = 400;
                     }
                 }
-                // balls are normal, player has to match them now
                 else {
+                    // balls are normal, player has to match them now
                     if (delay <= 0)
                         checkCursorAndBallCollision();
                     else
