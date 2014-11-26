@@ -10,6 +10,12 @@ import java.awt.*;
  * You can think of GameStates as the "screens" of the game such as menu, pause screens, or actual game play.
  */
 public abstract class GameState {
+    public GameStateManager parentManager;
+    public MouseInput mouseInput;
+    public KeyInput keyInput;
+    public SoundManager soundManager;
+    public final int GAME_WIDTH = 608, GAME_HEIGHT = 608;
+
     // we hold a reference to the game state manager so we can switch states inside the game
     public GameState(GameStateManager manager, KeyInput keys, MouseInput mouse) {
         parentManager = manager;
@@ -30,11 +36,7 @@ public abstract class GameState {
     public void leave() {
 
     }
-    public GameStateManager parentManager;
-    public MouseInput mouseInput;
-    public KeyInput keyInput;
-    public SoundManager soundManager;
-    public final int GAME_WIDTH = 608, GAME_HEIGHT = 608;
+
     public abstract void update();
     public abstract void draw(Graphics2D g);
 }

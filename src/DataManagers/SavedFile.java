@@ -88,9 +88,8 @@ public class SavedFile {
         for (Item item : player.getItems()) {
             Element itemXml = dom.createElement("item");
 
-            if (item == null) {
+            if (item == null)
                 itemXml.setAttribute("amount", "-1");
-            }
             else{
                 itemXml.setAttribute("amount",Integer.toString(item.amount));
                 itemXml.setAttribute("depreciation", Integer.toString(item.getDepreciation()));
@@ -107,7 +106,6 @@ public class SavedFile {
         playerXml.appendChild(itemXmlArray);
 
         // add all the data to the file we want to save as
-
         playerXml.appendChild(createElement("level", level, dom));
         dom.appendChild(playerXml);
 
@@ -116,7 +114,6 @@ public class SavedFile {
             File file = new File(rootPath + saveFile + key + ".txt");
             try {
                 Writer writer;
-
                 // it exists, so we want to append it
                 if (file.exists())
                     writer = new FileWriter(file, true);
@@ -165,9 +162,8 @@ public class SavedFile {
     public void addToItemIgnore(String filename, int x, int y) {
 
         // add the point to the collection associated with the file name.
-        if (temporaryFiles.containsKey(filename)) {
+        if (temporaryFiles.containsKey(filename))
             temporaryFiles.get(filename).add(new Point(x, y));
-        }
         else{
             ArrayList<Point> points = new ArrayList<>();
             points.add(new Point(x, y));

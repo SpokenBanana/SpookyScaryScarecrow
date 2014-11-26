@@ -28,6 +28,8 @@ public class CraftingState extends GameState {
         this.player = player;
         craftingSlots = new Item[3];
         slotBounds = new Rectangle[craftingSlots.length];
+
+        // placing the slots in the right position
         int x= 150, y = 100;
         for (int i = 0; i < slotBounds.length; i++) {
             slotBounds[i] = new Rectangle(x, y, 32, 32);
@@ -51,6 +53,7 @@ public class CraftingState extends GameState {
         for (Item item : player.getItems()) {
             if (item == null)
                 continue;
+
             // cannot choose an item that he has ran out of
             if (player.hasItem(item.id)) {
                 if (mouseInput.didMouseClickOn(item.bounds)) {
@@ -65,11 +68,11 @@ public class CraftingState extends GameState {
 
         // check if the player is trying to use the craftingSlots
         for (int i = 0; i < 2; i++) {
-            //placing an item in a slot
+            // the player cannot place items on slot[2] and can only place an item if he has selected one
             if (mouseInput.didMouseClickOn(slotBounds[i]) && cursorItem != Item.NO_ITEM && isValidAddition(i, cursorItem))  {
-                // the player cannot place items on slot[2] and can only place an item if he has selected one
+                //placing an item in a slot
                 craftingSlots[i] = player.createItem(cursorItem);
-                craftingSlots[i].add(1); // to show how much of the item will be taken from the player's inventory when he crafts this
+                craftingSlots[i].add(1);
 
                 // if they changed something, then we need to clear the output slot since a new item should appear
                 craftingSlots[2] = null;
@@ -211,7 +214,7 @@ public class CraftingState extends GameState {
 
     /**
      * Will tell us if the two items mixing are items we want to mix. The user will give the two items to mix, and the
-     * ids of what they want to items to be
+     * ids of what they want to items to be and we will check if they are indeed the items we are looking for
      * @param first the first item to mix
      * @param second the second item to mix
      * @param firstIdDesired the id of the item they want one of the items to be

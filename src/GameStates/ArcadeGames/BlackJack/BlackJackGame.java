@@ -100,7 +100,6 @@ public class BlackJackGame extends ArcadeGame {
 
                     determineWinner();
                     repositionComputerHand();
-
                 }
                 break;
             case Pause:

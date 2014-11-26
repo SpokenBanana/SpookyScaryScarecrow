@@ -54,11 +54,14 @@ public class Talking extends GameState{
             }
         }
         else{
+            // when the character PAUSE_CONVO is reached, we want to pause the text from being displayed, and then
+            // continue once [F] is pressed
             if (conversation.charAt(position) == PAUSE_CONVO && keyInput.isPressed(KeyEvent.VK_F)) {
                 currentScreenText = "";
                 position++;
                 soundManager.playSound("confirm");
             }
+            // keep adding text to the screen while we have not reached the PAUSE_CONVO character
             else if (conversation.charAt(position) != PAUSE_CONVO) {
                 currentScreenText += conversation.charAt(position++);
             }

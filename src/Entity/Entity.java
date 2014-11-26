@@ -80,6 +80,7 @@ public abstract class Entity {
         // has finished moving, look for next place to move
         if (completed == 0)
             getNextPosition();
+
         moveEntity();
     }
     public int getHealth(){

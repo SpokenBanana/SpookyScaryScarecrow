@@ -68,17 +68,19 @@ public class MapLevel extends GameState {
 
     @Override
     public void update() {
-        // Space invokes punching, so we see if he facing any enemies, if so, we deal some damage to it
+
         if (keyInput.isPressed(KeyEvent.VK_SPACE)) {
+            // Space invokes punching, so we see if he facing any enemies, if so, we deal some damage to it
             for (Enemy enemy : enemies)
                 if (enemy.getPosition().intersects(player.getFacingBlock()))
                     player.punch(enemy);
         }
-        // pause game
         else if (keyInput.isPressed(KeyEvent.VK_ENTER)) {
+            // pause game
             parentManager.addGame(new PauseState(parentManager, keyInput, mouseInput, this));
         }
         else if (keyInput.isPressed(KeyEvent.VK_C)) {
+            // switch to crafting menu
             parentManager.addGame(new CraftingState(parentManager, keyInput, mouseInput, player));
         }
 
@@ -160,6 +162,7 @@ public class MapLevel extends GameState {
 
     @Override
     public void enter() {
+        // every time we enter this state, we want to continue playing the music
         if (currentMusic != null)
             soundManager.resumeSound(currentMusic, true);
     }
@@ -218,7 +221,7 @@ public class MapLevel extends GameState {
     }
 
     /**
-     * This will let go of all the content loaded in the game.
+     * This will let go of all the content loaded in the game for garbage collection
      */
     public void unloadContent() {
         soundManager.clearAllSounds();
@@ -232,7 +235,7 @@ public class MapLevel extends GameState {
 
     /**w
      * Changes the current level to the level given. It loads all the things the file specifies it wants in that map
-     * @param level the name of the .json file inside Assets/Levels/ to load
+     * @param level the name of the file inside Assets/Levels/ to load
      */
     public void setLevel(String level) {
         currentLevel = level;
@@ -277,7 +280,6 @@ public class MapLevel extends GameState {
         if (level.equals("arcade")) {
             extractArcadeMachines();
         }
-
 
         // let the player know about the collision blocks
         player.setBlocks(blocks);
@@ -346,6 +348,21 @@ public class MapLevel extends GameState {
         int height = Integer.parseInt(toRectangle.getAttribute("height"));
         return new Rectangle(x, y, width, height);
     }
+
+    private boolean isDoor(NodeList propertiesOfElement) {
+        if (propertiesOfElement != null) {
+            Element property = (Element) propertiesOfElement.item(0);
+            if (property != null){
+                // get first property
+                Element prop = (Element) property.getElementsByTagName("property").item(0);
+                //should be door
+                String isDoor = prop.getAttribute("name");
+
+                return isDoor!= null && isDoor.equals("isDoor");
+            }
+        }
+        return false;
+    }
     /**
      * All of these "extract[x]" do relatively the same thing, they go through the map object and check if the map has
      * the property [x], if so, it loads it into the game as its respective object so it now becomes meaningful.
@@ -392,29 +409,17 @@ public class MapLevel extends GameState {
 
             // if this property even exists, we know it was meant to be a door
             NodeList properties = wall.getElementsByTagName("properties");
-            if (properties != null) {
-                Element property = (Element) properties.item(0);
-                if (property != null){
-                    // get first property
-                    Element prop = (Element) property.getElementsByTagName("property").item(0);
 
-                    //should be door
-                    String isDoor = prop.getAttribute("name");
-
-                    if (isDoor!= null && isDoor.equals("isDoor"))
-                        block.setAsDoor();
-                }
-            }
+            if (isDoor(properties))
+                block.setAsDoor();
 
             blocks.add(block);
         }
     }
 
     private void extractArcadeMachines() {
-
         NodeList arcades = map.getObject("arcades");
         if (arcades == null){
-            System.out.println("none found..");
             return;
         }
 
@@ -500,6 +505,7 @@ public class MapLevel extends GameState {
                     // find the minion with the id "id"
                     for (Enemy element : enemies) {
                         if (element instanceof Minion && ((Minion) element).getId().equals(id)) {
+                            // found someone with the id, add the location to the paths
                             ((Minion) element).addPath(bounds.getLocation());
                             found = true;
                         }

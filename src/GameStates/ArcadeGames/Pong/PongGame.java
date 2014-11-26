@@ -66,6 +66,7 @@ public class PongGame extends ArcadeGame {
                     gameRestart = false;
                 }
                 else if (keyInput.isHeld(KeyEvent.VK_W) || keyInput.isHeld(KeyEvent.VK_UP)) {
+                    // move the paddle unless he is trying to move out of the screen, in which case move back
                     playerPaddle.y += (playerPaddle.y > 0) ? -5 : 5;
                     gameRestart = false;
                 }

@@ -12,9 +12,9 @@ import java.util.Random;
 
 /**
  * This is a game inspired by a small game a developer named Jonathon Blow created (at least I think he did).
- * It is a direct clone, since he only showed a demo, so it's as close as I thought the game was.
+ * It is not a direct clone, since he only showed a demo, so it's as close as I thought the game was.
  *
- * The goal is to use your mouse to match up balls with the same color as much as you can. At set intervals, the balls
+ * The goal is to use your mouse to match up balls with the same color as much as you can with your mouse. At set intervals, the balls
  * will "go on a frenzy" and all will be dangerous to touch, doing so reduces your score. If you match up two balls of
  * different colors, that is also a penalty. The player is to round up as much points as he can.
  */
@@ -76,6 +76,7 @@ public class MouseFritzGame extends ArcadeGame{
                 balls.forEach(ball -> ball.update(GAME_WIDTH, GAME_HEIGHT));
 
                 // BALLS ARE ON THE FRITZ!! (player cannot touch them)
+                // balls are on fritz when time is negative, normal play when time is positive.
                 if (--timeUntilFritz <= 0) {
 
                     // Set balls on the fritz
@@ -94,21 +95,9 @@ public class MouseFritzGame extends ArcadeGame{
                     else
                         delay--;
 
-                    if (timeUntilFritz <= -400){
-                        // after a certain amount of time has passed, the balls go back to normal
-                        balls.forEach(ball -> ball.onTheFritz = false);
-                        rounds--;
-
-                        // after the rounds reaches zero, the game ends
-                        if (rounds == 0){
-                            state = State.GameOver;
-                            soundManager.stopCurrentSound();
-                            soundManager.playSound("menu_music", true);
-                        }
-
-                        // set time until the next "Fritz" moment
-                        timeUntilFritz = 400;
-                    }
+                    // after a certain amount of time has passed, the balls go back to normal
+                    if (timeUntilFritz <= -400)
+                        switchToNormalPlay();
                 }
                 else {
                     // balls are normal, player has to match them now
@@ -133,9 +122,11 @@ public class MouseFritzGame extends ArcadeGame{
         g.setFont(new Font(ARCADE_FONT, Font.BOLD, 15));
         g.setColor(new Color(20,90,140));
         g.fillRect(0,0, GAME_WIDTH, GAME_HEIGHT);
+
         g.setColor(Color.white);
         g.drawString("Mouse Fritz!", 555,700);
         g.drawString("Press [ENTER] to pause/resume", 50, 630);
+
         switch (state) {
             case Menu:
                 g.drawString("Click to play!", 200,30);
@@ -150,15 +141,19 @@ public class MouseFritzGame extends ArcadeGame{
                     g.drawString("ON THE FRITZ!! DON'T TOUCH THE BALLS", 100, 50);
                 else if (timeUntilFritz <= 50)
                     g.drawString("ALMOST TIME!!!", 100, 50);
+
+                // player is out of the screen, let him know his score will penalized
                 if (player.x > GAME_WIDTH || player.y > GAME_HEIGHT) {
                     g.drawString("WHAT ARE YOU DOING OUT HERE!?", 10, 670);
                     g.drawString("GET IN THAT GAME OR I WILL KILL YOUR SCORE!", 10, 690);
                 }
+
                 g.drawString("Score: " + score, 400, 630);
                 g.drawString("Rounds: " + rounds, 400, 660);
-                balls.forEach(ball -> ball.draw(g));
 
+                balls.forEach(ball -> ball.draw(g));
                 player.draw(g);
+
                 break;
             case Pause:
                 g.drawString("| |", 250,250);
@@ -173,6 +168,20 @@ public class MouseFritzGame extends ArcadeGame{
         }
     }
 
+    private void switchToNormalPlay() {
+        balls.forEach(ball -> ball.onTheFritz = false);
+        rounds--;
+
+        // after the rounds reaches zero, the game ends
+        if (rounds == 0){
+            state = State.GameOver;
+            soundManager.stopCurrentSound();
+            soundManager.playSound("menu_music", true);
+        }
+
+        // set time until the next "Fritz" moment
+        timeUntilFritz = 400;
+    }
     /**
      * This sets up the balls in the game
      */
@@ -198,24 +207,15 @@ public class MouseFritzGame extends ArcadeGame{
                 // check if he is trying to match a ball or not
                 if (!player.isMatchingBalls()) {
                     // already has a ball he has to match, see if he matched the right ball
-                    if (player.doesMatchCurrentBall(ball)) {
+                    if (player.doesMatchCurrentBall(ball))
                         // he did! reward with some points
                         score += 10;
-
-                        // reset the chosen balls
-                        player.resetSelectedBall();
-
-                        delay = 40;
-                    }
-                    else if (player.ballChosen.color != ball.color && player.ballChosen != ball){
+                    else if (player.ballChosen.color != ball.color && player.ballChosen != ball)
                         // he failed, penalize score and reset his choices
                         score--;
-                        player.resetSelectedBall();
 
-                        // without this delay, the ball he last touch immediately becomes his chosen ball, which
-                        // would be annoying.
-                        delay = 40;
-                    }
+                    player.resetSelectedBall();
+                    delay = 40;
                 }
                 else {
                     // first ball hit, it's the color he has to match now
