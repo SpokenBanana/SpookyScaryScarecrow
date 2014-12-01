@@ -207,15 +207,20 @@ public class MouseFritzGame extends ArcadeGame{
                 // check if he is trying to match a ball or not
                 if (!player.isMatchingBalls()) {
                     // already has a ball he has to match, see if he matched the right ball
-                    if (player.doesMatchCurrentBall(ball))
+                    if (player.doesMatchCurrentBall(ball)) {
                         // he did! reward with some points
                         score += 10;
-                    else if (player.ballChosen.color != ball.color && player.ballChosen != ball)
+                        player.resetSelectedBall();
+                        delay = 40;
+                    }
+                    else if (player.ballChosen.color != ball.color && player.ballChosen != ball) {
                         // he failed, penalize score and reset his choices
                         score--;
+                        player.resetSelectedBall();
+                        delay = 40;
+                    }
 
-                    player.resetSelectedBall();
-                    delay = 40;
+
                 }
                 else {
                     // first ball hit, it's the color he has to match now

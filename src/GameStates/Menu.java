@@ -64,7 +64,7 @@ public class Menu extends GameState {
     public void draw(Graphics2D g) {
         // title screen
         g.setColor(Color.white);
-        g.setFont(new Font("Chiller", Font.PLAIN, 78));
+        g.setFont(new Font("Chiller", Font.PLAIN, 48));
         g.drawString("Spooky Scary Scarecrow", 100,100);
 
         // instructions
